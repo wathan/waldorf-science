@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Meso-Design Plan — Grade 12 Cosmology + Optics Pilot Block</title>
+<style>
+  :root {
+    --ink: #1c1c1c;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #6c6c6c;
+    --rule: #d8d3c8;
+    --rule-soft: #ece7dc;
+    --paper: #faf7f1;
+    --panel: #f3eee2;
+    --highlight: #fdf6e3;
+    --accent: #6b1f1f;
+    --link: #2c5d8a;
+    --link-hover: #1a4570;
+    --session1: #6b1f1f;
+    --session1-bg: #f3e0e0;
+    --session2: #8a5a2c;
+    --session2-bg: #f5e8d5;
+    --session3: #6c6c6c;
+    --session3-bg: #e9e5d8;
+    --session4: #3d6a3d;
+    --session4-bg: #e2eede;
+  }
+
+  * { box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 3.5rem 5rem;
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(44, 93, 138, 0.45);
+  }
+  a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); border-bottom-style: solid; }
+
+  section { scroll-margin-top: 1rem; }
+
+  :target {
+    animation: flash 1.2s ease-out;
+  }
+  @keyframes flash {
+    from { background-color: rgba(253, 246, 227, 0.9); }
+    to { background-color: transparent; }
+  }
+
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .masthead .eyebrow {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-size: 1.85rem;
+    line-height: 1.25;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .masthead .meta {
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+  .masthead .accompanying {
+    margin-top: 0.75rem;
+    font-style: normal;
+    font-size: 0.85rem;
+  }
+
+  /* TOC */
+  nav.toc {
+    background: var(--panel);
+    border-radius: 4px;
+    padding: 1.1rem 1.4rem;
+    margin: 0 0 3rem;
+    font-size: 0.9rem;
+  }
+  nav.toc h4 {
+    margin: 0 0 0.5rem;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  nav.toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2;
+    column-gap: 1.5rem;
+  }
+  nav.toc li {
+    margin: 0.25rem 0;
+    break-inside: avoid;
+  }
+  nav.toc a { border-bottom: none; }
+  nav.toc .num {
+    display: inline-block;
+    width: 1.6rem;
+    color: var(--accent);
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    margin: 3rem 0 0.25rem;
+    font-weight: 600;
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+  }
+  h2 + .part-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.25rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 2rem 0 0.5rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  p { margin: 0.6rem 0; }
+  strong { color: var(--ink); }
+
+  /* schedule — prominent visual */
+  .schedule-hero {
+    margin: 1rem 0 2rem;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+  }
+  table.schedule {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+    background: #fff;
+    margin: 0;
+  }
+  table.schedule thead th {
+    background: var(--panel);
+    text-align: left;
+    padding: 0.75rem 0.9rem;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid var(--ink);
+  }
+  table.schedule td {
+    padding: 0.85rem 0.9rem;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: middle;
+    line-height: 1.45;
+  }
+  table.schedule tbody tr:last-child td { border-bottom: none; }
+  table.schedule .sbadge {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  table.schedule .sbadge.s1 { background: var(--session1); }
+  table.schedule .sbadge.s2 { background: var(--session2); }
+  table.schedule .sbadge.s3 { background: var(--session3); }
+  table.schedule .sbadge.s4 { background: var(--session4); }
+  table.schedule .date {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+    width: 7rem;
+  }
+  table.schedule .decides { font-weight: 600; color: var(--ink); }
+  table.schedule .type { color: var(--ink-soft); font-size: 0.88rem; font-style: italic; }
+  table.schedule .first-col { width: 3.5rem; text-align: center; }
+  table.schedule .gap td {
+    background: var(--rule-soft);
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+  table.schedule .gap .first-col { color: var(--ink-faint); font-weight: 700; }
+  table.schedule .pilot td {
+    background: var(--highlight);
+    color: var(--ink);
+    font-weight: 600;
+  }
+  table.schedule .pilot .first-col { color: var(--accent); font-size: 1.2rem; }
+  table.schedule a { border-bottom: none; color: var(--link); }
+  table.schedule a:hover { color: var(--link-hover); border-bottom: 1px solid var(--link-hover); }
+
+  /* candidate cards */
+  .candidate {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 1.1rem 1.4rem;
+    margin: 1.25rem 0;
+  }
+  .candidate h4 {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+  }
+  .candidate .name {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .candidate .meta {
+    font-size: 0.92rem;
+    color: var(--ink);
+  }
+  .candidate .strength, .candidate .limit {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .candidate .strength::before { content: "Strength — "; font-weight: 700; color: #3d6a3d; }
+  .candidate .limit::before { content: "Limitation — "; font-weight: 700; color: #8a2c2c; }
+
+  /* outputs list */
+  ol.outputs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: output;
+  }
+  .outputs li {
+    counter-increment: output;
+    margin: 0.6rem 0;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    position: relative;
+    font-size: 0.95rem;
+  }
+  .outputs li::before {
+    content: counter(output, upper-alpha);
+    position: absolute;
+    left: 0.85rem;
+    top: 0.7rem;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--panel);
+    border-radius: 3px;
+    padding: 0.15rem 0.5rem;
+  }
+  .outputs li strong:first-child { display: block; margin-bottom: 0.25rem; color: var(--ink); }
+
+  /* origination table */
+  table.origination {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.25rem 0;
+    font-size: 0.92rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+  }
+  table.origination thead th {
+    background: var(--panel);
+    text-align: left;
+    padding: 0.7rem 0.85rem;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid var(--ink);
+  }
+  table.origination td {
+    padding: 0.7rem 0.85rem;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  table.origination tbody tr:last-child td { border-bottom: none; }
+
+  /* dual role callout */
+  .callout {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    padding: 0.9rem 1.2rem;
+    margin: 1.25rem 0;
+    border-radius: 0 3px 3px 0;
+    font-size: 0.93rem;
+  }
+  .callout strong:first-child {
+    color: var(--accent);
+  }
+
+  /* session protocol blocks */
+  .session {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--session1);
+    border-radius: 4px;
+    scroll-margin-top: 1rem;
+  }
+  .session.s2 { border-left-color: var(--session2); }
+  .session.s3 { border-left-color: var(--session3); }
+  .session.s4 { border-left-color: var(--session4); }
+
+  .session-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .session-head h4 {
+    margin: 0;
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .session-head h4 .badge {
+    display: inline-block;
+    width: 1.7rem;
+    height: 1.7rem;
+    line-height: 1.7rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #fff;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .session.s1 .badge { background: var(--session1); }
+  .session.s2 .badge { background: var(--session2); }
+  .session.s3 .badge { background: var(--session3); }
+  .session.s4 .badge { background: var(--session4); }
+
+  .session-tag {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
+  .session p { margin: 0.5rem 0; font-size: 0.93rem; }
+  .session ul { margin: 0.4rem 0 0.6rem; padding-left: 1.2rem; }
+  .session li { margin: 0.25rem 0; font-size: 0.93rem; }
+  .session .center { font-style: italic; color: var(--ink-soft); font-size: 0.9rem; }
+
+  /* code block for document skeleton */
+  pre {
+    background: var(--rule-soft);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    font-family: "SF Mono", "Menlo", Consolas, monospace;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--ink);
+    margin: 1rem 0;
+  }
+
+  /* appendix steps */
+  ol.steps {
+    counter-reset: step;
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+  }
+  ol.steps li {
+    counter-increment: step;
+    margin: 0.75rem 0;
+    padding: 0.85rem 1.1rem 0.85rem 3.25rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    position: relative;
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0.85rem;
+    top: 0.75rem;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--accent);
+    border-radius: 50%;
+    width: 1.6rem;
+    height: 1.6rem;
+    text-align: center;
+    line-height: 1.6rem;
+  }
+
+  /* defers list */
+  .defers ul { list-style: square; padding-left: 1.5rem; }
+  .defers li { margin: 0.4rem 0; color: var(--ink-soft); font-size: 0.93rem; }
+  .defers li strong { color: var(--ink); }
+
+  .footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    text-align: center;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 1.5cm 1.8cm; max-width: none; }
+    nav.toc ol { columns: 2; }
+    .candidate, .session, .outputs li, ol.steps li, .schedule-hero { break-inside: avoid; background: white; }
+    h2, h3 { break-after: avoid; }
+    pre { background: white; border: 1px solid #aaa; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <div class="eyebrow">Working Group Document · Plan Draft</div>
+    <h1>Meso-Design Plan — Grade 12 Cosmology + Optics Pilot Block</h1>
+    <p class="meta">Four sessions, Jun 24 – Jul 29 2026 · Pilot starts Mon Aug 17.</p>
+    <p class="meta accompanying">
+      Accompanying reading:
+      <a href="framework.html">Grade 12 Science Competency Framework</a> ·
+      <a href="macro-curriculum.html">Macro-curriculum</a> ·
+      <a href="goals.html">Waldorf Education Goals</a>
+    </p>
+  </header>
+
+  <nav class="toc">
+    <h4>Contents</h4>
+    <ol>
+      <li><span class="num">§ 1</span><a href="#purpose">Purpose and audience</a></li>
+      <li><span class="num">§ 2</span><a href="#schedule">Four-session schedule</a></li>
+      <li><span class="num">§ 3</span><a href="#background">Background — two candidates</a></li>
+      <li><span class="num">§ 4</span><a href="#outputs">Seven outputs</a></li>
+      <li><span class="num">§ 5</span><a href="#originate">Who originates what</a></li>
+      <li><span class="num">§ 6</span><a href="#protocols">Per-session protocols</a></li>
+      <li><span class="num">§ 7</span><a href="#between">Between sessions</a></li>
+      <li><span class="num">§ 8</span><a href="#handoff">Meso → micro handoff</a></li>
+      <li><span class="num">§ 9</span><a href="#defers">What this plan defers</a></li>
+      <li><span class="num">§ A</span><a href="#appendix">Appendix — fork-resolution</a></li>
+    </ol>
+  </nav>
+
+  <!-- §1 Purpose -->
+  <section id="purpose">
+    <h2>§ 1</h2>
+    <p class="part-title">Purpose and audience</p>
+    <p>This plan describes how the working group will systematically design the meso layer of the Grade 12 Cosmology + Optics pilot block. It sits <em>after</em> the Jun 17 competency framework — the framework is the spine; the block is the first thing built against it.</p>
+    <p>The plan is for the working group as a whole. The two pilot teachers (Kru Fang in one discipline, Kru X in the other) are working-group members and attend every meso session in both capacities (group member + pilot teacher).</p>
+  </section>
+
+  <!-- §2 Schedule (promoted) -->
+  <section id="schedule">
+    <h2>§ 2</h2>
+    <p class="part-title">Four-session schedule</p>
+
+    <div class="schedule-hero">
+      <table class="schedule">
+        <thead>
+          <tr>
+            <th class="first-col">#</th>
+            <th>Date</th>
+            <th>Decides</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="first-col"><span class="sbadge s1">1</span></td>
+            <td class="date">Wed Jun 24</td>
+            <td class="decides">A. Competency selection · B. Deep question</td>
+            <td class="type">Standard — <a href="#s1">protocol →</a></td>
+          </tr>
+          <tr>
+            <td class="first-col"><span class="sbadge s2">2</span></td>
+            <td class="date">Wed Jul 1</td>
+            <td class="decides">C. Phase structure · E. Capstone artifact</td>
+            <td class="type">Standard — <a href="#s2">protocol →</a></td>
+          </tr>
+          <tr>
+            <td class="first-col"><span class="sbadge s3">3</span></td>
+            <td class="date">Wed Jul 8</td>
+            <td class="decides">Coherence check · author briefings (D, F, G)</td>
+            <td class="type">Non-decision — <a href="#s3">protocol →</a></td>
+          </tr>
+          <tr class="gap">
+            <td class="first-col">—</td>
+            <td class="date">Jul 15, Jul 22</td>
+            <td colspan="2"><em>School break — pilot teachers draft D, F; Kru Fang drafts G</em></td>
+          </tr>
+          <tr>
+            <td class="first-col"><span class="sbadge s4">4</span></td>
+            <td class="date">Wed Jul 29</td>
+            <td class="decides">Ratify D. Bridge questions · F. Coordination · G. Operationalisations</td>
+            <td class="type">Objections-only ratify — <a href="#s4">protocol →</a></td>
+          </tr>
+          <tr class="gap">
+            <td class="first-col">★</td>
+            <td class="date">Wed Aug 5</td>
+            <td colspan="2">Mid-micro check-in (30 min, pilot teachers report status) — <a href="#handoff">framing →</a></td>
+          </tr>
+          <tr class="gap">
+            <td class="first-col">—</td>
+            <td class="date">Aug 12</td>
+            <td colspan="2"><em>School holiday</em></td>
+          </tr>
+          <tr class="pilot">
+            <td class="first-col">▶</td>
+            <td class="date">Mon Aug 17</td>
+            <td colspan="2">Pilot begins</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Rationale for this shape.</strong> Three pre-break sessions front-load all working-group decisions (A/B/C/E) so the school break is substantive working time for pilot teachers and Kru Fang, not dead time. Session 3 has no decisions; its job is to catch incoherences across A/B/C/E and dispatch the break work. One post-break ratify session, then ~2.5 weeks of micro-design buffer before the pilot.</p>
+  </section>
+
+  <!-- §3 Background -->
+  <section id="background">
+    <h2>§ 3</h2>
+    <p class="part-title">Background — the two deep-question candidates</p>
+    <p>Two candidate deep questions are currently in development from prior working sessions. The choice between them is the most consequential single decision in meso-design and lives in <a href="#s1">Session 1</a> (see <a href="#appendix">fork-resolution mechanic</a> in §Appendix). The actual question wording is held back until Session 1, but the working group should enter with a clear picture of what each candidate <em>organises around</em>.</p>
+
+    <div class="candidate">
+      <h4>Candidate 1</h4>
+      <span class="name">Epistemological capstone</span>
+      <p class="meta"><strong>Central object:</strong> light. The block leans on <strong>S1/S2/S3</strong> (science) competencies; treats optics phenomenologically and cosmology as inference from light.</p>
+      <p class="meta"><strong>Centre of gravity:</strong> what scientific knowledge can and cannot establish, the limits of inference, the epistemic stance of the knower.</p>
+      <p class="meta">Dom in an early session proposed <em>Plato's allegory of the cave</em> as the connecting image — light, shadow, and what is and is not directly knowable — which anchors this candidate philosophically.</p>
+      <span class="strength">novel framing, makes epistemic limits visible.</span>
+      <span class="limit">the ethical-judgement dimension of grade 12 (handoff line 17) does not arise naturally.</span>
+    </div>
+
+    <div class="candidate">
+      <h4>Candidate 2</h4>
+      <span class="name">Stardust / Self ↔ Earth</span>
+      <p class="meta"><strong>Central object:</strong> cosmology — the student's relation to the cosmos they are materially part of. Leans on <strong>E1/E2/E3</strong> (environmental science) competencies, with <strong>S1/S2</strong> also exercised through material-science work behind "we are made of stardust" (stellar nucleosynthesis, spectroscopy as evidence of cosmic composition).</p>
+      <p class="meta"><strong>Centre of gravity:</strong> ecocentric synthesis, responsibility, biographical orientation toward the world. Matches how cosmology was previously taught at the school.</p>
+      <span class="strength">closes the ethical-judgement gap directly; lower teacher onboarding cost.</span>
+      <span class="limit">optics becomes instrumental rather than phenomenologically central.</span>
+    </div>
+
+    <p>These two are not exhaustive — Session 1 may produce a third synthesis — but they are the live drafts the working group enters the meeting with. Question wording, including any hybrid, is fixed only at the moment of decision.</p>
+  </section>
+
+  <!-- §4 Outputs -->
+  <section id="outputs">
+    <h2>§ 4</h2>
+    <p class="part-title">What meso-design must produce — the seven outputs</p>
+    <p>By <a href="#s4">Jul 29</a> the working group must have ratified, on the record:</p>
+
+    <ol class="outputs">
+      <li><strong>Block-level competency selection.</strong> The subset of the framework's six competencies, and which sub-abilities under each, the block will exercise. Defines what the block is <em>for</em> in framework terms.</li>
+      <li><strong>Deep question.</strong> Single guiding question. Decides between the <a href="#background">two candidates</a> using the <a href="#appendix">fork-resolution mechanic</a> in §Appendix.</li>
+      <li><strong>Phase structure.</strong> Week-by-week shape, including which teacher is "main" in each phase.</li>
+      <li><strong>Bridge questions.</strong> Recurring questions the secondary teacher poses in each phase to link to the other discipline.</li>
+      <li><strong>Capstone artifact.</strong> What students produce by block's end, in enough detail that pilot teachers can design the specific deliverable during micro.</li>
+      <li><strong>Teacher coordination protocol.</strong> Who-leads-when, secondary teacher's role per phase, how the two teachers sync, joint vs individual responsibility for student work.</li>
+      <li><strong>Block-level operationalisations.</strong> For the sub-abilities selected in A, what authentic in-classroom evidence demonstrates them — given this block's specific phase structure and capstone artifact.</li>
+    </ol>
+
+    <p>A single block exercises a <em>subset</em> of the framework. Full coverage of all six PISA competencies is not required and not the goal.</p>
+  </section>
+
+  <!-- §5 Who originates -->
+  <section id="originate">
+    <h2>§ 5</h2>
+    <p class="part-title">Who originates what</p>
+    <p>Mixed origination; working group ratifies all.</p>
+
+    <table class="origination">
+      <thead>
+        <tr><th>Output</th><th>Originated by</th><th>Decided by</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>A.</strong> Competency selection</td><td>Working group (Kru Fang brings shortlist)</td><td>Working group</td></tr>
+        <tr><td><strong>B.</strong> Deep question</td><td>Working group (Kru Fang brings both drafts side-by-side with criterion analysis)</td><td>Working group</td></tr>
+        <tr><td><strong>C.</strong> Phase structure</td><td>Working group (Kru Fang brings draft)</td><td>Working group</td></tr>
+        <tr><td><strong>D.</strong> Bridge questions</td><td>Pilot teachers draft (during <a href="#between">break</a>)</td><td>Working group ratifies</td></tr>
+        <tr><td><strong>E.</strong> Capstone artifact</td><td>Working group (Kru Fang brings draft)</td><td>Working group</td></tr>
+        <tr><td><strong>F.</strong> Coordination protocol</td><td>Pilot teachers draft (during <a href="#between">break</a>)</td><td>Working group ratifies</td></tr>
+        <tr><td><strong>G.</strong> Block-level operationalisations</td><td>Kru Fang drafts using framework method; co-teacher reviews for classroom-evidence feasibility</td><td>Working group ratifies</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>On Kru Fang's dual role.</strong> Kru Fang is both framework architect and a pilot teacher. When he argues for a position in session, the group should mentally tag whether the argument comes from framework-architect Kru Fang (framework integrity) or pilot-teacher Kru Fang (will-have-to-teach-this). Both are legitimate; transparency between them matters.
+    </div>
+  </section>
+
+  <!-- §6 Per-session protocols -->
+  <section id="protocols">
+    <h2>§ 6</h2>
+    <p class="part-title">Per-session protocols</p>
+
+    <div class="session s1" id="s1">
+      <div class="session-head">
+        <h4><span class="badge">1</span> Session 1 — Wed Jun 24 — A + B</h4>
+        <span class="session-tag">Standard</span>
+      </div>
+      <p><strong>Kru Fang brings (input drafts):</strong></p>
+      <ul>
+        <li>Competency shortlist with brief argument per item — which of the framework's six competencies, and which sub-abilities, are candidate for inclusion in the block.</li>
+        <li>The two deep-question drafts side-by-side, each with: macro-curriculum fit, competency-profile, what it does and doesn't close, classroom-feasibility summary.</li>
+      </ul>
+      <p><strong>Group decides:</strong></p>
+      <ul>
+        <li>A first (narrows the deep-question viability).</li>
+        <li>B second, using the fork-resolution mechanic in <a href="#appendix">§Appendix</a>.</li>
+      </ul>
+      <p class="center">Centre of gravity: the deep-question fork resolution. The rest is setup.</p>
+    </div>
+
+    <div class="session s2" id="s2">
+      <div class="session-head">
+        <h4><span class="badge">2</span> Session 2 — Wed Jul 1 — C + E</h4>
+        <span class="session-tag">Standard</span>
+      </div>
+      <p><strong>Kru Fang brings:</strong></p>
+      <ul>
+        <li>Draft phase structure (current handoff draft modified for <a href="#s1">Session 1</a>'s deep-question outcome).</li>
+        <li>Draft capstone artifact, framed against the selected competencies (A) and the chosen deep question (B).</li>
+      </ul>
+      <p><strong>Group decides C and E together</strong> because the capstone occupies the final phase — phase structure isn't fully decided without committing to the artifact, and the artifact's shape depends on what prior phases have prepared.</p>
+    </div>
+
+    <div class="session s3" id="s3">
+      <div class="session-head">
+        <h4><span class="badge">3</span> Session 3 — Wed Jul 8 — Coherence + Briefings</h4>
+        <span class="session-tag">Non-decision session</span>
+      </div>
+      <p><strong>No new draft. Not a decision session.</strong> Two parts:</p>
+      <ol>
+        <li><strong>Coherence check.</strong> Apply the <a href="macro-curriculum.html#note-meso-diagnostic">macro-curriculum diagnostic</a> to the A/B/C/E set as a whole. Look for incoherences (does the phase structure actually exercise the selected competencies? does the capstone evidence what the deep question asked?). Decide any patches.</li>
+        <li><strong>Author briefings.</strong> Pilot teachers receive D and F drafting briefs (criteria, examples, deadline <a href="#s4">Jul 29</a>). Kru Fang receives G drafting brief.</li>
+      </ol>
+    </div>
+
+    <div class="session s4" id="s4">
+      <div class="session-head">
+        <h4><span class="badge">4</span> Session 4 — Wed Jul 29 — Ratify D + F + G</h4>
+        <span class="session-tag">Objections-only ratify</span>
+      </div>
+      <p><strong>Pilot teachers and Kru Fang each present their draft</strong> (10–15 min each).</p>
+      <p><strong>Group:</strong> clarifying questions only at first pass, then ratify-or-revise.</p>
+      <p><strong>Protocol:</strong> objections-only ratify pattern. Most substantive design work was done in <a href="#s1">Sessions 1</a>–<a href="#s2">2</a>; this is not a redesign session. If a draft genuinely doesn't fit, send back for revision rather than redesign at the table.</p>
+    </div>
+  </section>
+
+  <!-- §7 Between sessions -->
+  <section id="between">
+    <h2>§ 7</h2>
+    <p class="part-title">Between sessions</p>
+
+    <h3>The school break (Jul 15 – 22) is substantive working time</h3>
+    <p>By end of <a href="#s3">Session 3</a> the pilot teachers know the block's deep question, phase structure, and capstone artifact. They draft D and F during the break with concrete ground under them. Kru Fang drafts G in parallel.</p>
+    <p><strong>Pilot teachers (jointly) draft:</strong></p>
+    <ul>
+      <li><strong>(D) Bridge questions</strong> per phase, drawing on their cross-disciplinary working knowledge.</li>
+      <li><strong>(F) Coordination protocol</strong> — who leads each phase, what the secondary teacher does, how they sync.</li>
+    </ul>
+    <p><strong>Kru Fang drafts:</strong></p>
+    <ul>
+      <li><strong>(G) Block-level operationalisations</strong> for the selected sub-abilities, applying the framework method (operation flag, macro-cite, operationalisation). Co-teacher reviews each for classroom-evidence feasibility before submission to <a href="#s4">Session 4</a>.</li>
+    </ul>
+
+    <h3>Documentation discipline — the Block Meso-Design Document</h3>
+    <p>One growing document built across the four sessions, structured as below. Kru Fang authors updates between sessions; group ratifies wording quickly at the start of the next session (~5–10 min, like Jun 17's fast-track frame).</p>
+
+<pre> 1.  Frame                              (fixed; ported from Jun 17 framework)
+ 2.  A. Competency selection            (filled at Session 1)
+ 3.  B. Deep question + rationale       (filled at Session 1)
+ 4.  C. Phase structure                 (filled at Session 2)
+ 5.  E. Capstone artifact               (filled at Session 2)
+ 6.  Coherence-check notes              (filled at Session 3)
+ 7.  D. Bridge questions                (Session 3 brief → Session 4 ratified)
+ 8.  F. Coordination protocol           (Session 3 brief → Session 4 ratified)
+ 9.  G. Block-level operationalisations (Session 3 brief → Session 4 ratified)
+10.  Handoff section                    (what pilot teachers do next, escalation)</pre>
+
+    <div class="callout">
+      <strong>Operational rule.</strong> Decisions enter the document <em>only</em> once group-ratified. Pre-ratification drafts and Kru Fang's input materials are separate working papers. This prevents draft language from being mistaken for decided language.
+    </div>
+  </section>
+
+  <!-- §8 Handoff -->
+  <section id="handoff">
+    <h2>§ 8</h2>
+    <p class="part-title">Meso → micro handoff</p>
+    <p>Because both pilot teachers are in the working group, meso → micro is a <em>phase transition</em>, not a baton-pass. No formal kick-off meeting needed — they have been at every decision.</p>
+
+    <h3>During micro (Jul 30 – Aug 16)</h3>
+    <ul>
+      <li><strong>First port of call for questions:</strong> each other. They are peers; they consult.</li>
+      <li>The Block Meso-Design Document is the canonical reference. Rationale recorded there should answer most "why was this decided?" questions.</li>
+      <li>If they hit a genuinely unworkable meso decision, default response is <em>hold</em> (work within the original meso decision; meso integrity matters for the pilot to test what was actually designed).</li>
+      <li>Exception: if hold is impossible, write a short escalation note (which decision, why unworkable, proposed alternative) and raise at Aug 5.</li>
+    </ul>
+
+    <h3>Aug 5 (Wed) — mid-micro check-in, 30 minutes</h3>
+    <ul>
+      <li>Pilot teachers report status to the wider working group, flag issues.</li>
+      <li><strong>Framing: status + flags, <em>not</em> re-decision.</strong> The check-in is not an invitation to redesign meso decisions. Group acknowledges flagged problems and gives authority to address them.</li>
+      <li>If a meso amendment is genuinely needed, group decides amend-vs-hold. Amendments are recorded as a versioned update to the Block Meso-Design Document.</li>
+    </ul>
+  </section>
+
+  <!-- §9 Defers -->
+  <section id="defers" class="defers">
+    <h2>§ 9</h2>
+    <p class="part-title">What this plan defers</p>
+    <ul>
+      <li><strong>Micro-curriculum (lesson-by-lesson) design.</strong> Pilot teachers' job during Jul 30 – Aug 16.</li>
+      <li><strong>Pilot evaluation criteria.</strong> What "the pilot succeeded" means as observable outcomes. Worth a separate working-group session post-pilot.</li>
+      <li><strong>Generalisation to other blocks.</strong> This pilot tests cross-system capstone-question integration; not a template for single-system blocks. Generalisation lessons emerge from the pilot itself.</li>
+      <li><strong>Framework-wide operationalisations</strong> (S2, S3, E1, E2 — deferred from the Jun 17 framework). Block-level G covers only the sub-abilities this block exercises.</li>
+    </ul>
+  </section>
+
+  <!-- Appendix -->
+  <section id="appendix">
+    <h2>§ Appendix</h2>
+    <p class="part-title"><a href="#s1">Session 1</a> fork-resolution mechanic</p>
+    <p>The deep-question decision is the single most consequential meso decision. To prevent it being made by drift or by the most articulate voice in the room, Session 1 follows a structured 5-step mechanic.</p>
+
+    <ol class="steps">
+      <li><strong>Side-by-side review.</strong> Both deep questions presented on a single page with: macro-curriculum fit, competency-profile, what it does and doesn't close. Group reads silently first.</li>
+      <li><strong>Name the criterion explicitly.</strong> Which proof does the pilot most need to deliver: (a) distinctive new pedagogy, (b) full grade-12 fit including ethical-synthetic judgement, (c) continuity-with-improvement on existing strong teaching? The criterion is named <em>before</em> the question is chosen — not after.</li>
+      <li><strong>Gap test.</strong> Does the candidate question close the ethical-judgement gap flagged in the handoff (synthetic <em>and ethical</em> — "what is my responsibility within this whole situation")? If not, can it be augmented without losing focus? If neither, the candidate fails the test.</li>
+      <li><strong>Cross-system test.</strong> Does the question genuinely cross systems (Optics × Cosmology under one whole), or does one discipline become instrumental to the other? Both candidates pass this test with different profiles; the test discriminates <em>how</em> they cross.</li>
+      <li><strong>Decision recorded with the criterion that justified it.</strong> The chosen criterion (step 2) and the gap-test outcome (step 3) go into the document, not just the question itself. This protects the decision against later re-litigation by recording <em>why</em> it was decided as it was.</li>
+    </ol>
+  </section>
+
+  <div class="footer">
+    Working Group Document · Meso-Design Plan · Drafted Jun 17, 2026
+  </div>
+
+</main>
+</body>
+</html>

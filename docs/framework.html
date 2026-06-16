@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Grade 12 Science Competency Framework — Working Group Draft, 17 June 2026</title>
+<style>
+  :root {
+    --ink: #1c1c1c;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #6c6c6c;
+    --rule: #d8d3c8;
+    --rule-soft: #ece7dc;
+    --paper: #faf7f1;
+    --panel: #f3eee2;
+    --highlight: #fdf6e3;
+    --keep: #6c6c6c;
+    --keep-bg: #e9e5d8;
+    --deepen: #2c5d8a;
+    --deepen-bg: #e0ecf5;
+    --shift: #8a5a2c;
+    --shift-bg: #f5e8d5;
+    --add: #3d6a3d;
+    --add-bg: #e2eede;
+    --accent: #6b1f1f;
+    --link: #2c5d8a;
+    --link-hover: #1a4570;
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(44, 93, 138, 0.45);
+  }
+  a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); border-bottom-style: solid; }
+  .macro a { color: inherit; border-bottom-color: rgba(108, 108, 108, 0.45); }
+  .macro a:hover { color: var(--link); border-bottom-color: var(--link); }
+
+  * { box-sizing: border-box; }
+
+  html { font-size: 16px; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 3.5rem 5rem;
+  }
+
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .masthead .eyebrow {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.85rem;
+    line-height: 1.25;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .masthead .meta {
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+
+  h2 {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    margin: 3rem 0 0.25rem;
+    font-weight: 600;
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+  }
+
+  h2 + .part-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 2rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 2.5rem 0 0.75rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+
+  h3 .code {
+    color: var(--accent);
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    letter-spacing: 0.04em;
+  }
+
+  p { margin: 0.6rem 0; }
+
+  .pisa-headline {
+    border-left: 3px solid var(--rule);
+    padding: 0.25rem 0 0.25rem 1rem;
+    margin: 0.75rem 0 1.5rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  .frame {
+    background: var(--panel);
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+    margin: 1.5rem 0 2rem;
+    border-left: 4px solid var(--accent);
+  }
+
+  .frame ol {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .frame li {
+    margin: 0.75rem 0;
+    padding-left: 0.25rem;
+  }
+
+  .frame li strong {
+    color: var(--ink);
+  }
+
+  .frame-note {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--rule);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .abilities {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: ability;
+  }
+
+  .ability {
+    counter-increment: ability;
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    position: relative;
+    padding-left: 3.5rem;
+  }
+
+  .ability::before {
+    content: counter(ability);
+    position: absolute;
+    left: 1.2rem;
+    top: 1.25rem;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink-faint);
+    width: 1.5rem;
+    text-align: right;
+  }
+
+  .ability .statement {
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 0.75rem;
+  }
+
+  .chip {
+    display: inline-block;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.18rem 0.55rem;
+    border-radius: 3px;
+    vertical-align: 0.18em;
+    margin-right: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .chip-keep { color: var(--keep); background: var(--keep-bg); }
+  .chip-deepen { color: var(--deepen); background: var(--deepen-bg); }
+  .chip-shift { color: var(--shift); background: var(--shift-bg); }
+  .chip-add { color: var(--add); background: var(--add-bg); }
+
+  .macro {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+  }
+
+  .macro::before {
+    content: "Macro — ";
+    font-style: normal;
+    font-weight: 600;
+    color: var(--ink-faint);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .op {
+    background: var(--highlight);
+    border-left: 3px solid var(--shift);
+    padding: 0.6rem 0.9rem;
+    margin: 0.75rem 0 0;
+    font-size: 0.92rem;
+    color: var(--ink);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .op::before {
+    content: "Operationalisation — ";
+    font-weight: 600;
+    color: var(--shift);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .kt-check {
+    margin: 1.5rem 0 0;
+    padding: 0.75rem 1rem;
+    background: var(--rule-soft);
+    border-radius: 3px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+
+  .kt-check strong {
+    color: var(--ink);
+  }
+
+  .pointers {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: pointer;
+  }
+
+  .pointer {
+    counter-increment: pointer;
+    margin: 0.5rem 0;
+    padding: 0.7rem 1rem 0.7rem 2.75rem;
+    border-bottom: 1px solid var(--rule-soft);
+    position: relative;
+    font-size: 0.96rem;
+    line-height: 1.5;
+  }
+
+  .pointer::before {
+    content: counter(pointer);
+    position: absolute;
+    left: 0.9rem;
+    top: 0.7rem;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-faint);
+  }
+
+  .pointer .macro { font-size: 0.84rem; margin-top: 0.25rem; }
+
+  .pointer .note {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+    margin-top: 0.3rem;
+    font-style: italic;
+  }
+
+  .deferred ul {
+    list-style: square;
+    padding-left: 1.5rem;
+  }
+
+  .deferred li {
+    margin: 0.5rem 0;
+    color: var(--ink-soft);
+  }
+
+  .deferred li strong { color: var(--ink); }
+
+  .open {
+    background: var(--panel);
+    border-left: 4px solid var(--ink-faint);
+    padding: 1.5rem 1.75rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+  }
+
+  .open ul {
+    padding-left: 1.25rem;
+    margin: 0.5rem 0 0;
+  }
+
+  .open li {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    text-align: center;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--rule);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    align-items: center;
+  }
+
+  .legend .chip { margin-right: 0.25rem; }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 1.5cm 1.8cm; max-width: none; }
+    .ability, .frame, .open { break-inside: avoid; }
+    h2, h3 { break-after: avoid; }
+    .frame, .open, .kt-check, .ability { background: white; }
+    .ability { border: 1px solid #aaa; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <div class="eyebrow">Working Group Draft · 17 June 2026</div>
+    <h1>Grade 12 Science Competency Framework</h1>
+    <p class="meta">Worked examples on S1 and E3 · per-bullet pointers on S2, S3, E1, E2 · fast-track frame for group ratification.</p>
+    <p class="meta" style="margin-top:0.75rem;font-style:normal;font-size:0.85rem;">
+      Accompanying reading:
+      <a href="macro-curriculum.html">Macro-curriculum (Grades 9–12)</a> ·
+      <a href="goals.html">Waldorf Education Goals</a>
+    </p>
+  </header>
+
+  <!-- PART 1 -->
+  <section>
+    <h2>Part 1</h2>
+    <p class="part-title">Proposed Frame <span style="font-weight:400;color:var(--ink-faint);font-size:0.95rem;">— 10 min, fast-track</span></p>
+
+    <p>These seven points are the working assumption behind every sub-ability decision in Parts 2–3. Ask if any need to be reopened; otherwise default to ratify and move on.</p>
+
+    <div class="frame">
+      <ol>
+        <li><strong>Architecture.</strong> The six PISA 2025 headline competencies (S1–S3, E1–E3) are preserved verbatim. Grade-12 adaptation lives entirely in the <em>sub-abilities</em> under each. PISA's age-15 calibration is in the sub-abilities, not the headlines.</li>
+        <li><strong>Rewrite method.</strong> Per PISA sub-ability, five operations are available — <span class="chip chip-keep">Keep</span><span class="chip chip-deepen">Deepen</span><span class="chip chip-shift">Shift</span><span class="chip chip-add">Add</span> <span class="chip" style="color:#8a2c2c;background:#f1dada;">Drop</span>. <strong>Rule A:</strong> default to Keep, justify any change. <strong>Rule B:</strong> every Add or Shift cites the macro-curriculum row that warrants it.</li>
+        <li><strong>Purpose ordering.</strong> Primary use = shared spine making blocks legible as one developmental project (including retrospectively to students). Operational use = block-design menu. <em>Deferred:</em> graduation rubrics and university-credit mapping.</li>
+        <li><strong>Vertical anticipation, loose.</strong> Grade-12 mode (synthesis, ethical judgement) is the <em>predominant</em> centre of gravity, not an exclusive filter. Earlier modes remain in use where the competency genuinely requires them (see <a href="macro-curriculum.html#note-continuous-development">macro-curriculum: "Potentialities develop continuously, not in steps"</a>).</li>
+        <li><strong>Knowledge-type check.</strong> Each headline's Grade-12 sub-ability set must still cover the content / procedural / epistemic mix PISA assigns it, with epistemic emphasised per the grade-11 → 12 transition.</li>
+        <li><strong>Block coverage.</strong> Any single block exercises a subset of the framework — full coverage per block is not required.</li>
+        <li><strong>Operational definitions.</strong> Each sub-ability carries a brief <em>operationalisation</em>: what authentic in-classroom evidence would demonstrate it. Sits alongside the sub-ability text. Supports the block-design-menu use; distinct from graduation rubrics.</li>
+      </ol>
+
+      <div class="legend">
+        <span><span class="chip chip-keep">Keep</span> wording unchanged</span>
+        <span><span class="chip chip-deepen">Deepen</span> same capacity, more demanding at gr.12</span>
+        <span><span class="chip chip-shift">Shift</span> mode change to gr.12 (synthetic/ethical)</span>
+        <span><span class="chip chip-add">Add</span> new sub-ability PISA does not name</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 2 -->
+  <section>
+    <h2>Part 2</h2>
+    <p class="part-title">Worked Examples</p>
+    <p>PISA headlines preserved verbatim. Sub-abilities flagged by operation; macro-curriculum row cited inline for non-Keep; operationalisation gives the in-classroom evidence shape.</p>
+
+    <h3><span class="code">S1</span> Explain phenomena scientifically</h3>
+    <div class="pisa-headline">Students need to recognise, produce, apply, and evaluate explanations and solutions for a range of natural and technological phenomena and problems.</div>
+
+    <ol class="abilities">
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-deepen">Deepen</span> Recall scientific knowledge across previously-separate domains and synthesise it into coherent explanations of complex phenomena.</p>
+        <p class="macro"><a href="macro-curriculum.html#row-holistic">Holistic thinking, grade 12</a> — "consciously re-integrating the analysed parts into a coherent, responsible whole."</p>
+        <div class="op">Student solves a problem or explains a phenomenon that requires drawing on scientific knowledge from two or more previously-separate units, and names what connects them.</div>
+      </li>
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-deepen">Deepen</span> Translate between different representational modes of a phenomenon, and recognise the strengths and limitations of each representation.</p>
+        <p class="macro"><a href="macro-curriculum.html#row-judgement">Judgement, grade 12</a> — "limits of this model"; <a href="macro-curriculum.html#grade-11-stance">grade-11 meta-conceptual competence</a> carried forward.</p>
+        <div class="op">Student converts between representations (e.g. graph ↔ equation ↔ diagram ↔ words) of the same phenomenon and articulates what each makes visible and what each obscures.</div>
+      </li>
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-deepen">Deepen</span> Make and justify scientific predictions, recognising which model applies to the regime in question and where that model reaches its limits.</p>
+        <p class="macro"><a href="macro-curriculum.html#row-judgement">Judgement, grade 12</a> (model-limits); <a href="macro-curriculum.html#row-holistic">Holistic thinking, grade 12</a> (drawing on an integrated grasp of multiple models).</p>
+        <div class="op">Given a phenomenon, student selects an appropriate model, makes a prediction under it, and identifies the conditions under which the prediction would no longer hold.</div>
+      </li>
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-shift">Shift</span> Hold multiple models of the same phenomenon in relation, articulating what each captures and what each leaves out, and recognise that holding as one's own constructive achievement.</p>
+        <p class="macro"><a href="macro-curriculum.html#grade-12-stance">Macro-curriculum, Grade 12 epistemic stance</a> — "Multiple individuated elements and models … are integrated into a coherent picture, and that integration is recognised as the student's own achievement." Integration here is cognitive holding-in-relation, not operational fusion.</p>
+        <div class="op">Student compares two models of the same phenomenon (e.g. wave vs particle picture of light; Newtonian vs relativistic gravity at scale) and states what each captures, what each leaves out, and why both are kept.</div>
+      </li>
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-shift">Shift</span> Develop explanatory accounts that integrate phenomena from multiple domains into a coherent whole, addressing what stands behind the integrated picture.</p>
+        <p class="macro"><a href="macro-curriculum.html#row-enquiry">Enquiry, grade 12</a> — "Synthetic: 'Who or what stands behind this whole?'"</p>
+        <div class="op">Student writes or presents an explanatory account that brings together phenomena from at least two block-domains under one synthesising frame.</div>
+      </li>
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-shift">Shift</span> Articulate the social implications of scientific knowledge with <em>epistemic responsibility as a knower</em> — clear about what scientific explanation can and cannot establish, and what should not be claimed from it.</p>
+        <p class="macro"><a href="macro-curriculum.html#row-judgement">Judgement, grade 12</a> (model-limits); <a href="macro-curriculum.html#row-future">Future thinking, grade 12</a> — responsibility toward the world in its knower-stance application. <em>Actor-responsibility lives in S3, not here.</em></p>
+        <div class="op">Student writes about a science-society question and explicitly states what the relevant science establishes, what it does not, and where over-claiming would begin.</div>
+      </li>
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-add">Add</span> Recognise the developmental trajectory of one's own scientific understanding — what one now sees that one earlier could not.</p>
+        <p class="macro"><a href="macro-curriculum.html#grade-12-context">Macro-curriculum, Grade 12 developmental context</a> (panoramic retrospective view); <a href="macro-curriculum.html#grade-12-spiral">Grade 12 spiral pairing</a> ("recapitulates grade 1 … now known consciously, for the first time").</p>
+        <div class="op">Student compares their current understanding of a phenomenon to how they understood it earlier (in this block or prior years) and names what changed and why.</div>
+      </li>
+
+    </ol>
+
+    <div class="kt-check"><strong>Knowledge-type check:</strong> content + procedural + epistemic all represented; epistemic strongly carried by #2, #3, #4, #6, #7. ✓</div>
+
+    <h3><span class="code">E3</span> Demonstrate respect for diverse perspectives, and hope, in seeking solutions to socio-ecological crises</h3>
+    <div class="pisa-headline">Contains elements measured by Science Identity: epistemic beliefs; dispositions of care; feelings of efficacy and agency.</div>
+
+    <ol class="abilities">
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-deepen">Deepen</span> Evaluate actions through an ecocentric ethic that the student <em>can articulate as a developed and owned position</em> — distinct from unreflective assumption — recognising oneself as located within and responsible toward the whole.</p>
+        <p class="macro"><a href="macro-curriculum.html#grade-12-shift">Macro-curriculum, Grade 12 relational shift</a> — "consciously held … achieved through conscious synthesis." Contrast: unreflective ecocentric feeling vs articulated ecocentric ethic the student can give reasons for and own.</p>
+        <div class="op">Student articulates an ecocentric position in discussion or writing, gives reasons for it, distinguishes it from positions they reject, and acknowledges it as their own developed view rather than an inherited assumption.</div>
+      </li>
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-shift">Shift</span> Articulate and defend a considered position within the class community on past and present injustices, evaluating actions that empower all people to participate in community and ecosystem well-being.</p>
+        <p class="macro"><a href="macro-curriculum.html#row-democratic">Democratic participation, grade 12</a> — "Active: taking up a considered position within a community and contributing to its direction." Phrased for classroom-evidence: position-taking, not real-world action.</p>
+        <div class="op">Student presents and defends a position on a real socio-ecological case in seminar or written work; can compare their position to alternatives they considered and rejected; can name what their position commits them to.</div>
+      </li>
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-deepen">Deepen</span> Exhibit resilience, hope, and efficacy as orientations toward the <em>long-range</em> world one is about to enter, individually and in concert with others.</p>
+        <p class="macro"><a href="macro-curriculum.html#row-future">Future thinking, grade 12</a> — "Long-range: 'What is my responsibility toward the world I am about to enter?'"</p>
+        <div class="op">Student articulates a long-range orientation in reflective writing or discussion — e.g. on what from this block they expect to carry into adult life and why — without dismissing the difficulty or pretending false certainty.</div>
+      </li>
+
+      <li class="ability">
+        <p class="statement"><span class="chip chip-deepen">Deepen</span> Respect diverse perspectives <em>and integrate them</em> into a synthetic ethical judgement about what regeneration calls for.</p>
+        <p class="macro"><a href="macro-curriculum.html#row-judgement">Judgement, grade 12</a> (synthetic and ethical mode).</p>
+        <div class="op">Student weighs multiple stakeholder perspectives on a regeneration case, names what each contributes that the others miss, and arrives at a synthetic ethical position they can defend.</div>
+      </li>
+
+    </ol>
+
+    <div class="kt-check"><strong>Knowledge-type check:</strong> dispositional throughout (per PISA); epistemic represented in #1 and #4. ✓</div>
+  </section>
+
+  <!-- PART 3 -->
+  <section>
+    <h2>Part 3</h2>
+    <p class="part-title">Pointers <span style="font-weight:400;color:var(--ink-faint);font-size:0.95rem;">— for collaborative rewrite</span></p>
+    <p>Per-bullet operation flag and brief macro-cite for non-Keep. The group rewrites prose together using the method above. Operationalisations to be drafted <em>after</em> the abilities are agreed.</p>
+
+    <h3><span class="code">S2</span> Construct/evaluate designs for scientific enquiry; interpret data critically</h3>
+    <ol class="pointers">
+      <li class="pointer">Identify the question in a given scientific study — <span class="chip chip-deepen">Deepen</span> at gr.12 evaluating what the question presupposes and what whole it belongs to. <span class="macro"><a href="macro-curriculum.html#row-enquiry">Enquiry gr.12</a>.</span></li>
+      <li class="pointer">Propose an appropriate experimental design — <span class="chip chip-keep">Keep</span>, content/procedural foundation.</li>
+      <li class="pointer">Evaluate whether an experimental design is best suited to the question — <span class="chip chip-shift">Shift</span> to synthetic judgement across designs, including limits. <span class="macro"><a href="macro-curriculum.html#row-judgement">Judgement gr.12</a>.</span></li>
+      <li class="pointer">Interpret data across representations and draw/evaluate conclusions — <span class="chip chip-deepen">Deepen</span> integrating across multiple data representations into a coherent picture, recognising what each representation reveals and obscures. <span class="macro"><a href="macro-curriculum.html#row-holistic">Holistic thinking gr.12</a> + <a href="macro-curriculum.html#grade-11-stance">grade-11 meta-conceptual competence</a> carried forward.</span><span class="note">Cognitive interpretation, not sensory perception — <em>Senses not cited</em>.</span></li>
+      <li class="pointer"><span class="chip chip-add">Add</span> candidate: Recognise what a single study can and cannot establish, and integrate findings across studies into a coherent picture. <span class="macro"><a href="macro-curriculum.html#row-holistic">Holistic thinking gr.12</a>.</span></li>
+    </ol>
+
+    <h3><span class="code">S3</span> Research, evaluate and use scientific information for decisions and action</h3>
+    <ol class="pointers">
+      <li class="pointer">Search/evaluate/communicate the relative merits of different sources — <span class="chip chip-deepen">Deepen</span> at gr.12 in light of synthetic understanding of how scientific consensus forms. <span class="macro"><a href="macro-curriculum.html#grade-11-stance">Macro-curriculum, Grade 11 epistemic stance</a>.</span></li>
+      <li class="pointer">Distinguish among claims (evidence vs expert vs opinion) — <span class="chip chip-deepen">Deepen</span> as part of meta-conceptual stance toward consensus.</li>
+      <li class="pointer">Construct an argument from (publicly available) data to a scientific conclusion — <span class="chip chip-deepen">Deepen</span> the argument explicitly acknowledges what expert mediation it depends on and where the consensus it draws on comes from. <span class="macro"><a href="macro-curriculum.html#row-judgement">Judgement gr.12</a>.</span><span class="note">Stays in S3's competent-outsider stance — argument-from-own-investigation belongs to S2.</span></li>
+      <li class="pointer">Critique standard flaws in science-related arguments — <span class="chip chip-keep">Keep</span>, procedural+epistemic capacity persists.</li>
+      <li class="pointer">Justify decisions using scientific arguments contributing to sustainable development — <span class="chip chip-shift">Shift</span> to ethical-synthetic. <span class="macro"><a href="macro-curriculum.html#row-judgement">Judgement gr.12</a> + <a href="macro-curriculum.html#row-democratic">Democratic participation gr.12</a>.</span></li>
+    </ol>
+
+    <h3><span class="code">E1</span> Explain the impact of human interactions with Earth's systems</h3>
+    <ol class="pointers">
+      <li class="pointer">Explain physical, living, and Earth's systems and how they interact — <span class="chip chip-deepen">Deepen</span> at gr.12 held synthetically as one whole. <span class="macro"><a href="macro-curriculum.html#row-holistic">Holistic thinking gr.12</a>.</span></li>
+      <li class="pointer">Research/apply knowledge of human interactions over time — <span class="chip chip-deepen">Deepen</span> long-range time-thinking. <span class="macro"><a href="macro-curriculum.html#row-future">Future thinking gr.12</a>.</span></li>
+      <li class="pointer">Apply knowledge to explain positive/negative human impacts over time — <span class="chip chip-keep">Keep</span>, content-foundational.</li>
+      <li class="pointer">Explain how social/cultural/economic factors contribute — <span class="chip chip-deepen">Deepen</span> synthesis across natural and cultural factors. <span class="macro"><a href="macro-curriculum.html#row-holistic">Holistic thinking gr.12</a>.</span></li>
+    </ol>
+
+    <h3><span class="code">E2</span> Make informed decisions to regenerate and sustain the environment</h3>
+    <ol class="pointers">
+      <li class="pointer">Search/evaluate evidence from diverse knowledge systems — <span class="chip chip-deepen">Deepen</span> synthetic evaluation across knowledge systems.</li>
+      <li class="pointer">Evaluate/design solutions using creative and systems thinking for current and future generations — <span class="chip chip-keep">Keep</span>, language already grade-12-flavoured.</li>
+      <li class="pointer">Engage in civic processes for informed, consensual decisions — <span class="chip chip-shift">Shift</span> to active position-taking. <span class="macro"><a href="macro-curriculum.html#row-democratic">Democratic participation gr.12</a>.</span></li>
+      <li class="pointer">Set goals, collaborate across generations, act for regenerative socio-ecological change — <span class="chip chip-keep">Keep</span>, language already grade-12-flavoured.</li>
+    </ol>
+  </section>
+
+  <div class="footer">
+    Prepared for the Working Group · Grade 12 Pilot · 17 June 2026
+  </div>
+
+</main>
+</body>
+</html>

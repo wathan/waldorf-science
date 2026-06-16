@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Waldorf Education Goals: A Framework Statement — Accompanying Reading</title>
+<style>
+  :root {
+    --ink: #1c1c1c;
+    --ink-soft: #4a4a4a;
+    --ink-faint: #6c6c6c;
+    --rule: #d8d3c8;
+    --rule-soft: #ece7dc;
+    --paper: #faf7f1;
+    --panel: #f3eee2;
+    --highlight: #fdf6e3;
+    --accent: #6b1f1f;
+    --link: #2c5d8a;
+    --link-hover: #1a4570;
+  }
+
+  * { box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 3.5rem 5rem;
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(44, 93, 138, 0.3);
+  }
+  a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); }
+
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .masthead .eyebrow {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-size: 1.85rem;
+    line-height: 1.25;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .masthead .meta {
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  nav.toc {
+    background: var(--panel);
+    border-radius: 4px;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0 3rem;
+    font-size: 0.92rem;
+  }
+  nav.toc h4 {
+    margin: 0 0 0.5rem;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  nav.toc ul { list-style: none; margin: 0; padding: 0; }
+  nav.toc li { margin: 0.3rem 0; }
+  nav.toc ul ul { margin-left: 1rem; }
+  nav.toc a { border-bottom: none; }
+
+  h2 {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    margin: 3.5rem 0 0.25rem;
+    font-weight: 600;
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+  }
+  h2 + .section-title {
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    margin: 2rem 0 0.5rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  h3 .number {
+    color: var(--accent);
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+  h3 .affinity {
+    display: block;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-faint);
+    font-weight: 600;
+    margin-top: 0.25rem;
+  }
+
+  p { margin: 0.75rem 0; }
+
+  blockquote.telos {
+    background: var(--highlight);
+    border-left: 4px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink);
+    border-radius: 0 4px 4px 0;
+    font-style: normal;
+  }
+  blockquote.telos cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+
+  blockquote {
+    margin: 1rem 0;
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    border-left: 3px solid var(--rule);
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .domain {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
+  .domain h3 { margin-top: 0; }
+
+  .potentiality {
+    margin: 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .potentiality:last-of-type { border-bottom: none; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.92rem;
+    background: #fff;
+    border: 1px solid var(--rule);
+  }
+  thead th {
+    background: var(--panel);
+    color: var(--ink);
+    text-align: left;
+    padding: 0.7rem 0.85rem;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 2px solid var(--ink);
+  }
+  td {
+    padding: 0.7rem 0.85rem;
+    border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+
+  dl.glossary { margin: 0; }
+  dl.glossary dt {
+    font-weight: 600;
+    margin: 1rem 0 0.25rem;
+    color: var(--ink);
+  }
+  dl.glossary dd {
+    margin: 0 0 0.5rem 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  ul { padding-left: 1.25rem; }
+  li { margin: 0.35rem 0; }
+
+  .footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    text-align: center;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  :target {
+    scroll-margin-top: 1rem;
+    animation: flash 1.2s ease-out;
+  }
+  @keyframes flash {
+    from { background-color: rgba(253, 246, 227, 0.9); }
+    to { background-color: transparent; }
+  }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 1.5cm 1.8cm; max-width: none; }
+    nav.toc { background: white; border: 1px solid #aaa; }
+    .domain, .potentiality, blockquote.telos { break-inside: avoid-page; }
+    h2, h3 { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+<header class="masthead">
+  <div class="eyebrow">Accompanying Reading · Working Group Draft</div>
+  <h1>Waldorf Education Goals: A Framework Statement</h1>
+  <p class="meta">A prior, independent statement of what Waldorf education aims at, on its own terms.</p>
+</header>
+
+<nav class="toc">
+  <h4>Contents</h4>
+  <ul>
+    <li><a href="#status">Status and sourcing</a></li>
+    <li><a href="#telos">The foundational telos</a></li>
+    <li><a href="#three-domains">Three domains of educational purpose</a>
+      <ul>
+        <li><a href="#domain-qualification">Qualification</a></li>
+        <li><a href="#domain-socialisation">Socialisation</a></li>
+        <li><a href="#domain-individuation">Individuation (subjectification)</a></li>
+      </ul>
+    </li>
+    <li><a href="#potentialities">Potentialities — the substance of the goals</a></li>
+    <li><a href="#trajectory">Developmental trajectory of potentialities</a></li>
+    <li><a href="#graduate">The intended graduate</a></li>
+    <li><a href="#levels">Relationship to curriculum levels</a></li>
+    <li><a href="#glossary">Glossary</a></li>
+  </ul>
+</nav>
+
+<section id="status">
+<h2>§ 1</h2>
+<p class="section-title">Status and sourcing</p>
+
+<p>This document presents Waldorf / Steiner (SW) education's goals in the terms that the Steiner Waldorf Schools Fellowship (SWSF) and its associated researchers use to articulate them officially. It is <strong>not</strong> a synthesis constructed to face outward toward a third-party framework (e.g. PISA); it is a prior, independent statement of what Waldorf education aims at, on its own terms. Alignment with other frameworks is a secondary analytical step to be applied to this statement, not a selection criterion embedded in it.</p>
+
+<p><strong>Primary sources.</strong></p>
+<ul>
+  <li>Bransby, K. &amp; Rawson, M. (2021). <em>Waldorf Education for the Future: A framework for curriculum practice.</em> London: Steiner Waldorf Schools Fellowship. — for the twelve potentialities, the iterative potentialities–skills–dispositions–capacities model, and the three-domain aims structure.</li>
+  <li>Biesta, G. J. J. (2013). <em>The Beautiful Risk of Education.</em> Boulder, CO: Paradigm Publishers. — for the three-domain taxonomy (qualification, socialisation, individuation), as adopted in Bransby &amp; Rawson (2021).</li>
+  <li>Steiner, R. (1919 / 2020). <em>The First Teachers' Course.</em> Bangkok: Ratayakom. — for the foundational telos statement.</li>
+</ul>
+</section>
+
+<section id="telos">
+<h2>§ 2</h2>
+<p class="section-title">The foundational telos</p>
+
+<p>Waldorf education's ultimate aim is stated by Steiner at the founding of the first school in 1919:</p>
+
+<blockquote class="telos">
+"The question should not be: What does a human being need to know and be able to do for the social order that now exists? but rather: What capacities are latent in this human being, and what lies within that can be developed? Then it will be possible to bring ever new forces into the social order from the rising generations."
+<cite>— Steiner, 1919, cited in Bransby &amp; Rawson 2021</cite>
+</blockquote>
+
+<p>This framing is foundational: the direction of education runs from the developing person outward toward the social order, not from the social order's requirements inward toward the person. Curriculum, methods, and assessment are all instruments serving this prior orientation. The intended graduate is not a person shaped to fit an existing order, but a person capable of renewing it.</p>
+</section>
+
+<section id="three-domains">
+<h2>§ 3</h2>
+<p class="section-title">Three domains of educational purpose</p>
+
+<p>Bransby &amp; Rawson (2021) organise SW education's aims around three domains drawn from Biesta (2013). All three are held simultaneously; none is reducible to or derivable from the others. SW education considers an education that achieves only one or two of the three to be incomplete.</p>
+
+<div class="domain" id="domain-qualification">
+<h3>Qualification</h3>
+<p>How students acquire the dispositions, skills, knowledge and cultural capital to participate in and contribute to the world of work and civil society.</p>
+<p>Qualification in SW education is not limited to subject-disciplinary knowledge or testable skills. It includes the full range of <em>knowledgeable action with purpose</em> — the ability to apply understanding meaningfully in authentic situations, across practical, social, artistic and academic fields. Crucially, qualification is understood as the <em>basis</em> for participation in the world, not as an end in itself. A student who can perform skills without understanding their purpose, or who possesses knowledge without the disposition to use it responsibly, has not been adequately qualified in the SW sense.</p>
+</div>
+
+<div class="domain" id="domain-socialisation">
+<h3>Socialisation</h3>
+<p>How students learn the dispositions, skills, knowledge and abilities to actively participate in their community and within a multicultural society, and to establish and maintain coherent identities.</p>
+<p>Socialisation in SW education encompasses both the reproduction of existing social practices and their renewal through the participation of new members. Students learn not only <em>how</em> communities function but develop the capacities to modify and improve them. This domain includes intercultural sensitivity, democratic participation, the ability to work with diverse others, and the formation of stable, coherent personal identities — understood not as fixed endpoints but as ongoing biographical achievements. The learning community of the class itself (Lave &amp; Wenger's "community of practice") is the primary site in which socialisation occurs, making the quality of classroom relationships a curriculum matter, not merely a pastoral one.</p>
+</div>
+
+<div class="domain" id="domain-individuation">
+<h3>Individuation (subjectification)</h3>
+<p>How students develop agency, judgement, sense of coherence, a feeling of responsibility, ethical dispositions, the ability to orientate their lives, creativity, and a relationship to spirituality.</p>
+<p>This domain is the most distinctively Waldorf of the three and corresponds most closely to Steiner's foundational telos. Biesta calls it "subjectification" — becoming a <em>subject</em>, i.e. a self-determining agent, rather than remaining an <em>object</em> shaped by external forces. In SW terms this is the process of individuation: the gradual transfer of authority from teacher, curriculum and tradition to the student's own autonomous judgement. The intended graduate does not merely know things and can do things (qualification) and belong to communities (socialisation) — they are capable of forming their own view of what is worth knowing and doing, and of acting from that view responsibly.</p>
+<p>Bransby &amp; Rawson describe the life-long dispositional trajectory leading toward this goal: from "the world is good" (early childhood) through "the world is beautiful" (primary years) to "the question for truth" as the core disposition of adolescence. The upper-school years (grades 9–12) are the phase in which individuation most explicitly becomes the educational task — and "the question for truth" is its guiding orientation.</p>
+</div>
+</section>
+
+<section id="potentialities">
+<h2>§ 4</h2>
+<p class="section-title">Potentialities — the substance of the goals</p>
+
+<p>The three domains describe <em>what education is for</em>. The twelve potentialities describe <em>what is being developed</em> through the educational process in order to realise those purposes. Bransby &amp; Rawson (2021) define potentialities as:</p>
+
+<blockquote>"the unique ways human beings relate to the world and which form the basis for people to act in meaningful and meaning-making ways."</blockquote>
+
+<p>Potentialities are not skills or competencies in the conventional sense. They are <em>ideal types</em> — analytic lenses that have "an analytic function and can be used as orientation and to monitor actual development." They are innate as potential but emergent through education: they "grow over time, becoming abilities, capabilities and capacities, professional expertise and practical wisdom over the life-course." There is no upper limit to their development; each phase of education establishes a new level from which further growth is possible.</p>
+
+<p>The twelve potentialities are listed below with their definitions, compressed from Bransby &amp; Rawson (2021), and their primary domain affinities noted. Most potentialities serve all three domains; the affinities indicate where each is most centrally operative.</p>
+
+<div class="potentiality" id="pot-language">
+<h3><span class="number">1</span>Language and communication<span class="affinity">Primary domain: Socialisation and Qualification</span></h3>
+<p>The ability to use and understand languages — including orality, literacy, symbolism, digital and media literacy, and proficiency in at least one language other than the mother tongue. Language gives each person and community <em>voice</em>: the capacity to be heard and to make meaning available to others. In SW education this potentiality is developed through narrative, poetry, drama, speech exercises, and the deliberate use of multiple languages from class 1.</p>
+</div>
+
+<div class="potentiality" id="pot-health">
+<h3><span class="number">2</span>Health, wellbeing and bodily integrity<span class="affinity">Primary domain: Individuation</span></h3>
+<p>A person's potential for health, well-being and bodily integrity — including feeling at home in one's body, having basic physical and emotional needs met, and developing the salutogenic capacity for <em>sense of coherence</em> (Antonovsky): the foundational feeling that one's life is comprehensible, manageable and meaningful. Motor skills, physical fluency and the ability to have meaningful, trusting relationships belong to this potentiality. It is the precondition for all other development and cannot be assumed; SW education treats it as a curriculum responsibility.</p>
+</div>
+
+<div class="potentiality" id="pot-senses">
+<h3><span class="number">3</span>Senses<span class="affinity">Primary domain: Qualification</span></h3>
+<p>Highly developed senses and the capacity to integrate multiple sensory modalities. The ability to direct attention toward what is salient — noticing, attending, focusing — and to "hear what the world has to say" (Rosa's concept of resonance). In science education this potentiality grounds the phenomenological method: observation is not a pre-theoretical given but a cultivated capacity. The development of fine-grained sensory attention is an explicit educational aim, not merely a preparatory exercise for concept formation.</p>
+</div>
+
+<div class="potentiality" id="pot-imagination">
+<h3><span class="number">4</span>Imagination<span class="affinity">Primary domain: Qualification and Individuation</span></h3>
+<p>The capacity to visualise what is not immediately present — other worlds, historical situations, scientific hypotheses, possible futures, solutions to complex problems — and to engage with materials, concepts and situations in creative and playful ways. Imagination based on direct experience is the basis for artistic activity, scientific hypothesis formation, and the anticipation of futures not yet existing. In SW education, imagination is developed before abstraction as a matter of pedagogical principle.</p>
+</div>
+
+<div class="potentiality" id="pot-empathy">
+<h3><span class="number">5</span>Empathy<span class="affinity">Primary domain: Socialisation</span></h3>
+<p>The direct, embodied perception of another person's emotional state and intentions — the basis for understanding others, for mimetic learning, and for all forms of collaboration across difference. Empathy enables students to work with diverse others on "wicked problems" and to recognise others as "sentient, agentic and integral beings with the same needs and rights." It is also, in SW pedagogy, an epistemological capacity: the basis for knowing the world in a phenomenological and participatory way, not merely through detached analysis.</p>
+</div>
+
+<div class="potentiality" id="pot-aesthetics">
+<h3><span class="number">6</span>Aesthetics<span class="affinity">Primary domain: Socialisation and Individuation</span></h3>
+<p>The capacity to experience and appreciate the inherent qualities of things — colours, shapes, forms, textures, sounds — and to respond to them in ways that generate meaning and identity. Aesthetic values are understood as the heart of each culture, and appreciation of the aesthetics of other cultures is a form of intercultural understanding. In the classroom, aesthetics includes engaging with materials, recognising their qualities, and transforming them through designing, shaping and making. Art is treated as a way of knowing, not merely a mode of expression.</p>
+</div>
+
+<div class="potentiality" id="pot-enquiry">
+<h3><span class="number">7</span>Enquiry<span class="affinity">Primary domain: Individuation and Qualification</span></h3>
+<p>The capacity to ask questions out of genuine curiosity, in ways that "open situations up and generate knowledge." Enquiry is "the basis for scientific methods and understandings as well as interpretive, hermeneutic approaches, symptomatology, artistic activity and research of all kinds." The intended graduate does not merely know how to answer pre-formed questions but generates questions through direct encounter with phenomena. This is a dispositional as much as a procedural capacity: it requires the confidence that one's own questions are worth pursuing.</p>
+</div>
+
+<div class="potentiality" id="pot-democratic">
+<h3><span class="number">8</span>Democratic participation<span class="affinity">Primary domain: Socialisation</span></h3>
+<p>The understanding and practice of participation in communities of practice, including the recognition of what hinders, manipulates or perverts democratic processes. This potentiality encompasses the ability to work with others on problems where no single perspective is sufficient, and includes self-management and the capacity to govern one's own learning and work. It is developed through the collegial practices of the Waldorf class itself, through project work, and through the progressive transfer of responsibility from teacher to student across the school years.</p>
+</div>
+
+<div class="potentiality" id="pot-lifelong">
+<h3><span class="number">9</span>Lifelong learning<span class="affinity">Primary domain: Individuation</span></h3>
+<p>The capacity to understand learning as transformation — not merely retention — and to engage in "expansive learning" motivated by the desire to expand one's own scope for agency. Lifelong learning depends on meta-cognitive capacity: the ability to reflect on, assess and plan one's own learning processes. It is developed in SW education through the cultivation of intrinsic motivation, through ipsative (self-comparative) assessment practices, and through the habit of teachers and students treating the learning process itself as worthy of attention.</p>
+</div>
+
+<div class="potentiality" id="pot-future">
+<h3><span class="number">10</span>Future thinking<span class="affinity">Primary domain: Individuation and Socialisation</span></h3>
+<p>The capacity to navigate pathways through life, recognise opportunities for biographical development, and take realistic steps toward self-chosen aspirations. This includes the intuitive capacity to "anticipate the immediate, emerging future" and to recognise what meaningful action is available in a given moment. It also encompasses the ability to engage with "wicked problems" — irreconcilable challenges that require flexibility and the willingness to step back from current stances. In the upper school, future thinking includes the student's growing capacity to orient their biography intentionally.</p>
+</div>
+
+<div class="potentiality" id="pot-holistic">
+<h3><span class="number">11</span>Holistic thinking and spiritual experience<span class="affinity">Primary domain: Individuation and Qualification</span></h3>
+<p>The capacity for systemic and ecological thinking: recognising patterns, understanding complexity, grasping correlations and mutual interactions, and "making coherent wholes out of separate parts." Holistic thinking enables students to move between levels of scale — from the molecular to the planetary, from the individual case to the systemic pattern — without losing either pole. The spiritual dimension of this potentiality refers to the "transcendent experience that we are part of something larger and intangible, which gives meaning to the whole, and from which we can gain ethical orientation in our actions." This is the potentiality most directly exercised by the Grade 12 synthetic task.</p>
+</div>
+
+<div class="potentiality" id="pot-judgement">
+<h3><span class="number">12</span>Judgement<span class="affinity">Primary domain: Individuation</span></h3>
+<p>The capacity to form autonomous conclusions in various fields — logical, aesthetic, ethical — "based on insight and on the weighing up of numerous factors." Judgement includes practical wisdom: the ability to do the right thing for the common good in a given situation, to take up a position and to justify and explain it. Sound, autonomous judgement is the culminating goal of individuation: it is what Steiner means by the "free human being" — not a person unconstrained by the world, but a person whose relationship to the world is mediated by their own considered insight rather than by external authority.</p>
+</div>
+</section>
+
+<section id="trajectory">
+<h2>§ 5</h2>
+<p class="section-title">The developmental trajectory of potentialities</p>
+
+<p>Potentialities are not learned in a single phase; they develop iteratively across the whole school career through the cycle of engagement: <em>potentialities → skills → dispositions → enhanced capacities → new potentialities</em>. At each stage, the same potentiality is exercised at a greater depth and with greater autonomy.</p>
+
+<p>Bransby &amp; Rawson (2021) describe three dispositional stages that characterise this development:</p>
+
+<table>
+<thead>
+<tr><th>Phase</th><th>Core disposition</th><th>Educational emphasis</th></tr>
+</thead>
+<tbody>
+<tr><td>Early childhood (0–7)</td><td>The world is good</td><td>Will; establishing healthy habits and trust</td></tr>
+<tr><td>Primary years (7–14)</td><td>The world is beautiful</td><td>Feeling; aesthetic and relational engagement</td></tr>
+<tr><td>Adolescence (14–21)</td><td>The question for truth</td><td>Thinking; autonomous judgement and enquiry</td></tr>
+</tbody>
+</table>
+
+<p>All potentialities are present in some form throughout; what changes across phases is the mode of engagement and the degree of conscious, autonomous exercise. A child at age 7 exercises Enquiry through imaginative, open-ended exploration; the same child at age 17 exercises Enquiry through the formation and testing of hypotheses about invisible entities. The potentiality is continuous; the developmental mode is not.</p>
+</section>
+
+<section id="graduate">
+<h2>§ 6</h2>
+<p class="section-title">The intended graduate</p>
+
+<p>The intended SW graduate — by the end of grade 12, approximately age 18 — is a person in whom the cycle of potentialities → skills → dispositions → enhanced capacities has been repeatedly exercised across practical, artistic, social and academic domains, such that:</p>
+
+<ul>
+  <li>The potentialities have developed into <strong>enhanced capacities</strong>: relatively stable, general ways of engaging with the world that are available across contexts without scaffolding.</li>
+  <li>The three domains are held together: the graduate can participate in the world of work and civil society (qualification), belongs to and can contribute to communities (socialisation), and can form and act from their own autonomous judgement (individuation).</li>
+  <li>The core disposition of "the question for truth" has been cultivated as a stable orientation — not as a fixed set of answers, but as a reliable tendency to seek understanding, weigh evidence, form considered views, and hold them with appropriate openness to revision.</li>
+  <li>The twelve potentialities have, in their various domains, become <strong>usable</strong> — not mastered in a final sense (there is no upper limit), but sufficiently developed that the graduate can identify opportunities for their own continued development and pursue them with some degree of self-direction.</li>
+</ul>
+
+<p>This portrait is deliberately non-metric. Bransby &amp; Rawson (2021) are explicit that SW education chooses "potentialities" and "enhanced capacities" over the OECD / DeSeCo "competence" vocabulary — not as a principled rejection of competency thinking, but because "the often differing and changing meanings of the term competence" make it a poor vehicle for what SW education is actually trying to develop. The intended graduate is described qualitatively, assessed narratively, and understood biographically — as a person at a particular point in an ongoing developmental trajectory, not as a profile of achieved measurable outcomes.</p>
+</section>
+
+<section id="levels">
+<h2>§ 7</h2>
+<p class="section-title">Relationship to curriculum levels</p>
+
+<p>The goals described here operate at the <strong>meta-level</strong> of the SW curriculum framework — the level of generative principles and overall aims (Bransby &amp; Rawson 2021). They are prior to and independent of:</p>
+
+<ul>
+  <li>The <strong>macro-curriculum</strong>: the grade-by-grade developmental themes through which potentialities are developed (What / How / Why / Who; observation / comparison / analysis / synthesis).</li>
+  <li>The <strong>meso-curriculum</strong>: the specific content, topics and subjects chosen at national or school level as "possible answers" to the developmental questions posed at the macro level.</li>
+  <li>The <strong>micro-curriculum</strong>: the individual teacher's lesson plans and schemes of work for a specific class.</li>
+</ul>
+
+<p>A key implication: content is always instrumental. Any piece of curriculum content is justified by the potentialities it develops, the macro-level developmental task it addresses, and the domain of purpose (qualification, socialisation, individuation) it serves — not by its presence in a tradition. Bransby &amp; Rawson's diagnostic question applies: "What developmental question is this content an answer to, and how good an answer is it?"</p>
+</section>
+
+<section id="glossary">
+<h2>§ 8</h2>
+<p class="section-title">Glossary</p>
+
+<dl class="glossary">
+  <dt>Domain (Biesta)</dt>
+  <dd>One of three purposes of education (qualification, socialisation, individuation), derived from Biesta (2013) and adopted as the organising structure of the SWSF framework. All three are held simultaneously; an education that achieves fewer than three is incomplete.</dd>
+
+  <dt>Enhanced capacity</dt>
+  <dd>The state a potentiality reaches when it has been repeatedly exercised and refined through the cycle of skills and dispositions: a stable, general way of engaging with the world, available across contexts and applicable to new situations.</dd>
+
+  <dt>Ideal type (potentialities as)</dt>
+  <dd>The twelve potentialities are defined as ideal types in Bransby &amp; Rawson (2021): analytic lenses for observing and monitoring actual development, not fixed endpoints to be checked off. They function as orientation for teachers and for curriculum design, not as a competency profile to be tested.</dd>
+
+  <dt>Individuation</dt>
+  <dd>The process of becoming a <em>subject</em> (Biesta's "subjectification"): a self-determining agent capable of acting from autonomous judgement rather than external authority. In SW education, this is the most distinctively Waldorf of the three domains and corresponds most directly to Steiner's foundational telos.</dd>
+
+  <dt>Knowledgeable action with purpose</dt>
+  <dd>Bransby &amp; Rawson's preferred formulation for what conventional curricula call "skills": the ability to apply knowledge meaningfully in authentic situations, with understanding of why and to what end. Skills without knowledge of context and purpose do not meet this criterion.</dd>
+
+  <dt>Potentiality</dt>
+  <dd>"A unique way human beings relate to the world which forms the basis for people to act in meaningful and meaning-making ways" (Bransby &amp; Rawson 2021). Potentialities are innate as potential, emergent through education, and without a theoretical upper limit of development. They are the substance of what SW education develops; the three domains describe why; the curriculum levels describe how and when.</dd>
+
+  <dt>"The question for truth"</dt>
+  <dd>The core dispositional orientation of adolescent education in SW (Bransby &amp; Rawson 2021): the successor to "the world is good" (early childhood) and "the world is beautiful" (primary years). It does not mean adolescents possess truth, but that they are disposed to seek it — to form questions, weigh evidence, take positions, and hold them with openness to revision.</dd>
+
+  <dt>Salutogenesis / sense of coherence</dt>
+  <dd>Antonovsky's (1987) concept, adopted in SW education's account of the health / wellbeing potentiality: the foundational experience that one's life and learning are comprehensible (can be understood), manageable (can be coped with), and meaningful (worth investing in). SW treats the cultivation of sense of coherence as a curriculum responsibility, not merely a pastoral one.</dd>
+
+  <dt>Telos</dt>
+  <dd>The ultimate aim or end point of the educational process: in SW education, the "free human being" capable of forming and acting from autonomous judgement, as stated by Steiner in 1919. The three domains and twelve potentialities are articulations of what this telos requires to be developed.</dd>
+</dl>
+</section>
+
+<div class="footer">
+  Accompanying reading · Working Group draft · 17 June 2026
+</div>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Claude Code local config and scratch
+.claude/
+.scratch/
+.agents/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python / Node misc (if any tooling appears later)
+__pycache__/
+node_modules/
