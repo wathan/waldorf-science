@@ -2,8 +2,8 @@
 
 ## Repository structure
 
-- `docs/` — published GitHub Pages site (HTML deliverables only); do not put source materials here.
-- `source/` — source markdowns and reference PDFs behind the published HTMLs.
+- `docs/` — published GitHub Pages site (HTML deliverables + `docs/pdfs/` for downloadable references).
+- `source/` — markdown sources behind the published HTMLs.
 - `adr/` — Architecture Decision Records.
 - `agent-docs/` — agent / skill instructions (Issue tracker, Triage labels, Domain docs).
 - `CONTEXT.md` — project glossary (canonical terminology).

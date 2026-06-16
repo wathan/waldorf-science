@@ -15,11 +15,9 @@ docs/             — Published site (GitHub Pages serves from here)
   meso-plan.html    Meso-Design Plan — Cosmology + Optics Pilot Block
   macro-curriculum.html
   goals.html
+  pdfs/             Reference PDFs (downloadable from the site)
 
-source/           — Source markdowns + reference PDFs
-  *.md              Markdown sources behind the published HTMLs
-  pdfs/             Academic sources (PISA framework, Bransby & Rawson, Rawson)
-
+source/           — Markdown sources behind the published HTMLs
 adr/              — Architecture Decision Records
 agent-docs/       — Agent / Claude Code skill instructions
 CONTEXT.md        — Project glossary (canonical terminology)
@@ -35,3 +33,9 @@ CLAUDE.md         — Project instructions for Claude Code
 
 - [Macro-Curriculum (Grades 9–12)](https://wathan.github.io/waldorf-science/macro-curriculum.html)
 - [Waldorf Education Goals](https://wathan.github.io/waldorf-science/goals.html)
+
+## Reference PDFs
+
+- [OECD — PISA 2025 Science Framework](https://wathan.github.io/waldorf-science/pdfs/pisa-2025-science-framework.pdf)
+- [Bransby & Rawson — Waldorf Education for the Future (2021)](https://wathan.github.io/waldorf-science/pdfs/bransby-rawson-2021-waldorf-education-for-the-future.pdf)
+- [Rawson — Translating, Transmitting and Transforming Waldorf Curricula (2024)](https://wathan.github.io/waldorf-science/pdfs/rawson-2024-translating-transmitting-transforming-waldorf-curricula.pdf)
