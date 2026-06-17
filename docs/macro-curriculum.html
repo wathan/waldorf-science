@@ -248,6 +248,18 @@
     text-align: center;
     font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 0.05em;
+    }
+
+    @media print {
+    body { background: white; color: black; }
+    .page { padding: 1cm 1.5cm; max-width: none; }
+    .toc, .cross-note, .grade-section, tr { break-inside: avoid; }
+    table { width: 100%; border: 1px solid var(--rule); }
+    th { background: #eee !important; color: black !important; }
+    h2, h4 { break-after: avoid; }
+    a { color: black !important; text-decoration: underline; }
+    .section-title { border-bottom: 1px solid black; }
+    .pot { font-weight: bold; background: #f9f9f9 !important; }
   }
 
   :target {
@@ -258,15 +270,6 @@
     from { background-color: rgba(253, 246, 227, 0.9); }
     to { background-color: transparent; }
   }
-
-  @media print {
-    body { background: white; }
-    .page { padding: 1.5cm 1.8cm; max-width: none; }
-    nav.toc { background: white; border: 1px solid #aaa; }
-    table { font-size: 0.78rem; }
-    .grade-section, .cross-note { break-inside: avoid-page; }
-    h2, h3 { break-after: avoid; }
-  }
 </style>
 </head>
 <body>
@@ -275,7 +278,7 @@
 <header class="masthead">
   <div class="eyebrow">Accompanying Reading · Working Group Draft · เอกสารอ่านประกอบ · ร่างเพื่อคณะทำงาน</div>
   <h1>A Macro-Curriculum for Waldorf High School (Grades 9–12)</h1>
-  <p class="meta">A working synthesis used as a diagnostic for meso-level design.
+  <p class="meta">A working synthesis used as a diagnostic for meso-level design.</p>
 </header>
 
 <nav class="toc">

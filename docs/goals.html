@@ -232,6 +232,17 @@
     text-align: center;
     font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 0.05em;
+    }
+
+  @media print {
+    body { background: white; color: black; }
+    .page { padding: 1cm 1.5cm; max-width: none; }
+    .domain, .potentiality, blockquote, tr { break-inside: avoid; }
+    h2, h3 { break-after: avoid; }
+    a { color: black !important; text-decoration: underline; }
+    .domain, .potentiality { border: 1px solid var(--rule); background: white !important; padding: 1rem; margin: 1rem 0; }
+    th { background: #eee !important; color: black !important; }
+    .number { border: 1px solid black; background: white !important; color: black !important; }
   }
 
   :target {
@@ -242,14 +253,6 @@
     from { background-color: rgba(253, 246, 227, 0.9); }
     to { background-color: transparent; }
   }
-
-  @media print {
-    body { background: white; }
-    .page { padding: 1.5cm 1.8cm; max-width: none; }
-    nav.toc { background: white; border: 1px solid #aaa; }
-    .domain, .potentiality, blockquote.telos { break-inside: avoid-page; }
-    h2, h3 { break-after: avoid; }
-  }
 </style>
 </head>
 <body>
@@ -258,7 +261,7 @@
 <header class="masthead">
   <div class="eyebrow">Accompanying Reading · Working Group Draft · เอกสารอ่านประกอบ · ร่างเพื่อคณะทำงาน</div>
   <h1>Waldorf Education Goals: A Framework Statement</h1>
-  <p class="meta">A prior, independent statement of what Waldorf education aims at, on its own terms.
+  <p class="meta">A prior, independent statement of what Waldorf education aims at, on its own terms.</p>
 </header>
 
 <nav class="toc">
