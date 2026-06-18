@@ -52,8 +52,30 @@ _Avoid_: sub-competency, sub-skill, indicator.
 A brief statement, paired with each sub-ability, specifying what authentic
 in-classroom evidence would demonstrate the ability. Supports the block-design
 menu use (teachers know what they're designing toward). Distinct from a
-graduation rubric — no scoring criteria, just evidence-shape.
+graduation rubric — no scoring criteria, just evidence-shape. Rendered in the
+rewrite-draft HTML as the *Evidence-shape · การกำหนดเชิงปฏิบัติ* line.
 _Avoid_: rubric, performance criterion, success indicator.
+
+**Description / operationalisation division**:
+The ability *description* carries the macro developmental mode (what the
+student does, in grade-12 mode); the *operationalisation* carries the
+assessment *locus* (where evidence is gathered — e.g. classroom/seminar). The
+two are not mixed: locus does not belong in the statement. See
+[ADR-0002](./adr/0002-action-ethics-subabilities-in-community-position-taking.md).
+For action/ethics sub-abilities this means the statement says "a considered
+position within *a community*" (macro-faithful), and the classroom bound lives
+only in the operationalisation.
+_Avoid_: putting "class/seminar" or evidence locus into the ability statement.
+
+**Worked-exemplar competencies (S1, E3)**:
+S1 and E3 were drafted first, in full — grade-12 statements *plus*
+operationalisations — to model the pattern for the working group. The other
+four competencies (S2, S3, E1, E2) carry rewritten statements but no
+operationalisation yet (deferred per schedule). The S1/E3 evidence-shapes are
+kept and marked as worked examples so the asymmetry reads as deliberate, not
+unfinished.
+_Avoid_: treating the missing S2/S3/E1/E2 operationalisations as incomplete
+drafting rather than a deferred phase.
 
 **Framework purpose ordering**:
 Primary use = *shared spine* making blocks legible as one developmental project
