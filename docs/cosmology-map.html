@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosmology Block — Possibility-Space Map · Working Group Session 1 (24 Jun 2026)</title>
+<style>
+  :root {
+    --ink: #100f0f;
+    --ink-soft: #6f6e69;
+    --ink-faint: #b7b5ac;
+    --rule: #dad8ce;
+    --rule-soft: #f2f0e5;
+    --paper: #fffcf0;
+    --panel: #f2f0e5;
+    --highlight: #e6e4d9;
+    --accent: #af3029;
+    --link: #205ea6;
+    /* affinity */
+    --c1: #205ea6;   /* Candidate 1 — epistemological / light */
+    --c2: #66800b;   /* Candidate 2 — stardust / self-Earth */
+    --both: #5e409d; /* shared / synthesis */
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    overflow: hidden;
+  }
+  .sans { font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+  /* ---------- masthead ---------- */
+  header.bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 30;
+    background: var(--paper);
+    border-bottom: 2px solid var(--ink);
+    padding: 0.6rem 1.1rem;
+    display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+  }
+  header.bar .eyebrow {
+    font-family: -apple-system, sans-serif; font-size: 0.66rem;
+    text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint);
+  }
+  header.bar h1 { font-size: 1.15rem; margin: 0; font-weight: 600; letter-spacing: -0.01em; }
+  header.bar .meta { color: var(--ink-soft); font-style: italic; font-size: 0.82rem; }
+  header.bar .home { margin-left: auto; }
+  header.bar a { color: var(--link); text-decoration: none; font-family: -apple-system, sans-serif; font-size: 0.78rem; }
+  header.bar a:hover { text-decoration: underline; }
+
+  /* ---------- toolbar ---------- */
+  .toolbar {
+    position: fixed; top: 4.0rem; left: 0.9rem; z-index: 25;
+    width: 232px; max-height: calc(100vh - 5.2rem);
+    overflow-y: auto;
+    background: rgba(255,252,240,0.94);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.85rem 0.95rem;
+    font-family: -apple-system, sans-serif; font-size: 0.78rem;
+    box-shadow: 0 2px 10px rgba(16,15,15,0.06);
+  }
+  .toolbar h2 {
+    font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--accent); margin: 0 0 0.5rem; font-weight: 700;
+  }
+  .toolbar .group { margin-bottom: 1.05rem; }
+  .toolbar .group:last-child { margin-bottom: 0; }
+  .btnrow { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  button.tb {
+    font-family: -apple-system, sans-serif; font-size: 0.74rem;
+    border: 1px solid var(--rule); background: #fff; color: var(--ink);
+    padding: 0.28rem 0.5rem; border-radius: 4px; cursor: pointer;
+  }
+  button.tb:hover { border-color: var(--ink-soft); }
+  button.tb.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  button.tb.c1.active { background: var(--c1); border-color: var(--c1); }
+  button.tb.c2.active { background: var(--c2); border-color: var(--c2); }
+  button.tb.both.active { background: var(--both); border-color: var(--both); }
+  .comprow button.tb { min-width: 2.1rem; font-weight: 600; }
+  .comprow button.tb.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  label.chk { display: flex; align-items: center; gap: 0.4rem; margin: 0.3rem 0; cursor: pointer; }
+  label.chk input { accent-color: var(--ink); }
+
+  .legend-item { display: flex; align-items: center; gap: 0.45rem; margin: 0.28rem 0; }
+  .swatch { width: 0.85rem; height: 0.85rem; border-radius: 50%; flex: none; }
+  .swatch.c1 { background: var(--c1); }
+  .swatch.c2 { background: var(--c2); }
+  .swatch.both { background: var(--both); }
+  .edge-sample { width: 1.9rem; height: 0.6rem; flex: none; }
+  .hint { color: var(--ink-faint); font-size: 0.72rem; line-height: 1.4; }
+  .caveat { margin-top: 0.6rem; border-left: 3px solid var(--accent); background: #fbeeea;
+    padding: 0.45rem 0.55rem; border-radius: 0 4px 4px 0; color: var(--ink-soft);
+    font-size: 0.73rem; line-height: 1.42; }
+  .caveat strong { color: var(--accent); }
+
+  /* ---------- canvas ---------- */
+  #stage { position: fixed; inset: 0; top: 3.5rem; cursor: grab; }
+  #stage.panning { cursor: grabbing; }
+  svg { width: 100%; height: 100%; display: block; touch-action: none; }
+
+  .hull { stroke-width: 1.5; rx: 18; }
+  .hull-label {
+    font-family: -apple-system, sans-serif; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px;
+  }
+  .hull-sub { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 13px; font-style: italic; }
+
+  .edge { fill: none; }
+  .edge.dep { stroke: var(--ink-soft); stroke-width: 1.8; opacity: 0.7; }
+  .edge.bridge { stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 6 5; opacity: 0.5; }
+  .edge.hidden { display: none; }
+  .edge.dim { opacity: 0.07 !important; }
+
+  .node { cursor: pointer; }
+  .node rect.box { fill: #fff; stroke-width: 2; }
+  .node:hover rect.box { fill: var(--rule-soft); }
+  .node .bar { }
+  .node.anchor rect.box { stroke-width: 3; }
+  .node.anchor:hover rect.box { fill: #fff; }
+  .anchor-eb { font-family: -apple-system, sans-serif; font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; fill: #fff; }
+  .anchor-lbl { font-family: -apple-system, sans-serif; font-size: 13.5px; font-weight: 700; }
+  .node .lbl { font-family: -apple-system, sans-serif; font-size: 12.5px; font-weight: 600; fill: var(--ink); }
+  .node .comps { font-family: -apple-system, sans-serif; font-size: 10.5px; fill: var(--ink-soft); letter-spacing: 0.04em; }
+  .node.dim { opacity: 0.13; }
+  .node.hl rect.box { stroke: var(--accent); stroke-width: 3.5; }
+  .node.sel rect.box { stroke: var(--accent); stroke-width: 3.5; }
+
+  /* ---------- detail drawer ---------- */
+  aside.drawer {
+    position: fixed; top: 3.5rem; right: 0; bottom: 0; z-index: 28;
+    width: 340px; max-width: 86vw;
+    background: var(--paper); border-left: 2px solid var(--ink);
+    transform: translateX(100%); transition: transform 0.18s ease;
+    overflow-y: auto; padding: 1.4rem 1.4rem 2.5rem;
+  }
+  aside.drawer.open { transform: translateX(0); }
+  aside .close { position: absolute; top: 0.7rem; right: 0.9rem; cursor: pointer; color: var(--ink-soft); font-size: 1.3rem; line-height: 1; border: none; background: none; }
+  aside .d-cluster { font-family: -apple-system, sans-serif; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
+  aside h3 { font-size: 1.3rem; margin: 0.35rem 0 0.7rem; font-weight: 600; line-height: 1.2; }
+  aside .row { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; margin: 0.5rem 0; }
+  aside .tag { font-family: -apple-system, sans-serif; font-size: 0.7rem; padding: 0.16rem 0.5rem; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-soft); }
+  aside .tag.aff { color: #fff; border: none; font-weight: 600; }
+  aside .badge { font-family: -apple-system, sans-serif; font-size: 0.72rem; font-weight: 700; padding: 0.16rem 0.45rem; border-radius: 4px; background: var(--highlight); color: var(--ink); }
+  aside .badge.E { background: #dde7cf; }
+  aside .d-label { font-family: -apple-system, sans-serif; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint); margin: 1.1rem 0 0.3rem; font-weight: 700; }
+  aside p.detail { font-size: 0.96rem; line-height: 1.5; margin: 0.3rem 0; }
+  aside .links li { font-size: 0.86rem; margin: 0.25rem 0; color: var(--ink-soft); }
+  aside .links b { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div>
+    <div class="eyebrow">Working Group · Session 1 · 24 Jun 2026 · Decision support for outputs A + B</div>
+    <h1>Cosmology Block — Possibility-Space Map</h1>
+  </div>
+  <span class="meta">What a Grade-12 cosmology main-lesson block <em>could</em> hold — and which deep question &amp; competencies each piece serves.</span>
+  <span class="home"><a href="index.html">← Working-group materials</a></span>
+</header>
+
+<div class="toolbar">
+  <div class="group">
+    <h2>Filter by deep-question candidate</h2>
+    <div class="btnrow" id="affFilter">
+      <button class="tb active" data-aff="all">All</button>
+      <button class="tb c1" data-aff="c1">Cand. 1</button>
+      <button class="tb c2" data-aff="c2">Cand. 2</button>
+      <button class="tb both" data-aff="both">Shared only</button>
+    </div>
+    <div class="hint" style="margin-top:0.45rem;">
+      <div class="legend-item"><span class="swatch c1"></span> Candidate 1 — epistemological (light)</div>
+      <div class="legend-item"><span class="swatch c2"></span> Candidate 2 — stardust / self↔Earth</div>
+      <div class="legend-item"><span class="swatch both"></span> Shared / synthesis space</div>
+    </div>
+    <div class="caveat">
+      <strong>Reading caveat:</strong> the map leans Candidate&nbsp;2 — that material was already realised as a taught course, so it is deeper and richer here. This reflects prior teaching, <em>not</em> evidence that Candidate&nbsp;2 is the stronger choice.
+    </div>
+  </div>
+
+  <div class="group">
+    <h2>Highlight a competency</h2>
+    <div class="btnrow comprow" id="compFilter">
+      <button class="tb" data-comp="S1">S1</button>
+      <button class="tb" data-comp="S2">S2</button>
+      <button class="tb" data-comp="S3">S3</button>
+      <button class="tb" data-comp="E1">E1</button>
+      <button class="tb" data-comp="E2">E2</button>
+      <button class="tb" data-comp="E3">E3</button>
+    </div>
+    <div class="hint" id="compName" style="margin-top:0.4rem;min-height:1.2em;"></div>
+  </div>
+
+  <div class="group">
+    <h2>Edges</h2>
+    <label class="chk"><input type="checkbox" id="togDep" checked>
+      <span><svg class="edge-sample" viewBox="0 0 30 8"><line x1="0" y1="4" x2="22" y2="4" stroke="#6f6e69" stroke-width="2"/><path d="M22,1 L29,4 L22,7 z" fill="#6f6e69"/></svg> Builds toward (within theme)</span></label>
+    <label class="chk"><input type="checkbox" id="togBridge" checked>
+      <span><svg class="edge-sample" viewBox="0 0 30 8"><line x1="0" y1="4" x2="22" y2="4" stroke="#af3029" stroke-width="2" stroke-dasharray="5 4"/><path d="M22,1 L29,4 L22,7 z" fill="#af3029"/></svg> Bridge (cross-theme)</span></label>
+    <div class="hint" style="margin-top:0.4rem;">Each theme is a dependency tree: arrows point from a concept to what builds on it. Bridges (red) cross between themes — the synthesis space Session 1 may find.</div>
+  </div>
+
+  <div class="group">
+    <h2>View</h2>
+    <div class="btnrow">
+      <button class="tb" id="resetView">Reset view</button>
+    </div>
+    <div class="hint" style="margin-top:0.45rem;">Drag to pan · scroll to zoom · click a node for detail.</div>
+  </div>
+</div>
+
+<div id="stage">
+  <svg id="svg">
+    <defs>
+      <marker id="arrow-prereq" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#6f6e69"></path>
+      </marker>
+      <marker id="arrow-bridge" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#af3029"></path>
+      </marker>
+    </defs>
+    <g id="world">
+      <g id="hulls"></g>
+      <g id="edges"></g>
+      <g id="nodes"></g>
+    </g>
+  </svg>
+</div>
+
+<aside class="drawer" id="drawer">
+  <button class="close" id="closeDrawer">×</button>
+  <div class="d-cluster" id="dCluster"></div>
+  <h3 id="dTitle"></h3>
+  <div class="row" id="dTags"></div>
+  <div class="d-label">PISA competencies exercised</div>
+  <div class="row" id="dComps"></div>
+  <div class="d-label">What it is · why it matters for the decision</div>
+  <p class="detail" id="dDetail"></p>
+  <div class="d-label">Connected to</div>
+  <ul class="links" id="dLinks"></ul>
+</aside>
+
+<script>
+/* =========================================================================
+   DATA — clusters, nodes, edges
+   Affinity:  c1 = epistemological/light · c2 = stardust/self-Earth · both = shared
+   ms (mode): D descriptive · R relational · A analytical · T theoretical · J synthetic-ethical
+   ========================================================================= */
+
+const MODE = { D:"Descriptive", R:"Relational", A:"Analytical", T:"Theoretical (model-building)", J:"Synthetic / ethical judgement" };
+const AFFNAME = { c1:"Candidate 1 — epistemological", c2:"Candidate 2 — stardust / self↔Earth", both:"Shared / synthesis" };
+
+const clusters = {
+  hist: { title:"Historical World-Pictures", sub:"Ptolemy → Kepler · the model story", lean:"both",
+    anchor:"The world-picture has been remade before", aDetail:"Six re-orderings of the cosmos from Ptolemy to Newton. The organizing question: what makes one model replace another — prediction, simplicity, or evidence?" },
+  epis: { title:"Epistemology of Cosmology", sub:"Candidate 1 core — what we can know", lean:"c1",
+    anchor:"What can cosmology actually know?", aDetail:"The limits-of-knowledge theme — Candidate 1's centre of gravity. Models, inference, the observer's stance, and how pictures of the cosmos are overturned." },
+  lght: { title:"Light as Cosmic Messenger", sub:"the bridge to the Optics half", lean:"c1",
+    anchor:"Light is our only messenger", aDetail:"Everything cosmic reaches us as light. The evidential basis under every other theme, and the concrete handshake with the Optics half of the combined block." },
+  modn: { title:"Modern Cosmology & Deep Time", sub:"the contemporary picture", lean:"both",
+    anchor:"The contemporary cosmos", aDetail:"The 20th–21st-century picture: expansion, spacetime, deep time, and the large unknown (dark matter and energy)." },
+  star: { title:"Material Cosmos / Stardust", sub:"Candidate 2 core — we are made of it", lean:"c2",
+    anchor:"We are made of stardust", aDetail:"Candidate 2's material heart: the cosmos as the very stuff we are made of and materially bound to." },
+  human:{ title:"Human Place & Ethical Orientation", sub:"Candidate 2 core — self in the cosmos", lean:"c2",
+    anchor:"Our place and our responsibility", aDetail:"Candidate 2's ethical centre: orientation, belonging, and stewardship — where the block meets the Grade-12 task of ethical judgement." },
+};
+
+// node: id, c(luster), x, y, label, aff, ms, comps[], detail
+const nodes = [
+  // ---- Historical World-Pictures ----
+  {id:"retro", c:"hist", label:"Apparent retrograde motion", aff:"both", ms:"R", comps:["S1","S2"], detail:"The backward loop of Mars against the stars — the anchor phenomenon (your Grade-11 thread). Every model in this theme is built to explain it, so it is the root of the whole dependency."},
+  {id:"hi1", c:"hist", x:1010, y:150, label:"Ptolemaic geocentric model (epicycles)", aff:"both", ms:"T", comps:["S1","S2"], detail:"Saving the appearances with circles upon circles. A working, predictive model that is also wrong about the world — the first lesson that prediction ≠ truth."},
+  {id:"hi2", c:"hist", x:1245, y:150, label:"Copernican heliocentric turn", aff:"both", ms:"T", comps:["S1","S2"], detail:"Moving the centre. Mathematically simpler, but demands the Earth move against all direct experience. The decentring whose existential reading lives in the Human cluster."},
+  {id:"hi3", c:"hist", x:1475, y:150, label:"Tycho's hybrid & precise data", aff:"both", ms:"A", comps:["S2"], detail:"Best naked-eye data ever taken, inside a compromise geo-heliocentric model. Shows how precise measurement outlives the theory it was gathered to serve."},
+  {id:"hi4", c:"hist", x:1120, y:272, label:"Kepler's three laws", aff:"both", ms:"T", comps:["S2"], detail:"Ellipses from Tycho's numbers. The moment data forces the abandonment of the perfect circle — empirical law overruling aesthetic preference."},
+  {id:"hi5", c:"hist", x:1350, y:272, label:"Galileo & the telescope", aff:"both", ms:"A", comps:["S2"], detail:"Moons of Jupiter, phases of Venus. New instruments yield new evidence — and the instrument itself becomes contestable. First entry of the optical mediator."},
+  {id:"hi6", c:"hist", x:1245, y:392, label:"Newton's universal gravitation", aff:"both", ms:"T", comps:["S1"], detail:"One law for apple and planet. The synthesis that unifies terrestrial and celestial — and the template for what 'explanation' means until relativity."},
+
+  // ---- Epistemology (Candidate 1 core) ----
+  {id:"ep1", c:"epis", x:1085, y:745, label:"Model vs reality", aff:"c1", ms:"J", comps:["S1","S3"], detail:"Do models describe the world or only save appearances? Ptolemy worked yet was false; the question generalises to all of science. Pure Candidate-1 territory."},
+  {id:"ep2", c:"epis", x:1305, y:745, label:"Limits of inference", aff:"c1", ms:"J", comps:["S2","S3"], detail:"We never touch a star — everything is inferred. What can and cannot be established from indirect evidence? The epistemic centre of gravity of Candidate 1."},
+  {id:"ep3", c:"epis", x:1085, y:858, label:"Plato's cave (connecting image)", aff:"c1", ms:"J", comps:["S3"], detail:"Dom's proposed anchoring image: light, shadow, and what is and isn't directly knowable. The philosophical spine if Candidate 1 is chosen."},
+  {id:"ep4", c:"epis", x:1305, y:858, label:"What light lets us know — and hides", aff:"c1", ms:"J", comps:["S1","S2"], detail:"Light is the only carrier of cosmic information; its nature both enables and bounds astronomy. The literal hinge between the Optics and Cosmology halves under Candidate 1."},
+  {id:"ep5", c:"epis", x:1085, y:968, label:"Observer's stance & frame-dependence", aff:"c1", ms:"J", comps:["S2"], detail:"Geocentric vs heliocentric as a choice of frame; relativity later makes frame-dependence physical. The knower is never outside the picture."},
+  {id:"ep6", c:"epis", x:1305, y:968, label:"Paradigm shifts & falsifiability", aff:"c1", ms:"J", comps:["S3"], detail:"How cosmological pictures are overturned. What would it take to be wrong? Brings philosophy-of-science to bear on the historical sequence."},
+
+  // ---- Light as Cosmic Messenger (bridge) ----
+  {id:"li1", c:"lght", x:1855, y:285, label:"We see only light (inference from light)", aff:"c1", ms:"A", comps:["S1","S3"], detail:"All astronomy is reading messages in light. Frames the whole block under Candidate 1 and ties directly to the Optics teacher's phenomena."},
+  {id:"li2", c:"lght", x:2090, y:285, label:"Spectroscopy & spectral lines", aff:"both", ms:"A", comps:["S2"], detail:"The bar-code of light that reveals what stars are made of. THE bridge node: it is how 'we are made of stardust' (Candidate 2) is actually known (Candidate 1 method)."},
+  {id:"li3", c:"lght", x:1855, y:398, label:"Parallax & standard candles", aff:"both", ms:"A", comps:["S2"], detail:"Turning light into distance. Shared between candidates — measurement craft that also exposes the inference chain."},
+  {id:"li4", c:"lght", x:2090, y:398, label:"Redshift & the Doppler effect", aff:"both", ms:"A", comps:["S1"], detail:"Stretched light as evidence of motion and expansion. The observational root of modern cosmology."},
+  {id:"li5", c:"lght", x:1972, y:508, label:"Telescopes & instruments (Optics bridge)", aff:"c1", ms:"A", comps:["S2"], detail:"The instrument that extends the eye — and must itself be trusted. The most concrete handshake with the Optics half of the combined block."},
+  {id:"li6", c:"lght", label:"Electromagnetic spectrum: each band, different information", aff:"both", ms:"A", comps:["S1","S2"], detail:"Visible light is a narrow slice. Radio, infrared, UV, X-ray and gamma each reveal different objects and physics — cold gas, hot dust, violent accretion. What you can know depends on which window you open."},
+  {id:"li7", c:"lght", label:"How space images are made (false colour & composite)", aff:"c1", ms:"J", comps:["S2","S3"], detail:"The 'beautiful' Hubble/JWST images are constructed — non-visible bands mapped to RGB, contrast stretched, frames composited. Evidence-rich representations, not what the eye would see. A vivid, student-owned route into S2's question of what each representation reveals and obscures — and straight into epistemology."},
+
+  // ---- Modern Cosmology ----
+  {id:"mo1", c:"modn", x:1885, y:805, label:"Big Bang & cosmic expansion", aff:"both", ms:"T", comps:["S1"], detail:"The standard origin story, inferred from redshift and the CMB. Where deep time and cosmic belonging meet."},
+  {id:"mo2", c:"modn", x:2120, y:805, label:"Cosmic Microwave Background", aff:"both", ms:"A", comps:["S1","S2"], detail:"The afterglow — a measurable relic of the early universe. A striking case of seeing the past directly in present light."},
+  {id:"mo3", c:"modn", x:1885, y:915, label:"Relativity & spacetime", aff:"both", ms:"T", comps:["S1"], detail:"Newton's frame replaced; space and time become observer-dependent. Feeds the epistemology cluster's frame-dependence theme."},
+  {id:"mo4", c:"modn", x:2120, y:915, label:"Cosmic scale & deep time", aff:"both", ms:"J", comps:["S1","S3"], detail:"Billions of light-years and years. The vertigo of scale that grounds both humility (C1) and belonging (C2)."},
+  {id:"mo5", c:"modn", x:2002, y:1025, label:"Dark matter, dark energy & the unknown", aff:"both", ms:"J", comps:["S3"], detail:"95% of the universe is unidentified. A live frontier where 'what we cannot yet know' is current science, not philosophy."},
+  {id:"mo6", c:"modn", label:"Evolution of the universe", aff:"both", ms:"T", comps:["S1","S3"], detail:"The universe as a history, not a static stage: from the hot dense start through cooling, the first stars, and the assembly of galaxies and large-scale structure to the present. The cosmic timeline the solar system is a late, local chapter of."},
+
+  // ---- Stardust (Candidate 2 core) ----
+  {id:"st1", c:"star", x:1155, y:1345, label:"Stellar nucleosynthesis — 'made of stardust'", aff:"c2", ms:"T", comps:["S1","E1"], detail:"Elements forged in stars and supernovae. The material-science heart of Candidate 2; its evidence comes from spectroscopy (the bridge node)."},
+  {id:"st2", c:"star", x:1385, y:1345, label:"Stellar life cycles", aff:"c2", ms:"T", comps:["S1"], detail:"Birth, fusion, death of stars. The cosmic factory that makes the stardust thread concrete."},
+  {id:"st3", c:"star", x:1155, y:1458, label:"Elements & cosmic composition", aff:"c2", ms:"A", comps:["S1","E1"], detail:"What the universe — and our bodies — are made of, and in what proportions. Links chemistry to cosmology."},
+  {id:"st4", c:"star", x:1385, y:1458, label:"Sun–Earth matter & energy flow", aff:"c2", ms:"R", comps:["E1"], detail:"The Sun as the engine of Earth's systems. Where cosmology meets the environmental-science competencies head-on."},
+  {id:"st5", c:"star", x:1270, y:1570, label:"Cosmic origin of life's matter", aff:"c2", ms:"J", comps:["S1","E1"], detail:"From stellar ash to living body. The synthesis that lets 'self ↔ Earth ↔ cosmos' become a felt, not just stated, relation."},
+  {id:"st6", c:"star", label:"Formation of the solar system (nebular hypothesis)", aff:"c2", ms:"T", comps:["S1","E1"], detail:"A cloud of gas and dust — enriched by earlier stellar generations — collapses into the Sun, a protoplanetary disk, and the planets. Where the stardust story becomes our own address; the Sun–Earth system presupposes it."},
+
+  // ---- Human Place & Ethical Orientation (Candidate 2 core) ----
+  {id:"hu1", c:"human", x:405, y:1245, label:"Decentring: geo → helio → no centre", aff:"c2", ms:"J", comps:["S3"], detail:"The repeated displacement of the human from the centre. The existential reading of the historical sequence — biography of a worldview."},
+  {id:"hu2", c:"human", x:645, y:1245, label:"Cosmos & biographical orientation", aff:"c2", ms:"J", comps:["E2","E3"], detail:"Where do I stand in all this? The Grade-12 task of orienting one's own life against the largest possible backdrop."},
+  {id:"hu3", c:"human", x:405, y:1358, label:"Responsibility & stewardship (self↔Earth)", aff:"c2", ms:"J", comps:["E1","E2"], detail:"Cosmic belonging grounding ecological responsibility. Directly closes the ethical-judgement gap (handoff line 17) — the strongest argument for Candidate 2."},
+  {id:"hu4", c:"human", x:645, y:1358, label:"Plurality of cosmologies (cultural / Goethean)", aff:"both", ms:"J", comps:["E3","S3"], detail:"Indigenous, ancient, and Goethean pictures alongside the scientific one. A bridge node: respect for diverse perspectives (E3) meets 'model vs reality' (C1)."},
+  {id:"hu5", c:"human", x:525, y:1478, label:"Wonder, awe & meaning", aff:"c2", ms:"J", comps:["E3"], detail:"The affective ground the whole block can stand on. Often the real reason a cosmology block lands — but hard to assess."},
+  {id:"hu6", c:"human", label:"Looking back at Earth (Earthrise · Pale Blue Dot · Thin Blue Line)", aff:"c2", ms:"J", comps:["E3"], detail:"Space exploration's deepest return: the first images of Earth from outside — Earthrise (1968), the Pale Blue Dot (1990), the thin blue line of the atmosphere. Decentring stops being an argument and becomes a picture. You went out to see the cosmos and saw yourself."},
+  {id:"hu7", c:"human", label:"Overview effect & planetary fragility", aff:"c2", ms:"J", comps:["E1","E3"], detail:"What astronauts report on seeing the whole Earth: borders vanish, the biosphere reads as one fragile skin. The affective engine that turns cosmic perspective into ecological responsibility."},
+  {id:"hu8", c:"human", label:"Should we colonize the Moon or Mars?", aff:"c2", ms:"J", comps:["E2","S3"], detail:"A live ethical-judgement question: expand off-world, or tend the only known living planet? Forces students to weigh frontier, survival, stewardship and justice. NOTE — capstone-shaped: an open ethical decision that could itself seed a third deep-question candidate (alongside the epistemological and stardust drafts). Worth flagging to the working group as a deep-question option, not just block content."},
+];
+
+/* =========================================================================
+   HIERARCHY — real dependency trees. `parents` = child → its single parent
+   (the concept it genuinely builds on) WITHIN a theme. Layout is a tidy tree:
+   depth = how derived a concept is; root concepts sit at the top of each theme.
+   `bridges` = cross-theme synthesis links (kept separate, dashed).
+   ========================================================================= */
+const parents = {
+  // Historical World-Pictures — the model story, rooted in the phenomenon
+  hi1:"retro", hi2:"hi1", hi3:"hi2", hi5:"hi2", hi4:"hi3", hi6:"hi4",
+  // Epistemology — two roots: the model question (ep1) and the inference question (ep2)
+  ep6:"ep1", ep5:"ep1", ep4:"ep2", ep3:"ep2",
+  // Light as messenger — everything derives from "we see only light" (li1);
+  // EM spectrum → how space images are made is the false-colour/epistemology chain
+  li5:"li1", li2:"li1", li3:"li1", li4:"li2", li6:"li1", li7:"li6",
+  // Modern cosmology — relativity frame (mo3) → Big Bang (mo1) → its evidence + cosmic history
+  mo1:"mo3", mo2:"mo1", mo4:"mo1", mo5:"mo1", mo6:"mo1",
+  // Stardust — stars live (st2) → forge elements (st1) → solar system → Sun–Earth; composition → life
+  st1:"st2", st3:"st1", st6:"st1", st4:"st6", st5:"st3",
+  // Human place — decentring (hu1) → looking back at Earth → overview effect →
+  // stewardship + the colonize question; plus orientation, plurality, wonder
+  hu2:"hu1", hu4:"hu1", hu5:"hu1", hu6:"hu1", hu7:"hu6", hu3:"hu7", hu8:"hu7",
+};
+const bridges = [
+  ["hi2","hu1"],   // Copernican turn → decentring
+  ["li1","ep2"],   // see-only-light → limits of inference   (C1 core)
+  ["ep4","li1"],   // what light hides → inference from light
+  ["li2","st1"],   // spectroscopy → stardust evidence        (C1↔C2 KEY)
+  ["st5","hu3"],   // cosmic matter → responsibility          (C2 synthesis)
+  ["hu4","ep1"],   // plurality → model-vs-reality            (C2↔C1)
+  ["hi6","ep6"],   // Newton synthesis → paradigm shifts
+  ["hi6","mo3"],   // Newton's frame → relativity replaces it
+  ["mo5","ep2"],   // dark energy → limits of inference
+  ["mo4","hu2"],   // deep time / scale → biographical orientation
+  ["mo3","ep5"],   // relativity → frame-dependence
+  ["st4","hu3"],   // Sun–Earth → stewardship
+  ["li4","mo1"],   // redshift → Big Bang
+  ["li7","ep4"],   // false-colour images → what light lets us know & hides  (the epistemology hook)
+  ["mo6","st6"],   // cosmic evolution → solar-system formation (a local chapter of it)
+];
+const edges = [];
+for (const child in parents) edges.push([parents[child], child, "dep"]);
+for (const [a,b] of bridges) edges.push([a,b,"bridge"]);
+
+const nodeById = Object.fromEntries(nodes.map(n => [n.id, n]));
+const childrenOf = {};
+for (const id in parents){ (childrenOf[parents[id]] ||= []).push(id); }
+
+const GRID = { hist:[0,0], epis:[1,0], lght:[2,0], human:[0,1], star:[1,1], modn:[2,1] };
+const COLX = [380, 1380, 2500];
+const ROWY = [130, 1160];
+const SLOTW = 218, TIER_H = 120;
+
+// tidy tree layout per theme (handles a forest of roots)
+for (const key in clusters){
+  const [cc, rr] = GRID[key];
+  const ox = COLX[cc], oy = ROWY[rr];
+  const mem = nodes.filter(n => n.c===key);
+  const roots = mem.filter(n => !parents[n.id]).map(n => n.id);
+  let leaf = 0;
+  const place = (id, depth) => {
+    const n = nodeById[id];
+    n._depth = depth;
+    const kids = childrenOf[id] || [];
+    if (!kids.length){ n._tx = leaf++; }
+    else { kids.forEach(k => place(k, depth+1)); n._tx = (nodeById[kids[0]]._tx + nodeById[kids[kids.length-1]]._tx)/2; }
+  };
+  roots.forEach(r => place(r, 0));
+  const span = Math.max(leaf-1, 0);
+  mem.forEach(n => {
+    n.x = ox + (n._tx - span/2) * SLOTW;
+    n.y = oy + n._depth * TIER_H;
+  });
+}
+
+/* =========================================================================
+   RENDER
+   ========================================================================= */
+const SVGNS = "http://www.w3.org/2000/svg";
+const AFF_COLOR = { c1:"#205ea6", c2:"#66800b", both:"#5e409d" };
+const NODE_W = 196;
+
+function el(tag, attrs={}, parent=null){
+  const e = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function wrap(text, max){
+  const words = text.split(" "); const lines=[]; let cur="";
+  for (const w of words){
+    if ((cur+" "+w).trim().length > max && cur){ lines.push(cur); cur=w; }
+    else cur = (cur+" "+w).trim();
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+const LINE_H = 15;
+const ANCHOR_W = 236;
+// precompute box geometry so edges can be trimmed to box edges (for arrowheads)
+nodes.forEach(n => {
+  if (n.anchor){
+    n._lines = wrap(n.label, 22);
+    n._w = ANCHOR_W;
+    n._h = 20 + n._lines.length*17 + 16;   // eyebrow + title, no comps row
+  } else {
+    n._lines = wrap(n.label, 26);
+    n._w = NODE_W;
+    n._h = 14 + n._lines.length*LINE_H + 16 + 8;
+  }
+});
+// point on `to`'s box boundary along the direction toward `from`, plus a small gap
+function boxEdge(from, to, gap=5){
+  const ux = from.x-to.x, uy = from.y-to.y;
+  const hw = to._w/2 + gap, hh = to._h/2 + gap;
+  const t = Math.min(hw/Math.max(Math.abs(ux),1e-6), hh/Math.max(Math.abs(uy),1e-6));
+  return { x: to.x + ux*t, y: to.y + uy*t };
+}
+
+// cluster hulls (computed from member nodes)
+const hullG = document.getElementById("hulls");
+for (const key in clusters){
+  const mem = nodes.filter(n => n.c===key);
+  const pad = 42;
+  const xs = [], ys = [];
+  mem.forEach(n => { xs.push(n.x-n._w/2, n.x+n._w/2); ys.push(n.y-n._h/2, n.y+n._h/2); });
+  const minX = Math.min(...xs)-pad, maxX = Math.max(...xs)+pad;
+  const minY = Math.min(...ys)-pad-20, maxY = Math.max(...ys)+pad;
+  const lean = clusters[key].lean;
+  const col = AFF_COLOR[lean];
+  el("rect", { x:minX, y:minY, width:maxX-minX, height:maxY-minY, rx:20,
+    fill: col, "fill-opacity":0.05, stroke: col, "stroke-opacity":0.45, "stroke-width":1.5 }, hullG);
+  const t = el("text", { x:minX+18, y:minY+26, class:"hull-label", fill:col, "fill-opacity":0.85 }, hullG);
+  t.textContent = clusters[key].title;
+  const s = el("text", { x:minX+18, y:minY+45, class:"hull-sub", fill:"#6f6e69" }, hullG);
+  s.textContent = "“" + clusters[key].anchor + "”";
+}
+
+// edges
+const edgeG = document.getElementById("edges");
+const edgeEls = [];
+for (const [a,b,type] of edges){
+  const na = nodeById[a], nb = nodeById[b];
+  const p1 = boxEdge(nb, na);   // trimmed source end
+  const p2 = boxEdge(na, nb);   // trimmed target end (arrowhead sits here)
+  const attrs = { x1:p1.x, y1:p1.y, x2:p2.x, y2:p2.y, class:`edge ${type}`,
+    "marker-end": `url(#arrow-${type==="bridge"?"bridge":"prereq"})` };
+  const line = el("line", attrs, edgeG);
+  edgeEls.push({ line, a, b, type });
+}
+
+// nodes
+const nodeG = document.getElementById("nodes");
+const nodeEls = {};
+for (const n of nodes){
+  const lines = n._lines;
+  const boxH = n._h, boxW = n._w;
+  const col = AFF_COLOR[n.aff];
+  const g = el("g", { class:"node"+(n.anchor?" anchor":""), "data-id":n.id, "data-aff":n.aff,
+    transform:`translate(${n.x},${n.y})` }, nodeG);
+
+  if (n.anchor){
+    el("rect", { class:"box", x:-boxW/2, y:-boxH/2, width:boxW, height:boxH, rx:9,
+      stroke:col, fill:"#fff" }, g);
+    el("rect", { x:-boxW/2, y:-boxH/2, width:boxW, height:22, rx:9, fill:col }, g);
+    el("rect", { x:-boxW/2, y:-boxH/2+11, width:boxW, height:11, fill:col }, g);
+    const eb = el("text", { class:"anchor-eb", x:0, y:-boxH/2+15, "text-anchor":"middle" }, g);
+    eb.textContent = "THEME";
+    const startY = -boxH/2 + 22 + 18;
+    lines.forEach((ln,i)=>{
+      const t = el("text", { class:"anchor-lbl", x:0, y:startY + i*17, "text-anchor":"middle", fill:col }, g);
+      t.textContent = ln;
+    });
+  } else {
+    el("rect", { class:"box", x:-boxW/2, y:-boxH/2, width:boxW, height:boxH, rx:7, stroke:col }, g);
+    el("rect", { class:"bar", x:-boxW/2, y:-boxH/2, width:6, height:boxH, rx:3, fill:col }, g);
+    const startY = -boxH/2 + 14 + 8;
+    lines.forEach((ln,i)=>{
+      const t = el("text", { class:"lbl", x:4, y:startY + i*LINE_H, "text-anchor":"middle" }, g);
+      t.textContent = ln;
+    });
+    const ct = el("text", { class:"comps", x:4, y:startY + lines.length*LINE_H + 6, "text-anchor":"middle" }, g);
+    ct.textContent = n.comps.join("  ·  ");
+  }
+  g.addEventListener("click", (e)=>{ e.stopPropagation(); openNode(n.id); });
+  nodeEls[n.id] = g;
+}
+
+/* =========================================================================
+   PAN / ZOOM
+   ========================================================================= */
+const stage = document.getElementById("stage");
+const svg = document.getElementById("svg");
+const world = document.getElementById("world");
+const view = { x: 40, y: 30, k: 0.62 };
+function apply(){ world.setAttribute("transform", `translate(${view.x},${view.y}) scale(${view.k})`); }
+function fit(){
+  const xs = nodes.map(n=>n.x), ys = nodes.map(n=>n.y);
+  const minX=Math.min(...xs)-160, maxX=Math.max(...xs)+160, minY=Math.min(...ys)-120, maxY=Math.max(...ys)+120;
+  const w = svg.clientWidth, h = svg.clientHeight;
+  view.k = Math.min(w/(maxX-minX), h/(maxY-minY)) * 0.96;
+  view.k = Math.max(0.2, Math.min(view.k, 1.2));
+  view.x = (w - (maxX+minX)*view.k)/2;
+  view.y = (h - (maxY+minY)*view.k)/2;
+  apply();
+}
+window.addEventListener("resize", fit);
+fit();
+
+let panning=false, sx=0, sy=0, moved=false;
+stage.addEventListener("mousedown", (e)=>{ panning=true; moved=false; sx=e.clientX-view.x; sy=e.clientY-view.y; stage.classList.add("panning"); });
+window.addEventListener("mousemove", (e)=>{ if(!panning) return; view.x=e.clientX-sx; view.y=e.clientY-sy; moved=true; apply(); });
+window.addEventListener("mouseup", ()=>{ panning=false; stage.classList.remove("panning"); });
+stage.addEventListener("wheel", (e)=>{
+  e.preventDefault();
+  const r = svg.getBoundingClientRect();
+  const mx = e.clientX-r.left, my = e.clientY-r.top;
+  const f = e.deltaY<0 ? 1.12 : 1/1.12;
+  const nk = Math.max(0.2, Math.min(view.k*f, 2.6));
+  view.x = mx - (mx-view.x)*(nk/view.k);
+  view.y = my - (my-view.y)*(nk/view.k);
+  view.k = nk; apply();
+}, {passive:false});
+document.getElementById("resetView").addEventListener("click", fit);
+
+// touch (basic single-finger pan)
+stage.addEventListener("touchstart", (e)=>{ if(e.touches.length===1){ panning=true; sx=e.touches[0].clientX-view.x; sy=e.touches[0].clientY-view.y; }}, {passive:true});
+stage.addEventListener("touchmove", (e)=>{ if(panning&&e.touches.length===1){ view.x=e.touches[0].clientX-sx; view.y=e.touches[0].clientY-sy; apply(); }}, {passive:true});
+stage.addEventListener("touchend", ()=>{ panning=false; });
+
+/* =========================================================================
+   FILTERS
+   ========================================================================= */
+let affMode = "all";   // all | c1 | c2 | both
+let compMode = null;   // S1..E3 or null
+
+function affMatch(n){
+  if (affMode==="all") return true;
+  if (affMode==="both") return n.aff==="both";
+  return n.aff===affMode || n.aff==="both";   // candidate filters include shared
+}
+function refresh(){
+  for (const n of nodes){
+    const g = nodeEls[n.id];
+    g.classList.toggle("dim", !affMatch(n));
+    g.classList.toggle("hl", compMode!==null && n.comps.includes(compMode));
+  }
+  for (const e of edgeEls){
+    const visible = (e.type==="dep" && showDep) || (e.type==="bridge" && showBridge);
+    e.line.classList.toggle("hidden", !visible);
+    const dim = !affMatch(nodeById[e.a]) || !affMatch(nodeById[e.b]);
+    e.line.classList.toggle("dim", dim);
+  }
+}
+
+document.getElementById("affFilter").addEventListener("click", (e)=>{
+  const b = e.target.closest("button"); if(!b) return;
+  affMode = b.dataset.aff;
+  document.querySelectorAll("#affFilter button").forEach(x=>x.classList.toggle("active", x===b));
+  refresh();
+});
+
+const compNames = {
+  S1:"S1 — Explain phenomena scientifically",
+  S2:"S2 — Construct/evaluate enquiry; interpret data critically",
+  S3:"S3 — Research, evaluate & use information for decisions/action",
+  E1:"E1 — Explain human impact on Earth's systems",
+  E2:"E2 — Informed decisions to regenerate & sustain the environment",
+  E3:"E3 — Respect diverse perspectives & hope toward socio-ecological crises",
+};
+document.getElementById("compFilter").addEventListener("click", (e)=>{
+  const b = e.target.closest("button"); if(!b) return;
+  const c = b.dataset.comp;
+  compMode = (compMode===c) ? null : c;
+  document.querySelectorAll("#compFilter button").forEach(x=>x.classList.toggle("active", x.dataset.comp===compMode));
+  document.getElementById("compName").textContent = compMode ? compNames[compMode] : "";
+  refresh();
+});
+
+let showDep=true, showBridge=true;
+document.getElementById("togDep").addEventListener("change", e=>{ showDep=e.target.checked; refresh(); });
+document.getElementById("togBridge").addEventListener("change", e=>{ showBridge=e.target.checked; refresh(); });
+
+/* =========================================================================
+   DETAIL DRAWER
+   ========================================================================= */
+const drawer = document.getElementById("drawer");
+let selId = null;
+function openNode(id){
+  const n = nodeById[id];
+  if (selId) nodeEls[selId]?.classList.remove("sel");
+  selId = id; nodeEls[id].classList.add("sel");
+
+  document.getElementById("dCluster").textContent = clusters[n.c].title;
+  document.getElementById("dCluster").style.color = AFF_COLOR[n.aff];
+  document.getElementById("dTitle").textContent = n.label;
+
+  document.getElementById("dCluster").textContent = n.anchor ? "Theme anchor · "+clusters[n.c].title : clusters[n.c].title;
+
+  const tags = document.getElementById("dTags"); tags.innerHTML="";
+  const aff = document.createElement("span");
+  aff.className="tag aff"; aff.style.background=AFF_COLOR[n.aff]; aff.textContent=AFFNAME[n.aff];
+  tags.appendChild(aff);
+  if (!n.anchor){
+    const mode = document.createElement("span");
+    mode.className="tag"; mode.textContent="Mode: "+MODE[n.ms];
+    tags.appendChild(mode);
+  }
+
+  // competency row only for concept nodes
+  const compLabel = document.getElementById("dComps").previousElementSibling;
+  const comps = document.getElementById("dComps"); comps.innerHTML="";
+  compLabel.style.display = n.anchor ? "none" : "";
+  comps.style.display = n.anchor ? "none" : "";
+  n.comps.forEach(c=>{
+    const s=document.createElement("span");
+    s.className="badge"+(c[0]==="E"?" E":""); s.textContent=c;
+    comps.appendChild(s);
+  });
+
+  document.getElementById("dDetail").textContent = n.detail;
+
+  const linkLabel = "Connected to";
+  document.getElementById("dLinks").previousElementSibling.textContent = n.anchor ? "Concepts in this theme" : linkLabel;
+  const links = document.getElementById("dLinks"); links.innerHTML="";
+  const conn = edges.filter(e=>e[0]===id||e[1]===id);
+  if (!conn.length){ const li=document.createElement("li"); li.textContent="— (no edges)"; links.appendChild(li); }
+  conn.forEach(([a,b,type])=>{
+    const other = nodeById[a===id?b:a];
+    const li=document.createElement("li");
+    const verb = type==="bridge" ? "⇢ bridge" : (a===id ? "→ leads to" : "▲ builds on");
+    li.innerHTML = `<b>${verb}:</b> ${other.label}`;
+    li.style.cursor="pointer";
+    li.addEventListener("click", ()=>openNode(other.id));
+    links.appendChild(li);
+  });
+
+  drawer.classList.add("open");
+}
+document.getElementById("closeDrawer").addEventListener("click", ()=>{
+  drawer.classList.remove("open");
+  if (selId){ nodeEls[selId].classList.remove("sel"); selId=null; }
+});
+
+refresh();
+</script>
+</body>
+</html>

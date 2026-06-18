@@ -116,3 +116,19 @@ teachers (will teach the block; co-author of D and F). When she speaks in
 a working-group session, both roles are present — group should treat them
 as distinct contributions where it matters (architectural vs teaching-stake).
 _Avoid_: collapsing her into "the framework person" or "a teacher".
+
+**Cosmology possibility-space map**:
+The interactive infinite-canvas concept map (`docs/cosmology-map.html`) of
+what a Grade-12 cosmology main-lesson block *could* contain — the full content
+universe, not a chosen design. Content organized into six thematic clusters,
+each node tagged by deep-question candidate affinity (1 epistemological /
+2 stardust / shared) and the PISA competencies it would exercise; within a
+theme nodes form a builds-on dependency tree, with cross-theme bridges marking
+the synthesis space. A Session-1 (Jun 24) decision aid for outputs A (competency
+selection) and B (deep question) — it surfaces the fork rather than presuming it.
+English-only working instrument, not a published bilingual deliverable.
+Carries a reading caveat: the map leans Candidate 2 because that material was
+already realised as a taught course (so it is deeper/richer there) — prior
+teaching, not evidence Candidate 2 is the stronger choice.
+_Avoid_: cosmology block plan, the syllabus (it is a content inventory, not a
+design or sequence).
