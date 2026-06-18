@@ -95,6 +95,40 @@
     font-size: 0.73rem; line-height: 1.42; }
   .caveat strong { color: var(--accent); }
 
+  /* ---------- mobile controls toggle ---------- */
+  #tbToggle {
+    display: none;
+    position: fixed; z-index: 27; top: 4.0rem; left: 0.9rem;
+    font-family: -apple-system, sans-serif; font-size: 0.82rem; font-weight: 600;
+    border: 1px solid var(--ink); background: var(--paper); color: var(--ink);
+    padding: 0.5rem 0.8rem; border-radius: 6px; cursor: pointer;
+    box-shadow: 0 2px 10px rgba(16,15,15,0.12);
+  }
+  .tb-close {
+    display: none; position: absolute; top: 0.5rem; right: 0.6rem;
+    border: none; background: none; color: var(--ink-soft);
+    font-size: 1.4rem; line-height: 1; cursor: pointer;
+  }
+
+  @media (max-width: 820px) {
+    header.bar { height: 3.0rem; flex-wrap: nowrap; align-items: center; overflow: hidden; }
+    header.bar .eyebrow { display: none; }
+    header.bar .meta { display: none; }
+    header.bar h1 { font-size: 0.92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    header.bar .home a { white-space: nowrap; }
+    .toolbar {
+      transform: translateX(-115%); transition: transform 0.18s ease;
+      z-index: 29; padding-top: 1.9rem; max-width: calc(100vw - 1.8rem);
+      box-shadow: 0 4px 22px rgba(16,15,15,0.22);
+    }
+    .toolbar.open { transform: none; }
+    .tb-close { display: block; }
+    body:not(.controls-open) #tbToggle { display: inline-flex; }
+    button.tb { font-size: 0.84rem; padding: 0.42rem 0.65rem; }
+    .comprow button.tb { min-width: 2.6rem; }
+    label.chk { margin: 0.5rem 0; }
+  }
+
   /* ---------- canvas ---------- */
   #stage { position: fixed; inset: 0; top: 3.5rem; cursor: grab; }
   #stage.panning { cursor: grabbing; }
@@ -161,7 +195,10 @@
   <span class="home"><a href="index.html">← Working-group materials</a></span>
 </header>
 
+<button id="tbToggle" class="sans">☰ Controls</button>
+
 <div class="toolbar">
+  <button class="tb-close" id="tbClose" aria-label="Close controls">×</button>
   <div class="group">
     <h2>Filter by deep-question candidate</h2>
     <div class="btnrow" id="affFilter">
@@ -505,7 +542,7 @@ for (const n of nodes){
     const ct = el("text", { class:"comps", x:4, y:startY + lines.length*LINE_H + 6, "text-anchor":"middle" }, g);
     ct.textContent = n.comps.join("  ·  ");
   }
-  g.addEventListener("click", (e)=>{ e.stopPropagation(); openNode(n.id); });
+  g.addEventListener("click", (e)=>{ e.stopPropagation(); if(tMoved) return; openNode(n.id); });
   nodeEls[n.id] = g;
 }
 
@@ -530,7 +567,7 @@ function fit(){
 window.addEventListener("resize", fit);
 fit();
 
-let panning=false, sx=0, sy=0, moved=false;
+let panning=false, sx=0, sy=0, moved=false, tMoved=false;
 stage.addEventListener("mousedown", (e)=>{ panning=true; moved=false; sx=e.clientX-view.x; sy=e.clientY-view.y; stage.classList.add("panning"); });
 window.addEventListener("mousemove", (e)=>{ if(!panning) return; view.x=e.clientX-sx; view.y=e.clientY-sy; moved=true; apply(); });
 window.addEventListener("mouseup", ()=>{ panning=false; stage.classList.remove("panning"); });
@@ -546,10 +583,41 @@ stage.addEventListener("wheel", (e)=>{
 }, {passive:false});
 document.getElementById("resetView").addEventListener("click", fit);
 
-// touch (basic single-finger pan)
-stage.addEventListener("touchstart", (e)=>{ if(e.touches.length===1){ panning=true; sx=e.touches[0].clientX-view.x; sy=e.touches[0].clientY-view.y; }}, {passive:true});
-stage.addEventListener("touchmove", (e)=>{ if(panning&&e.touches.length===1){ view.x=e.touches[0].clientX-sx; view.y=e.touches[0].clientY-sy; apply(); }}, {passive:true});
-stage.addEventListener("touchend", ()=>{ panning=false; });
+// collapsible controls (mobile)
+const toolbar = document.querySelector(".toolbar");
+function setControls(open){
+  document.body.classList.toggle("controls-open", open);
+  toolbar.classList.toggle("open", open);
+}
+document.getElementById("tbToggle").addEventListener("click", ()=>setControls(true));
+document.getElementById("tbClose").addEventListener("click", ()=>setControls(false));
+
+// touch: one finger pans, two fingers pinch-zoom (about the gesture midpoint)
+let touchPanning=false, tsx=0, tsy=0, pinchDist=0;
+const tdist = (a,b)=>Math.hypot(a.clientX-b.clientX, a.clientY-b.clientY);
+stage.addEventListener("touchstart", (e)=>{
+  if(e.touches.length===1){ touchPanning=true; tMoved=false; tsx=e.touches[0].clientX-view.x; tsy=e.touches[0].clientY-view.y; }
+  else if(e.touches.length===2){ touchPanning=false; pinchDist=tdist(e.touches[0],e.touches[1]); }
+}, {passive:true});
+stage.addEventListener("touchmove", (e)=>{
+  if(e.touches.length===1 && touchPanning){
+    view.x=e.touches[0].clientX-tsx; view.y=e.touches[0].clientY-tsy; tMoved=true; apply();
+  } else if(e.touches.length===2 && pinchDist){
+    e.preventDefault();
+    const nd=tdist(e.touches[0],e.touches[1]);
+    const r=svg.getBoundingClientRect();
+    const mx=(e.touches[0].clientX+e.touches[1].clientX)/2 - r.left;
+    const my=(e.touches[0].clientY+e.touches[1].clientY)/2 - r.top;
+    const nk=Math.max(0.2, Math.min(view.k*(nd/pinchDist), 2.6));
+    view.x = mx-(mx-view.x)*(nk/view.k);
+    view.y = my-(my-view.y)*(nk/view.k);
+    view.k=nk; pinchDist=nd; tMoved=true; apply();
+  }
+}, {passive:false});
+stage.addEventListener("touchend", (e)=>{
+  if(e.touches.length===0) touchPanning=false;
+  if(e.touches.length<2) pinchDist=0;
+});
 
 /* =========================================================================
    FILTERS
@@ -611,6 +679,7 @@ const drawer = document.getElementById("drawer");
 let selId = null;
 function openNode(id){
   const n = nodeById[id];
+  setControls(false);
   if (selId) nodeEls[selId]?.classList.remove("sel");
   selId = id; nodeEls[id].classList.add("sel");
 
