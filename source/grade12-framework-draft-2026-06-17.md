@@ -136,6 +136,6 @@ The handoff's *second* deliverable — "plan how the working group will systemat
 - Two candidate deep questions and their criterion fork (a / b / c — distinctive new pedagogy / full grade-12 fit incl. ethical-synthetic / continuity-with-improvement).
 - Macro-curriculum diagnostic (lines 283–297) as the meso-design tool.
 - Constraint from handoff: pilot proves cross-system capstone-question integration, not single-system block template.
-- Known gap: ethical-synthetic judgement (handoff line 17) must be closed by the chosen deep question.
+- Known gap: ethical-synthetic judgement must be closed by the chosen deep question.
 
 A standalone "Block Meso-Design Plan" markdown can be drafted next.
