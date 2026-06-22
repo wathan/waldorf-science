@@ -154,3 +154,20 @@ already realised as a taught course (so it is deeper/richer there) — prior
 teaching, not evidence Candidate 2 is the stronger choice.
 _Avoid_: cosmology block plan, the syllabus (it is a content inventory, not a
 design or sequence).
+
+**Optics possibility-space map**:
+The companion interactive map (`docs/optics-map.html`) for the Optics half of
+the combined block — same engine and structure as the Cosmology possibility-space
+map (six thematic clusters, builds-on dependency trees, cross-theme bridges,
+nodes tagged by deep-question candidate affinity and PISA competency). Blends
+*both* traditions — Waldorf/Goethean phenomenological optics and conventional
+science-education optics — as one content universe; tradition is deliberately
+*not* a tag or filter (the Goethe↔Newton contrast lives inside the content, e.g.
+the Colour theme, not as an axis). Carries the mirror reading caveat: it leans
+Candidate 1 because optics naturally surfaces epistemological material (light as
+the object of knowing) more richly than instrumental material — a property of
+the subject, not evidence Candidate 1 is stronger. The two maps are a
+complementary pair (Cosmology leans C2, Optics leans C1) feeding the same
+Session-1 A/B decision.
+_Avoid_: optics block plan, the syllabus; "Waldorf-vs-conventional map" (it is
+not split by tradition).
