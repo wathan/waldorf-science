@@ -140,6 +140,9 @@ as distinct contributions where it matters (architectural vs teaching-stake).
 _Avoid_: collapsing her into "the framework person" or "a teacher".
 
 **Cosmology possibility-space map**:
+Retained as a single-subject reference but no longer linked from the site —
+superseded in the published navigation by the "Cosmology + Optics integrating
+map" (below), which carries it as one half.
 The interactive infinite-canvas concept map (`docs/cosmology-map.html`) of
 what a Grade-12 cosmology main-lesson block *could* contain — the full content
 universe, not a chosen design. Content organized into six thematic clusters,
@@ -156,6 +159,9 @@ _Avoid_: cosmology block plan, the syllabus (it is a content inventory, not a
 design or sequence).
 
 **Optics possibility-space map**:
+Retained as a single-subject reference but no longer linked from the site —
+superseded in the published navigation by the "Cosmology + Optics integrating
+map" (below), which carries it as one half.
 The companion interactive map (`docs/optics-map.html`) for the Optics half of
 the combined block — same engine and structure as the Cosmology possibility-space
 map (six thematic clusters, builds-on dependency trees, cross-theme bridges,
@@ -171,3 +177,21 @@ complementary pair (Cosmology leans C2, Optics leans C1) feeding the same
 Session-1 A/B decision.
 _Avoid_: optics block plan, the syllabus; "Waldorf-vs-conventional map" (it is
 not split by tradition).
+
+**Cosmology + Optics integrating map**:
+The single published whole-block map (`docs/integrating-map.html`) — the only
+possibility-space map linked from the site. A superset that carries the entire
+combined block on one canvas: both halves side by side (Optics left, Cosmology
+right) as twelve themes, every node from the two single-subject maps, plus a
+third edge type — the *cross-block hinges* (gold) joining Optics to Cosmology
+where the two genuinely meet (e.g. spectroscopy ↔ stardust evidence, finite
+speed of light ↔ deep time, model-vs-reality across both epistemology themes).
+Within-theme builds-on `dep` edges and within-half `bridge` edges are retained
+from the source maps; the hinges are the new integration layer, isolable via a
+"synthesis only" view that dims everything except them. Same candidate-affinity
+and competency filters as the source maps; carries a combined reading caveat
+(Cosmology half leans C2, Optics half leans C1 — depth reflects origin, not the
+strength of either deep question). The two single-subject maps are kept as
+references but delinked.
+_Avoid_: "block plan" or "syllabus" (still a content inventory, not a design);
+calling the hinges "bridges" (bridge = within a half; hinge = across halves).

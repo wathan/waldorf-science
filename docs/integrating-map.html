@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Optics Block — Possibility-Space Map · Working Group Session 1 (24 Jun 2026)</title>
+<title>Cosmology + Optics — Integrating Map · Working Group Session 1 (24 Jun 2026)</title>
 <style>
   :root {
     --ink: #100f0f;
@@ -16,6 +16,7 @@
     --highlight: #e6e4d9;
     --accent: #af3029;
     --link: #205ea6;
+    --hinge: #ad8301;
     /* affinity */
     --c1: #205ea6;   /* Candidate 1 — epistemological / light */
     --c2: #66800b;   /* Candidate 2 — stardust / self-Earth */
@@ -78,6 +79,7 @@
   button.tb.c1.active { background: var(--c1); border-color: var(--c1); }
   button.tb.c2.active { background: var(--c2); border-color: var(--c2); }
   button.tb.both.active { background: var(--both); border-color: var(--both); }
+  button.tb.hinge.active { background: var(--hinge); border-color: var(--hinge); color: #fff; }
   .comprow button.tb { min-width: 2.1rem; font-weight: 600; }
   .comprow button.tb.active { background: var(--accent); border-color: var(--accent); color: #fff; }
   label.chk { display: flex; align-items: center; gap: 0.4rem; margin: 0.3rem 0; cursor: pointer; }
@@ -140,12 +142,15 @@
     text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px;
   }
   .hull-sub { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 13px; font-style: italic; }
+  .half-label { font-family: -apple-system, sans-serif; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.22em; font-size: 22px; fill: var(--ink-faint); }
 
   .edge { fill: none; }
   .edge.dep { stroke: var(--ink-soft); stroke-width: 1.8; opacity: 0.7; }
   .edge.bridge { stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 6 5; opacity: 0.5; }
+  .edge.hinge { stroke: var(--hinge); stroke-width: 2.8; opacity: 0.9; }
   .edge.hidden { display: none; }
-  .edge.dim { opacity: 0.07 !important; }
+  .edge.dim { opacity: 0.06 !important; }
 
   .node { cursor: pointer; }
   .node rect.box { fill: #fff; stroke-width: 2; }
@@ -157,7 +162,9 @@
   .anchor-lbl { font-family: -apple-system, sans-serif; font-size: 13.5px; font-weight: 700; }
   .node .lbl { font-family: -apple-system, sans-serif; font-size: 12.5px; font-weight: 600; fill: var(--ink); }
   .node .comps { font-family: -apple-system, sans-serif; font-size: 10.5px; fill: var(--ink-soft); letter-spacing: 0.04em; }
-  .node.dim { opacity: 0.13; }
+  .node.dim { opacity: 0.1; }
+  .node.hinge-node rect.box { stroke-dasharray: 0; }
+  .node.hinge-node .hinge-dot { fill: var(--hinge); }
   .node.hl rect.box { stroke: var(--accent); stroke-width: 3.5; }
   .node.sel rect.box { stroke: var(--accent); stroke-width: 3.5; }
 
@@ -176,22 +183,24 @@
   aside .row { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; margin: 0.5rem 0; }
   aside .tag { font-family: -apple-system, sans-serif; font-size: 0.7rem; padding: 0.16rem 0.5rem; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-soft); }
   aside .tag.aff { color: #fff; border: none; font-weight: 600; }
+  aside .tag.half { background: var(--highlight); border: none; }
   aside .badge { font-family: -apple-system, sans-serif; font-size: 0.72rem; font-weight: 700; padding: 0.16rem 0.45rem; border-radius: 4px; background: var(--highlight); color: var(--ink); }
   aside .badge.E { background: #dde7cf; }
   aside .d-label { font-family: -apple-system, sans-serif; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint); margin: 1.1rem 0 0.3rem; font-weight: 700; }
   aside p.detail { font-size: 0.96rem; line-height: 1.5; margin: 0.3rem 0; }
   aside .links li { font-size: 0.86rem; margin: 0.25rem 0; color: var(--ink-soft); }
   aside .links b { color: var(--ink); }
+  aside .links li.hinge b { color: var(--hinge); }
 </style>
 </head>
 <body>
 
 <header class="bar">
   <div>
-    <div class="eyebrow">Working Group · Session 1 · 24 Jun 2026 · Decision support for outputs A + B</div>
-    <h1>Optics Block — Possibility-Space Map</h1>
+    <div class="eyebrow">Working Group · Session 1 · 24 Jun 2026 · Whole-block synthesis space</div>
+    <h1>Cosmology + Optics — Integrating Map</h1>
   </div>
-  <span class="meta">What the Optics half of the Grade-12 combined block <em>could</em> hold — Waldorf and conventional content together — and which deep question &amp; competencies each piece serves.</span>
+  <span class="meta">The whole combined block on one canvas — both halves and the gold cross-block hinges where Optics and Cosmology genuinely meet.</span>
   <span class="home"><a href="index.html">← Working-group materials</a></span>
 </header>
 
@@ -208,13 +217,21 @@
       <button class="tb both" data-aff="both">Shared only</button>
     </div>
     <div class="hint" style="margin-top:0.45rem;">
-      <div class="legend-item"><span class="swatch c1"></span> Candidate 1 — epistemological (light as object of knowing)</div>
-      <div class="legend-item"><span class="swatch c2"></span> Candidate 2 — instrumental (optics serves the stardust block)</div>
+      <div class="legend-item"><span class="swatch c1"></span> Candidate 1 — epistemological (light)</div>
+      <div class="legend-item"><span class="swatch c2"></span> Candidate 2 — stardust / self↔Earth</div>
       <div class="legend-item"><span class="swatch both"></span> Shared / synthesis space</div>
     </div>
     <div class="caveat">
-      <strong>Reading caveat:</strong> this map leans Candidate&nbsp;1 — optics naturally surfaces epistemological material (light as the object of knowing, colour as a question of model vs reality) far more richly than instrumental material. This is a property of the subject, <em>not</em> evidence that Candidate&nbsp;1 is the stronger choice. (The Cosmology map leans the other way.)
+      <strong>Reading caveat:</strong> each half carries its own tilt — the Cosmology half is richer on Candidate&nbsp;2 (already taught), the Optics half richer on Candidate&nbsp;1 (the subject's nature). Depth reflects those origins, <em>not</em> the strength of either deep question. The gold hinges are where the two halves actually meet — the synthesis space the deep question lives in.
     </div>
+  </div>
+
+  <div class="group">
+    <h2>Integration</h2>
+    <div class="btnrow">
+      <button class="tb hinge" id="synthOnly">Synthesis only</button>
+    </div>
+    <div class="hint" style="margin-top:0.4rem;">Dims everything except the cross-block hinges and the concepts they join — the Optics × Cosmology synthesis spine.</div>
   </div>
 
   <div class="group">
@@ -235,8 +252,10 @@
     <label class="chk"><input type="checkbox" id="togDep" checked>
       <span><svg class="edge-sample" viewBox="0 0 30 8"><line x1="0" y1="4" x2="22" y2="4" stroke="#6f6e69" stroke-width="2"/><path d="M22,1 L29,4 L22,7 z" fill="#6f6e69"/></svg> Builds toward (within theme)</span></label>
     <label class="chk"><input type="checkbox" id="togBridge" checked>
-      <span><svg class="edge-sample" viewBox="0 0 30 8"><line x1="0" y1="4" x2="22" y2="4" stroke="#af3029" stroke-width="2" stroke-dasharray="5 4"/><path d="M22,1 L29,4 L22,7 z" fill="#af3029"/></svg> Bridge (cross-theme)</span></label>
-    <div class="hint" style="margin-top:0.4rem;">Each theme is a dependency tree: arrows point from a concept to what builds on it. Bridges (red) cross between themes — the synthesis space Session 1 may find.</div>
+      <span><svg class="edge-sample" viewBox="0 0 30 8"><line x1="0" y1="4" x2="22" y2="4" stroke="#af3029" stroke-width="2" stroke-dasharray="5 4"/><path d="M22,1 L29,4 L22,7 z" fill="#af3029"/></svg> Bridge (within a half)</span></label>
+    <label class="chk"><input type="checkbox" id="togHinge" checked>
+      <span><svg class="edge-sample" viewBox="0 0 30 8"><line x1="0" y1="4" x2="22" y2="4" stroke="#ad8301" stroke-width="3"/><path d="M22,1 L29,4 L22,7 z" fill="#ad8301"/></svg> Hinge (Optics ↔ Cosmology)</span></label>
+    <div class="hint" style="margin-top:0.4rem;">Grey arrows build within a theme; red dashes bridge themes inside one half; gold links cross between the two halves — the integration layer.</div>
   </div>
 
   <div class="group">
@@ -257,8 +276,12 @@
       <marker id="arrow-bridge" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto">
         <path d="M0,0 L10,5 L0,10 z" fill="#af3029"></path>
       </marker>
+      <marker id="arrow-hinge" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#ad8301"></path>
+      </marker>
     </defs>
     <g id="world">
+      <g id="halves"></g>
       <g id="hulls"></g>
       <g id="edges"></g>
       <g id="nodes"></g>
@@ -281,41 +304,44 @@
 
 <script>
 /* =========================================================================
-   DATA — clusters, nodes, edges
-   Affinity:  c1 = epistemological (light as object of knowing)
-              c2 = instrumental (optics serves the stardust candidate) · both = shared
+   DATA — whole combined block: Optics half + Cosmology half on one canvas.
+   Affinity:  c1 = epistemological/light · c2 = stardust/self-Earth · both = shared
    ms (mode): D descriptive · R relational · A analytical · T theoretical · J synthetic-ethical
-   Content blends Waldorf/Goethean and conventional optics; tradition is NOT
-   a tag — both kinds of content sit side by side, coloured only by candidate.
+   Edge types: dep (within theme) · bridge (within a half) · hinge (Optics↔Cosmology).
+   Optics epistemology ids are oe* to avoid collision with cosmology ep*.
    ========================================================================= */
 
 const MODE = { D:"Descriptive", R:"Relational", A:"Analytical", T:"Theoretical (model-building)", J:"Synthetic / ethical judgement" };
-const AFFNAME = { c1:"Candidate 1 — epistemological", c2:"Candidate 2 — stardust / instrumental", both:"Shared / synthesis" };
+const AFFNAME = { c1:"Candidate 1 — epistemological", c2:"Candidate 2 — stardust / self↔Earth", both:"Shared / synthesis" };
+const HALFNAME = { opt:"Optics half", cos:"Cosmology half" };
 
+// each cluster: half (opt|cos), title, anchor, lean
 const clusters = {
-  lsh: { title:"Light & Shadow", sub:"phenomenological foundations", lean:"both",
-    anchor:"We see by light, but never light itself", aDetail:"The root phenomena: light as the condition of seeing, the ray model and its shadows, reflection, and the Goethean light–dark polarity that seeds colour." },
-  col: { title:"Colour — Goethe ↔ Newton", sub:"the contested core", lean:"both",
-    anchor:"Where does colour come from?", aDetail:"The fault line between Waldorf and conventional optics: colour as a boundary phenomenon (Goethe) versus white light decomposed into a spectrum (Newton). The same facts, two incompatible accounts." },
-  eye: { title:"The Eye & the Act of Seeing", sub:"perception and the observer", lean:"c1",
-    anchor:"Seeing is an activity, not a recording", aDetail:"The eye as both camera (physiology) and active organ (afterimages, illusions). Where optics turns toward the observer who can never be subtracted from the seen." },
-  geo: { title:"Geometric Optics & Instruments", sub:"the eye extended", lean:"c2",
-    anchor:"The instrument extends the eye", aDetail:"Refraction, lenses and mirrors built into camera, microscope and telescope — the instrumental optics that hands the Cosmology half its evidence, and must itself be trusted." },
-  wav: { title:"Wave & Quantum Light", sub:"the modern nature of light", lean:"both",
-    anchor:"Wave, particle — or both?", aDetail:"Interference, polarization, the electromagnetic spectrum and spectroscopy, through to the photon and wave–particle duality. The physics under everything else — and a fresh epistemic puzzle." },
-  epi: { title:"Epistemology of Optics", sub:"Candidate 1 core — what light lets us know", lean:"c1",
-    anchor:"What can light let us know?", aDetail:"The limits-of-knowledge theme: two colour theories as model-vs-reality, phenomenon versus explanation, the observer in the experiment, representation, and the bounds of eye and instrument." },
+  // ---- Optics half ----
+  lsh: { half:"opt", title:"Light & Shadow", lean:"both", anchor:"We see by light, but never light itself" },
+  col: { half:"opt", title:"Colour — Goethe ↔ Newton", lean:"both", anchor:"Where does colour come from?" },
+  eye: { half:"opt", title:"The Eye & the Act of Seeing", lean:"c1", anchor:"Seeing is an activity, not a recording" },
+  wav: { half:"opt", title:"Wave & Quantum Light", lean:"both", anchor:"Wave, particle — or both?" },
+  geo: { half:"opt", title:"Geometric Optics & Instruments", lean:"c2", anchor:"The instrument extends the eye" },
+  epi: { half:"opt", title:"Epistemology of Optics", lean:"c1", anchor:"What can light let us know?" },
+  // ---- Cosmology half ----
+  lght: { half:"cos", title:"Light as Cosmic Messenger", lean:"c1", anchor:"Light is our only messenger" },
+  star: { half:"cos", title:"Material Cosmos / Stardust", lean:"c2", anchor:"We are made of stardust" },
+  epis: { half:"cos", title:"Epistemology of Cosmology", lean:"c1", anchor:"What can cosmology actually know?" },
+  hist: { half:"cos", title:"Historical World-Pictures", lean:"both", anchor:"The world-picture has been remade before" },
+  modn: { half:"cos", title:"Modern Cosmology & Deep Time", lean:"both", anchor:"The contemporary cosmos" },
+  human:{ half:"cos", title:"Human Place & Ethical Orientation", lean:"c2", anchor:"Our place and our responsibility" },
 };
 
-// node: id, c(luster), label, aff, ms, comps[], detail   (x/y computed by layout)
 const nodes = [
+  /* ============================ OPTICS HALF ============================ */
   // ---- Light & Shadow ----
-  {id:"ls1", c:"lsh", label:"Light makes seeing possible — yet is itself unseen", aff:"both", ms:"R", comps:["S1"], detail:"We see only illuminated things; light crossing empty space is invisible until it meets a surface or the eye. The Goethean starting point — and the root phenomenon the whole block rests on."},
+  {id:"ls1", c:"lsh", label:"Light makes seeing possible — yet is itself unseen", aff:"both", ms:"R", comps:["S1"], detail:"We see only illuminated things; light crossing empty space is invisible until it meets a surface or the eye. The Goethean starting point — and the root phenomenon the whole Optics half rests on."},
   {id:"ls2", c:"lsh", label:"Light travels in straight lines (rays & shadows)", aff:"both", ms:"A", comps:["S1"], detail:"Sharp shadows and pinhole images show light's rectilinear path. The ray model — conventional optics' first abstraction from the phenomenon."},
   {id:"ls3", c:"lsh", label:"Shadow, penumbra & eclipse geometry", aff:"both", ms:"A", comps:["S1","S2"], detail:"Umbra and penumbra from an extended source — the same geometry that makes solar and lunar eclipses. Where light & shadow becomes quantitative."},
   {id:"ls4", c:"lsh", label:"Darkness as the active pole of light (Goethean)", aff:"c1", ms:"R", comps:["S1","S3"], detail:"In Goethe's optics darkness is not mere absence but a polar counterpart to light; colour is born from their interplay. The conceptual seed of the colour theme — and a live contrast with the conventional 'darkness = no light'."},
   {id:"ls5", c:"lsh", label:"Reflection & the mirror image", aff:"both", ms:"A", comps:["S1"], detail:"The law of reflection and the virtual world behind the mirror. A first case where the image is not where the object is."},
-  {id:"ls6", c:"lsh", label:"Light has a finite speed", aff:"c1", ms:"A", comps:["S2"], detail:"Rømer reads light's speed from Jupiter's moons. Light takes time to arrive — so to look out is to look into the past, the hinge shared with the Cosmology half."},
+  {id:"ls6", c:"lsh", label:"Light has a finite speed", aff:"c1", ms:"A", comps:["S2"], detail:"Rømer reads light's speed from Jupiter's moons. Light takes time to arrive — so to look out is to look into the past. The hinge that hands the Cosmology half its deep-time vertigo."},
 
   // ---- Colour — Goethe ↔ Newton ----
   {id:"co1", c:"col", label:"Where does colour come from? (the question)", aff:"both", ms:"R", comps:["S1"], detail:"The organizing question of the theme. Two strong, incompatible answers were given — and comparing them is itself the lesson."},
@@ -333,6 +359,14 @@ const nodes = [
   {id:"ey5", c:"eye", label:"Illusions & the constructed percept", aff:"c1", ms:"J", comps:["S3"], detail:"Optical illusions, constancy, filling-in: the brain builds what we see. What appears is not a transparent copy of what is there."},
   {id:"ey6", c:"eye", label:"The observer is in the picture", aff:"c1", ms:"J", comps:["S3"], detail:"If seeing is active and constructed, the knower cannot be subtracted from the known. The epistemological payload of the eye — straight into the epistemology theme."},
 
+  // ---- Wave & Quantum Light ----
+  {id:"wv1", c:"wav", label:"Wave or particle? (the nature-of-light question)", aff:"c1", ms:"R", comps:["S1"], detail:"Newton's corpuscles versus Huygens' waves — a centuries-long contest over what light is. The question the rest of the theme answers, and then unsettles again."},
+  {id:"wv2", c:"wav", label:"Interference & diffraction (the wave evidence)", aff:"both", ms:"A", comps:["S2"], detail:"Double-slit fringes and thin-film colours: light behaves as a wave. The decisive evidence against pure corpuscles."},
+  {id:"wv3", c:"wav", label:"Polarization", aff:"both", ms:"A", comps:["S1"], detail:"Light has a transverse orientation that filters can select — a property only a wave can have. Visible in glare, screens, and stressed plastics."},
+  {id:"wv4", c:"wav", label:"Light as an electromagnetic wave; the EM spectrum", aff:"both", ms:"T", comps:["S1"], detail:"Maxwell unifies light with radio, infrared, UV, X-ray. Visible colour is a narrow slice of a vast spectrum — most of it unseen. The same spectrum the Cosmology half reads each band of."},
+  {id:"wv5", c:"wav", label:"Spectroscopy: reading matter in light", aff:"both", ms:"A", comps:["S2"], detail:"Spectral lines are a substance's barcode. THE hinge to the Cosmology half: optics supplies the method by which 'we are made of stardust' is actually known."},
+  {id:"wv6", c:"wav", label:"Photon & wave–particle duality (quantum)", aff:"c1", ms:"T", comps:["S1","S3"], detail:"The photoelectric effect needs particles; interference needs waves. Light is both and neither — a standing challenge to the demand that one model be the reality."},
+
   // ---- Geometric Optics & Instruments ----
   {id:"ge1", c:"geo", label:"Refraction: light bends between media (Snell's law)", aff:"both", ms:"A", comps:["S1"], detail:"Light changes direction entering glass or water; the quantitative law behind every lens. The root of instrumental optics."},
   {id:"ge2", c:"geo", label:"Lenses: converging, diverging, focal length", aff:"both", ms:"A", comps:["S1"], detail:"How curved glass forms real and virtual images. The toolkit for every optical instrument — including the eye."},
@@ -341,69 +375,133 @@ const nodes = [
   {id:"ge5", c:"geo", label:"The telescope: extending the eye outward", aff:"c2", ms:"A", comps:["S2"], detail:"The same lenses open the very distant — Galileo's handshake with the Cosmology half. All astronomy downstream depends on this optical instrument."},
   {id:"ge6", c:"geo", label:"The instrument must itself be trusted", aff:"c1", ms:"J", comps:["S2","S3"], detail:"Galileo's telescope was contested: does it reveal or distort? Every extension of the eye raises the question of whether to believe what it shows. The epistemic turn inside instrumental optics."},
 
-  // ---- Wave & Quantum Light ----
-  {id:"wv1", c:"wav", label:"Wave or particle? (the nature-of-light question)", aff:"c1", ms:"R", comps:["S1"], detail:"Newton's corpuscles versus Huygens' waves — a centuries-long contest over what light is. The question the rest of the theme answers, and then unsettles again."},
-  {id:"wv2", c:"wav", label:"Interference & diffraction (the wave evidence)", aff:"both", ms:"A", comps:["S2"], detail:"Double-slit fringes and thin-film colours: light behaves as a wave. The decisive evidence against pure corpuscles."},
-  {id:"wv3", c:"wav", label:"Polarization", aff:"both", ms:"A", comps:["S1"], detail:"Light has a transverse orientation that filters can select — a property only a wave can have. Visible in glare, screens, and stressed plastics."},
-  {id:"wv4", c:"wav", label:"Light as an electromagnetic wave; the EM spectrum", aff:"both", ms:"T", comps:["S1"], detail:"Maxwell unifies light with radio, infrared, UV, X-ray. Visible colour is a narrow slice of a vast spectrum — most of it unseen."},
-  {id:"wv5", c:"wav", label:"Spectroscopy: reading matter in light", aff:"both", ms:"A", comps:["S2"], detail:"Spectral lines are a substance's barcode. THE bridge to the Cosmology half: it is how 'we are made of stardust' is actually known. Optics supplies cosmology's evidence."},
-  {id:"wv6", c:"wav", label:"Photon & wave–particle duality (quantum)", aff:"c1", ms:"T", comps:["S1","S3"], detail:"The photoelectric effect needs particles; interference needs waves. Light is both and neither — a standing challenge to the demand that one model be the reality."},
+  // ---- Epistemology of Optics ----
+  {id:"oe1", c:"epi", label:"Two accounts, one phenomenon: model vs reality", aff:"c1", ms:"J", comps:["S1","S3"], detail:"Goethe and Newton both 'work' on colour. Do scientific models describe the world or only order the appearances? The very question the Cosmology half asks of its models — the deepest hinge between the halves."},
+  {id:"oe2", c:"epi", label:"What light lets us see — and hides", aff:"c1", ms:"J", comps:["S1","S2"], detail:"Light is the sole messenger of both the seen world and the distant cosmos; its nature is the boundary of what optics and astronomy can establish. The literal hinge between the two halves of the block."},
+  {id:"oe3", c:"epi", label:"Phenomenon vs explanation (the Goethean method)", aff:"c1", ms:"J", comps:["S3"], detail:"Stay with what shows itself, or leap to a hidden mechanism behind it? Goethe's 'the phenomena are already the theory' against the search for unseen causes. A method question that reaches the plurality of cosmologies."},
+  {id:"oe4", c:"epi", label:"The observer's eye in the experiment", aff:"c1", ms:"J", comps:["S3"], detail:"Seeing is active and constructed (the Eye theme), so the observer is never outside the optics they study. Frame-dependence, in the small — the Cosmology half meets it again at relativity."},
+  {id:"oe5", c:"epi", label:"Representation: ray diagram, photograph, false colour", aff:"c1", ms:"J", comps:["S2","S3"], detail:"Every optical image is a made representation — ray diagrams idealise, photographs select, false-colour maps the unseen. Shared directly with the Cosmology half's constructed space images."},
+  {id:"oe6", c:"epi", label:"Limits of the eye and the instrument", aff:"c1", ms:"J", comps:["S2","S3"], detail:"Resolution limits, the invisible bands (UV, IR), the trust an instrument demands. Extending the eye also bounds it — what optics cannot reach is part of what it knows."},
 
-  // ---- Epistemology of Optics (Candidate 1 core) ----
-  {id:"ep1", c:"epi", label:"Two accounts, one phenomenon: model vs reality", aff:"c1", ms:"J", comps:["S1","S3"], detail:"Goethe and Newton both 'work' on colour. Do scientific models describe the world or only order the appearances? The optics counterpart of the Cosmology map's model-vs-reality core."},
-  {id:"ep2", c:"epi", label:"What light lets us see — and hides", aff:"c1", ms:"J", comps:["S1","S2"], detail:"Light is the sole messenger of both the seen world and the distant cosmos; its nature is the boundary of what optics and astronomy can establish. The literal hinge between the two halves of the block."},
-  {id:"ep3", c:"epi", label:"Phenomenon vs explanation (the Goethean method)", aff:"c1", ms:"J", comps:["S3"], detail:"Stay with what shows itself, or leap to a hidden mechanism behind it? Goethe's 'the phenomena are already the theory' against the search for unseen causes. A method question, not just a colour one."},
-  {id:"ep4", c:"epi", label:"The observer's eye in the experiment", aff:"c1", ms:"J", comps:["S3"], detail:"Seeing is active and constructed (the Eye theme), so the observer is never outside the optics they study. Frame-dependence, in the small."},
-  {id:"ep5", c:"epi", label:"Representation: ray diagram, photograph, false colour", aff:"c1", ms:"J", comps:["S2","S3"], detail:"Every optical image is a made representation — ray diagrams idealise, photographs select, false-colour maps the unseen. What each reveals and obscures; shared directly with the Cosmology map's false-colour node."},
-  {id:"ep6", c:"epi", label:"Limits of the eye and the instrument", aff:"c1", ms:"J", comps:["S2","S3"], detail:"Resolution limits, the invisible bands (UV, IR), the trust an instrument demands. Extending the eye also bounds it — what optics cannot reach is part of what it knows."},
+  /* ============================ COSMOLOGY HALF ============================ */
+  // ---- Historical World-Pictures ----
+  {id:"retro", c:"hist", label:"Apparent retrograde motion", aff:"both", ms:"R", comps:["S1","S2"], detail:"The backward loop of Mars against the stars — the anchor phenomenon (the Grade-11 thread). Every model in this theme is built to explain it, so it is the root of the whole dependency."},
+  {id:"hi1", c:"hist", label:"Ptolemaic geocentric model (epicycles)", aff:"both", ms:"T", comps:["S1","S2"], detail:"Saving the appearances with circles upon circles. A working, predictive model that is also wrong about the world — the first lesson that prediction ≠ truth."},
+  {id:"hi2", c:"hist", label:"Copernican heliocentric turn", aff:"both", ms:"T", comps:["S1","S2"], detail:"Moving the centre. Mathematically simpler, but demands the Earth move against all direct experience. The decentring whose existential reading lives in the Human cluster."},
+  {id:"hi3", c:"hist", label:"Tycho's hybrid & precise data", aff:"both", ms:"A", comps:["S2"], detail:"Best naked-eye data ever taken, inside a compromise geo-heliocentric model. Shows how precise measurement outlives the theory it was gathered to serve."},
+  {id:"hi4", c:"hist", label:"Kepler's three laws", aff:"both", ms:"T", comps:["S2"], detail:"Ellipses from Tycho's numbers. The moment data forces the abandonment of the perfect circle — empirical law overruling aesthetic preference."},
+  {id:"hi5", c:"hist", label:"Galileo & the telescope", aff:"both", ms:"A", comps:["S2"], detail:"Moons of Jupiter, phases of Venus. New instruments yield new evidence — and the instrument itself becomes contestable. The optical mediator the Optics half supplies and interrogates."},
+  {id:"hi6", c:"hist", label:"Newton's universal gravitation", aff:"both", ms:"T", comps:["S1"], detail:"One law for apple and planet. The synthesis that unifies terrestrial and celestial — and the template for what 'explanation' means until relativity."},
+
+  // ---- Epistemology of Cosmology ----
+  {id:"ep1", c:"epis", label:"Model vs reality", aff:"c1", ms:"J", comps:["S1","S3"], detail:"Do models describe the world or only save appearances? Ptolemy worked yet was false; the question generalises to all of science. Pure Candidate-1 territory — and the twin of the Optics half's colour-theory question."},
+  {id:"ep2", c:"epis", label:"Limits of inference", aff:"c1", ms:"J", comps:["S2","S3"], detail:"We never touch a star — everything is inferred. What can and cannot be established from indirect evidence? The epistemic centre of gravity of Candidate 1."},
+  {id:"ep3", c:"epis", label:"Plato's cave (connecting image)", aff:"c1", ms:"J", comps:["S3"], detail:"Dom's proposed anchoring image: light, shadow, and what is and isn't directly knowable. The philosophical spine if Candidate 1 is chosen."},
+  {id:"ep4", c:"epis", label:"What light lets us know — and hides", aff:"c1", ms:"J", comps:["S1","S2"], detail:"Light is the only carrier of cosmic information; its nature both enables and bounds astronomy. The literal hinge between the Optics and Cosmology halves under Candidate 1."},
+  {id:"ep5", c:"epis", label:"Observer's stance & frame-dependence", aff:"c1", ms:"J", comps:["S2"], detail:"Geocentric vs heliocentric as a choice of frame; relativity later makes frame-dependence physical. The knower is never outside the picture — the cosmic scale of the Optics half's 'observer in the experiment'."},
+  {id:"ep6", c:"epis", label:"Paradigm shifts & falsifiability", aff:"c1", ms:"J", comps:["S3"], detail:"How cosmological pictures are overturned. What would it take to be wrong? Brings philosophy-of-science to bear on the historical sequence."},
+
+  // ---- Light as Cosmic Messenger ----
+  {id:"li1", c:"lght", label:"We see only light (inference from light)", aff:"c1", ms:"A", comps:["S1","S3"], detail:"All astronomy is reading messages in light. Frames the whole block under Candidate 1 and ties directly to the Optics half's phenomena of seeing."},
+  {id:"li2", c:"lght", label:"Spectroscopy & spectral lines", aff:"both", ms:"A", comps:["S2"], detail:"The bar-code of light that reveals what stars are made of. THE hinge node: it is how 'we are made of stardust' (Candidate 2) is actually known by the Optics half's method (Candidate 1)."},
+  {id:"li3", c:"lght", label:"Parallax & standard candles", aff:"both", ms:"A", comps:["S2"], detail:"Turning light into distance. Shared between candidates — measurement craft that also exposes the inference chain."},
+  {id:"li4", c:"lght", label:"Redshift & the Doppler effect", aff:"both", ms:"A", comps:["S1"], detail:"Stretched light as evidence of motion and expansion. The observational root of modern cosmology."},
+  {id:"li5", c:"lght", label:"Telescopes & instruments (Optics bridge)", aff:"c1", ms:"A", comps:["S2"], detail:"The instrument that extends the eye — and must itself be trusted. The most concrete handshake with the Optics half of the combined block."},
+  {id:"li6", c:"lght", label:"Electromagnetic spectrum: each band, different information", aff:"both", ms:"A", comps:["S1","S2"], detail:"Visible light is a narrow slice. Radio, infrared, UV, X-ray and gamma each reveal different objects and physics. What you can know depends on which window you open — the same EM spectrum the Optics half derives."},
+  {id:"li7", c:"lght", label:"How space images are made (false colour & composite)", aff:"c1", ms:"J", comps:["S2","S3"], detail:"The 'beautiful' Hubble/JWST images are constructed — non-visible bands mapped to RGB, contrast stretched, frames composited. Evidence-rich representations, not what the eye would see. The cosmic twin of the Optics half's representation question."},
+
+  // ---- Modern Cosmology ----
+  {id:"mo1", c:"modn", label:"Big Bang & cosmic expansion", aff:"both", ms:"T", comps:["S1"], detail:"The standard origin story, inferred from redshift and the CMB. Where deep time and cosmic belonging meet."},
+  {id:"mo2", c:"modn", label:"Cosmic Microwave Background", aff:"both", ms:"A", comps:["S1","S2"], detail:"The afterglow — a measurable relic of the early universe. A striking case of seeing the past directly in present light."},
+  {id:"mo3", c:"modn", label:"Relativity & spacetime", aff:"both", ms:"T", comps:["S1"], detail:"Newton's frame replaced; space and time become observer-dependent. Feeds the epistemology cluster's frame-dependence theme."},
+  {id:"mo4", c:"modn", label:"Cosmic scale & deep time", aff:"both", ms:"J", comps:["S1","S3"], detail:"Billions of light-years and years. The vertigo of scale that grounds both humility (C1) and belonging (C2) — and rests on the Optics half's finite speed of light."},
+  {id:"mo5", c:"modn", label:"Dark matter, dark energy & the unknown", aff:"both", ms:"J", comps:["S3"], detail:"95% of the universe is unidentified. A live frontier where 'what we cannot yet know' is current science, not philosophy."},
+  {id:"mo6", c:"modn", label:"Evolution of the universe", aff:"both", ms:"T", comps:["S1","S3"], detail:"The universe as a history, not a static stage: from the hot dense start through cooling, first stars, and the assembly of galaxies to the present. The cosmic timeline the solar system is a late, local chapter of."},
+
+  // ---- Material Cosmos / Stardust ----
+  {id:"st1", c:"star", label:"Stellar nucleosynthesis — 'made of stardust'", aff:"c2", ms:"T", comps:["S1","E1"], detail:"Elements forged in stars and supernovae. The material-science heart of Candidate 2; its evidence comes from spectroscopy — the Optics-half hinge."},
+  {id:"st2", c:"star", label:"Stellar life cycles", aff:"c2", ms:"T", comps:["S1"], detail:"Birth, fusion, death of stars. The cosmic factory that makes the stardust thread concrete."},
+  {id:"st3", c:"star", label:"Elements & cosmic composition", aff:"c2", ms:"A", comps:["S1","E1"], detail:"What the universe — and our bodies — are made of, and in what proportions. Links chemistry to cosmology."},
+  {id:"st4", c:"star", label:"Sun–Earth matter & energy flow", aff:"c2", ms:"R", comps:["E1"], detail:"The Sun as the engine of Earth's systems. Where cosmology meets the environmental-science competencies head-on."},
+  {id:"st5", c:"star", label:"Cosmic origin of life's matter", aff:"c2", ms:"J", comps:["S1","E1"], detail:"From stellar ash to living body. The synthesis that lets 'self ↔ Earth ↔ cosmos' become a felt, not just stated, relation."},
+  {id:"st6", c:"star", label:"Formation of the solar system (nebular hypothesis)", aff:"c2", ms:"T", comps:["S1","E1"], detail:"A cloud of gas and dust — enriched by earlier stellar generations — collapses into the Sun, a disk, and the planets. Where the stardust story becomes our own address."},
+
+  // ---- Human Place & Ethical Orientation ----
+  {id:"hu1", c:"human", label:"Decentring: geo → helio → no centre", aff:"c2", ms:"J", comps:["S3"], detail:"The repeated displacement of the human from the centre. The existential reading of the historical sequence — biography of a worldview."},
+  {id:"hu2", c:"human", label:"Cosmos & biographical orientation", aff:"c2", ms:"J", comps:["E2","E3"], detail:"Where do I stand in all this? The Grade-12 task of orienting one's own life against the largest possible backdrop."},
+  {id:"hu3", c:"human", label:"Responsibility & stewardship (self↔Earth)", aff:"c2", ms:"J", comps:["E1","E2"], detail:"Cosmic belonging grounding ecological responsibility. Directly closes the ethical-judgement gap — the strongest argument for Candidate 2."},
+  {id:"hu4", c:"human", label:"Plurality of cosmologies (cultural / Goethean)", aff:"both", ms:"J", comps:["E3","S3"], detail:"Indigenous, ancient, and Goethean pictures alongside the scientific one. A bridge node: respect for diverse perspectives (E3) meets the Optics half's phenomenon-vs-explanation method."},
+  {id:"hu5", c:"human", label:"Wonder, awe & meaning", aff:"c2", ms:"J", comps:["E3"], detail:"The affective ground the whole block can stand on. Often the real reason a cosmology block lands — but hard to assess."},
+  {id:"hu6", c:"human", label:"Looking back at Earth (Earthrise · Pale Blue Dot)", aff:"c2", ms:"J", comps:["E3"], detail:"Space exploration's deepest return: the first images of Earth from outside. Decentring stops being an argument and becomes a picture. You went out to see the cosmos and saw yourself."},
+  {id:"hu7", c:"human", label:"Overview effect & planetary fragility", aff:"c2", ms:"J", comps:["E1","E3"], detail:"What astronauts report on seeing the whole Earth: borders vanish, the biosphere reads as one fragile skin. The affective engine that turns cosmic perspective into ecological responsibility."},
+  {id:"hu8", c:"human", label:"Should we colonize the Moon or Mars?", aff:"c2", ms:"J", comps:["E2","S3"], detail:"A live ethical-judgement question: expand off-world, or tend the only known living planet? Capstone-shaped — an open ethical decision that could itself seed a third deep-question candidate."},
 ];
 
 /* =========================================================================
-   HIERARCHY — real dependency trees. `parents` = child → its single parent
-   (the concept it genuinely builds on) WITHIN a theme. Layout is a tidy tree:
-   depth = how derived a concept is; root concepts sit at the top of each theme.
-   `bridges` = cross-theme synthesis links (kept separate, dashed).
+   HIERARCHY — within-theme dependency trees (`parents`), within-half cross-theme
+   `bridges`, and cross-block `hinges` (Optics ↔ Cosmology — the integration layer).
    ========================================================================= */
 const parents = {
-  // Light & Shadow — rooted in "we see by light"; ray model branches to shadow/mirror/speed
+  // ---- Optics half ----
   ls2:"ls1", ls4:"ls1", ls3:"ls2", ls5:"ls2", ls6:"ls2",
-  // Colour — rooted in the question; Newton and Goethe branches
   co2:"co1", co3:"co1", co5:"co2", co6:"co2", co4:"co3",
-  // The Eye — image on retina branches; active-eye chain to the observer
   ey2:"ey1", ey3:"ey1", ey4:"ey1", ey5:"ey4", ey6:"ey5",
-  // Geometric optics — refraction → lenses → camera/microscope/telescope → trust
-  ge2:"ge1", ge3:"ge2", ge4:"ge2", ge5:"ge2", ge6:"ge5",
-  // Wave & quantum — wave-or-particle root; wave evidence → EM → spectroscopy; duality
   wv2:"wv1", wv6:"wv1", wv3:"wv2", wv4:"wv2", wv5:"wv4",
-  // Epistemology — two roots: model-vs-reality (ep1) and what-light-hides (ep2)
-  ep3:"ep1", ep6:"ep1", ep4:"ep2", ep5:"ep2",
+  ge2:"ge1", ge3:"ge2", ge4:"ge2", ge5:"ge2", ge6:"ge5",
+  oe3:"oe1", oe6:"oe1", oe4:"oe2", oe5:"oe2",
+  // ---- Cosmology half ----
+  hi1:"retro", hi2:"hi1", hi3:"hi2", hi5:"hi2", hi4:"hi3", hi6:"hi4",
+  ep6:"ep1", ep5:"ep1", ep4:"ep2", ep3:"ep2",
+  li5:"li1", li2:"li1", li3:"li1", li4:"li2", li6:"li1", li7:"li6",
+  mo1:"mo3", mo2:"mo1", mo4:"mo1", mo5:"mo1", mo6:"mo1",
+  st1:"st2", st3:"st1", st6:"st1", st4:"st6", st5:"st3",
+  hu2:"hu1", hu4:"hu1", hu5:"hu1", hu6:"hu1", hu7:"hu6", hu3:"hu7", hu8:"hu7",
 };
 const bridges = [
-  ["ls4","co3"],   // darkness-as-pole → Goethe boundary colour
-  ["ls6","wv1"],   // finite speed / nature of light → wave-or-particle
-  ["co2","ep1"],   // Newton spectrum → model vs reality
-  ["co3","ep1"],   // Goethe boundary → model vs reality
-  ["co5","wv4"],   // colour = wavelength → light as EM wave
-  ["co6","ey3"],   // additive/subtractive mixing → cone colour vision
-  ["ey4","co4"],   // active-eye afterimage → complementary colours   (Goethe link)
-  ["ey6","ep4"],   // observer in the picture → observer's eye in experiment
-  ["ge2","ey1"],   // lenses → the eye is a lens
-  ["ge6","ep6"],   // instrument must be trusted → limits of eye & instrument
-  ["wv5","ge5"],   // spectroscopy ↔ telescope (the instrument gathers the light it reads)
-  ["wv5","ep2"],   // spectroscopy → what light lets us know   (the Cosmology hinge)
-  ["wv6","ep1"],   // wave–particle duality → model vs reality
+  // within Optics half
+  ["ls4","co3"], ["ls6","wv1"], ["co2","oe1"], ["co3","oe1"], ["co5","wv4"],
+  ["co6","ey3"], ["ey4","co4"], ["ey6","oe4"], ["ge2","ey1"], ["ge6","oe6"],
+  ["wv5","ge5"], ["wv6","oe1"],
+  // within Cosmology half
+  ["hi2","hu1"], ["li1","ep2"], ["ep4","li1"], ["li2","st1"], ["st5","hu3"],
+  ["hu4","ep1"], ["hi6","ep6"], ["hi6","mo3"], ["mo5","ep2"], ["mo4","hu2"],
+  ["mo3","ep5"], ["st4","hu3"], ["li4","mo1"], ["li7","ep4"], ["mo6","st6"],
+];
+// hinges: [opticsNode, cosmologyNode] — the cross-block integration layer
+const hinges = [
+  ["wv5","st1"],   // spectroscopy → stardust nucleosynthesis      (the key material hinge)
+  ["wv5","li2"],   // spectroscopy → cosmic spectroscopy           (same method, two halves)
+  ["wv4","li6"],   // optics EM spectrum → cosmic EM spectrum      (same physics)
+  ["ge5","li5"],   // telescope → telescopes/instruments
+  ["ge6","hi5"],   // instrument must be trusted → Galileo's contested telescope
+  ["oe1","ep1"],   // model vs reality (optics) ↔ model vs reality (cosmology)   (deepest hinge)
+  ["oe2","ep4"],   // what light lets us know/hides — both halves
+  ["oe5","li7"],   // representation / false colour — both halves
+  ["oe4","ep5"],   // observer in the experiment ↔ frame-dependence
+  ["ls6","mo4"],   // finite speed of light → deep time / look into the past
+  ["oe3","hu4"],   // Goethean phenomenon-vs-explanation → plurality of cosmologies
 ];
 const edges = [];
 for (const child in parents) edges.push([parents[child], child, "dep"]);
 for (const [a,b] of bridges) edges.push([a,b,"bridge"]);
+for (const [a,b] of hinges) edges.push([a,b,"hinge"]);
 
 const nodeById = Object.fromEntries(nodes.map(n => [n.id, n]));
 const childrenOf = {};
 for (const id in parents){ (childrenOf[parents[id]] ||= []).push(id); }
+const hingeNodeIds = new Set();
+hinges.forEach(([a,b]) => { hingeNodeIds.add(a); hingeNodeIds.add(b); });
 
-const GRID = { lsh:[0,0], col:[1,0], wav:[2,0], eye:[0,1], geo:[1,1], epi:[2,1] };
-const COLX = [380, 1380, 2500];
-const ROWY = [130, 1160];
+// 4 columns × 3 rows. Optics in cols 0–1 (hinge themes in col 1), Cosmology in
+// cols 2–3 (hinge themes in col 2), so the integration layer spans a central gutter.
+const GRID = {
+  lsh:[0,0], col:[0,1], eye:[0,2],
+  wav:[1,0], geo:[1,1], epi:[1,2],
+  lght:[2,0], star:[2,1], epis:[2,2],
+  hist:[3,0], modn:[3,1], human:[3,2],
+};
+const COLX = [380, 1380, 2760, 3760];
+const ROWY = [130, 1180, 2230];
 const SLOTW = 218, TIER_H = 120;
 
 // tidy tree layout per theme (handles a forest of roots)
@@ -451,25 +549,26 @@ function wrap(text, max){
   return lines;
 }
 const LINE_H = 15;
-const ANCHOR_W = 236;
-// precompute box geometry so edges can be trimmed to box edges (for arrowheads)
 nodes.forEach(n => {
-  if (n.anchor){
-    n._lines = wrap(n.label, 22);
-    n._w = ANCHOR_W;
-    n._h = 20 + n._lines.length*17 + 16;   // eyebrow + title, no comps row
-  } else {
-    n._lines = wrap(n.label, 26);
-    n._w = NODE_W;
-    n._h = 14 + n._lines.length*LINE_H + 16 + 8;
-  }
+  n._lines = wrap(n.label, 26);
+  n._w = NODE_W;
+  n._h = 14 + n._lines.length*LINE_H + 16 + 8;
 });
-// point on `to`'s box boundary along the direction toward `from`, plus a small gap
 function boxEdge(from, to, gap=5){
   const ux = from.x-to.x, uy = from.y-to.y;
   const hw = to._w/2 + gap, hh = to._h/2 + gap;
   const t = Math.min(hw/Math.max(Math.abs(ux),1e-6), hh/Math.max(Math.abs(uy),1e-6));
   return { x: to.x + ux*t, y: to.y + uy*t };
+}
+
+// half backdrop labels (computed from each half's node extent)
+const halfG = document.getElementById("halves");
+for (const half of ["opt","cos"]){
+  const mem = nodes.filter(n => clusters[n.c].half===half);
+  const minX = Math.min(...mem.map(n=>n.x-n._w/2));
+  const minY = Math.min(...mem.map(n=>n.y-n._h/2));
+  const t = el("text", { x:minX-4, y:minY-150, class:"half-label" }, halfG);
+  t.textContent = half==="opt" ? "Optics" : "Cosmology";
 }
 
 // cluster hulls (computed from member nodes)
@@ -496,10 +595,10 @@ const edgeG = document.getElementById("edges");
 const edgeEls = [];
 for (const [a,b,type] of edges){
   const na = nodeById[a], nb = nodeById[b];
-  const p1 = boxEdge(nb, na);   // trimmed source end
-  const p2 = boxEdge(na, nb);   // trimmed target end (arrowhead sits here)
-  const attrs = { x1:p1.x, y1:p1.y, x2:p2.x, y2:p2.y, class:`edge ${type}`,
-    "marker-end": `url(#arrow-${type==="bridge"?"bridge":"prereq"})` };
+  const p1 = boxEdge(nb, na);
+  const p2 = boxEdge(na, nb);
+  const mk = type==="hinge" ? "hinge" : (type==="bridge" ? "bridge" : "prereq");
+  const attrs = { x1:p1.x, y1:p1.y, x2:p2.x, y2:p2.y, class:`edge ${type}`, "marker-end": `url(#arrow-${mk})` };
   const line = el("line", attrs, edgeG);
   edgeEls.push({ line, a, b, type });
 }
@@ -511,32 +610,21 @@ for (const n of nodes){
   const lines = n._lines;
   const boxH = n._h, boxW = n._w;
   const col = AFF_COLOR[n.aff];
-  const g = el("g", { class:"node"+(n.anchor?" anchor":""), "data-id":n.id, "data-aff":n.aff,
+  const isHinge = hingeNodeIds.has(n.id);
+  const g = el("g", { class:"node"+(isHinge?" hinge-node":""), "data-id":n.id, "data-aff":n.aff,
     transform:`translate(${n.x},${n.y})` }, nodeG);
 
-  if (n.anchor){
-    el("rect", { class:"box", x:-boxW/2, y:-boxH/2, width:boxW, height:boxH, rx:9,
-      stroke:col, fill:"#fff" }, g);
-    el("rect", { x:-boxW/2, y:-boxH/2, width:boxW, height:22, rx:9, fill:col }, g);
-    el("rect", { x:-boxW/2, y:-boxH/2+11, width:boxW, height:11, fill:col }, g);
-    const eb = el("text", { class:"anchor-eb", x:0, y:-boxH/2+15, "text-anchor":"middle" }, g);
-    eb.textContent = "THEME";
-    const startY = -boxH/2 + 22 + 18;
-    lines.forEach((ln,i)=>{
-      const t = el("text", { class:"anchor-lbl", x:0, y:startY + i*17, "text-anchor":"middle", fill:col }, g);
-      t.textContent = ln;
-    });
-  } else {
-    el("rect", { class:"box", x:-boxW/2, y:-boxH/2, width:boxW, height:boxH, rx:7, stroke:col }, g);
-    el("rect", { class:"bar", x:-boxW/2, y:-boxH/2, width:6, height:boxH, rx:3, fill:col }, g);
-    const startY = -boxH/2 + 14 + 8;
-    lines.forEach((ln,i)=>{
-      const t = el("text", { class:"lbl", x:4, y:startY + i*LINE_H, "text-anchor":"middle" }, g);
-      t.textContent = ln;
-    });
-    const ct = el("text", { class:"comps", x:4, y:startY + lines.length*LINE_H + 6, "text-anchor":"middle" }, g);
-    ct.textContent = n.comps.join("  ·  ");
-  }
+  el("rect", { class:"box", x:-boxW/2, y:-boxH/2, width:boxW, height:boxH, rx:7, stroke:col }, g);
+  el("rect", { class:"bar", x:-boxW/2, y:-boxH/2, width:6, height:boxH, rx:3, fill:col }, g);
+  if (isHinge) el("circle", { class:"hinge-dot", cx:boxW/2-9, cy:-boxH/2+9, r:4 }, g);
+  const startY = -boxH/2 + 14 + 8;
+  lines.forEach((ln,i)=>{
+    const t = el("text", { class:"lbl", x:4, y:startY + i*LINE_H, "text-anchor":"middle" }, g);
+    t.textContent = ln;
+  });
+  const ct = el("text", { class:"comps", x:4, y:startY + lines.length*LINE_H + 6, "text-anchor":"middle" }, g);
+  ct.textContent = n.comps.join("  ·  ");
+
   g.addEventListener("click", (e)=>{ e.stopPropagation(); if(tMoved) return; openNode(n.id); });
   nodeEls[n.id] = g;
 }
@@ -551,10 +639,10 @@ const view = { x: 40, y: 30, k: 0.62 };
 function apply(){ world.setAttribute("transform", `translate(${view.x},${view.y}) scale(${view.k})`); }
 function fit(){
   const xs = nodes.map(n=>n.x), ys = nodes.map(n=>n.y);
-  const minX=Math.min(...xs)-160, maxX=Math.max(...xs)+160, minY=Math.min(...ys)-120, maxY=Math.max(...ys)+120;
+  const minX=Math.min(...xs)-160, maxX=Math.max(...xs)+160, minY=Math.min(...ys)-220, maxY=Math.max(...ys)+120;
   const w = svg.clientWidth, h = svg.clientHeight;
   view.k = Math.min(w/(maxX-minX), h/(maxY-minY)) * 0.96;
-  view.k = Math.max(0.2, Math.min(view.k, 1.2));
+  view.k = Math.max(0.16, Math.min(view.k, 1.2));
   view.x = (w - (maxX+minX)*view.k)/2;
   view.y = (h - (maxY+minY)*view.k)/2;
   apply();
@@ -571,7 +659,7 @@ stage.addEventListener("wheel", (e)=>{
   const r = svg.getBoundingClientRect();
   const mx = e.clientX-r.left, my = e.clientY-r.top;
   const f = e.deltaY<0 ? 1.12 : 1/1.12;
-  const nk = Math.max(0.2, Math.min(view.k*f, 2.6));
+  const nk = Math.max(0.16, Math.min(view.k*f, 2.6));
   view.x = mx - (mx-view.x)*(nk/view.k);
   view.y = my - (my-view.y)*(nk/view.k);
   view.k = nk; apply();
@@ -603,7 +691,7 @@ stage.addEventListener("touchmove", (e)=>{
     const r=svg.getBoundingClientRect();
     const mx=(e.touches[0].clientX+e.touches[1].clientX)/2 - r.left;
     const my=(e.touches[0].clientY+e.touches[1].clientY)/2 - r.top;
-    const nk=Math.max(0.2, Math.min(view.k*(nd/pinchDist), 2.6));
+    const nk=Math.max(0.16, Math.min(view.k*(nd/pinchDist), 2.6));
     view.x = mx-(mx-view.x)*(nk/view.k);
     view.y = my-(my-view.y)*(nk/view.k);
     view.k=nk; pinchDist=nd; tMoved=true; apply();
@@ -619,23 +707,26 @@ stage.addEventListener("touchend", (e)=>{
    ========================================================================= */
 let affMode = "all";   // all | c1 | c2 | both
 let compMode = null;   // S1..E3 or null
+let synthMode = false; // synthesis-only view
 
 function affMatch(n){
   if (affMode==="all") return true;
   if (affMode==="both") return n.aff==="both";
-  return n.aff===affMode || n.aff==="both";   // candidate filters include shared
+  return n.aff===affMode || n.aff==="both";
 }
 function refresh(){
   for (const n of nodes){
     const g = nodeEls[n.id];
-    g.classList.toggle("dim", !affMatch(n));
-    g.classList.toggle("hl", compMode!==null && n.comps.includes(compMode));
+    const synthOK = !synthMode || hingeNodeIds.has(n.id);
+    g.classList.toggle("dim", !(affMatch(n) && synthOK));
+    g.classList.toggle("hl", compMode!==null && n.comps.includes(compMode) && synthOK);
   }
   for (const e of edgeEls){
-    const visible = (e.type==="dep" && showDep) || (e.type==="bridge" && showBridge);
+    let visible = (e.type==="dep" && showDep) || (e.type==="bridge" && showBridge) || (e.type==="hinge" && showHinge);
     e.line.classList.toggle("hidden", !visible);
-    const dim = !affMatch(nodeById[e.a]) || !affMatch(nodeById[e.b]);
-    e.line.classList.toggle("dim", dim);
+    const affOK = affMatch(nodeById[e.a]) && affMatch(nodeById[e.b]);
+    const synthEdgeOK = !synthMode || e.type==="hinge";
+    e.line.classList.toggle("dim", !(affOK && synthEdgeOK));
   }
 }
 
@@ -643,6 +734,12 @@ document.getElementById("affFilter").addEventListener("click", (e)=>{
   const b = e.target.closest("button"); if(!b) return;
   affMode = b.dataset.aff;
   document.querySelectorAll("#affFilter button").forEach(x=>x.classList.toggle("active", x===b));
+  refresh();
+});
+
+document.getElementById("synthOnly").addEventListener("click", (e)=>{
+  synthMode = !synthMode;
+  e.target.classList.toggle("active", synthMode);
   refresh();
 });
 
@@ -663,9 +760,10 @@ document.getElementById("compFilter").addEventListener("click", (e)=>{
   refresh();
 });
 
-let showDep=true, showBridge=true;
+let showDep=true, showBridge=true, showHinge=true;
 document.getElementById("togDep").addEventListener("change", e=>{ showDep=e.target.checked; refresh(); });
 document.getElementById("togBridge").addEventListener("change", e=>{ showBridge=e.target.checked; refresh(); });
+document.getElementById("togHinge").addEventListener("change", e=>{ showHinge=e.target.checked; refresh(); });
 
 /* =========================================================================
    DETAIL DRAWER
@@ -678,27 +776,24 @@ function openNode(id){
   if (selId) nodeEls[selId]?.classList.remove("sel");
   selId = id; nodeEls[id].classList.add("sel");
 
-  document.getElementById("dCluster").textContent = clusters[n.c].title;
+  document.getElementById("dCluster").textContent = HALFNAME[clusters[n.c].half] + " · " + clusters[n.c].title;
   document.getElementById("dCluster").style.color = AFF_COLOR[n.aff];
   document.getElementById("dTitle").textContent = n.label;
-
-  document.getElementById("dCluster").textContent = n.anchor ? "Theme anchor · "+clusters[n.c].title : clusters[n.c].title;
 
   const tags = document.getElementById("dTags"); tags.innerHTML="";
   const aff = document.createElement("span");
   aff.className="tag aff"; aff.style.background=AFF_COLOR[n.aff]; aff.textContent=AFFNAME[n.aff];
   tags.appendChild(aff);
-  if (!n.anchor){
-    const mode = document.createElement("span");
-    mode.className="tag"; mode.textContent="Mode: "+MODE[n.ms];
-    tags.appendChild(mode);
+  const mode = document.createElement("span");
+  mode.className="tag"; mode.textContent="Mode: "+MODE[n.ms];
+  tags.appendChild(mode);
+  if (hingeNodeIds.has(n.id)){
+    const hg = document.createElement("span");
+    hg.className="tag half"; hg.style.color="#ad8301"; hg.textContent="⬥ Cross-block hinge";
+    tags.appendChild(hg);
   }
 
-  // competency row only for concept nodes
-  const compLabel = document.getElementById("dComps").previousElementSibling;
   const comps = document.getElementById("dComps"); comps.innerHTML="";
-  compLabel.style.display = n.anchor ? "none" : "";
-  comps.style.display = n.anchor ? "none" : "";
   n.comps.forEach(c=>{
     const s=document.createElement("span");
     s.className="badge"+(c[0]==="E"?" E":""); s.textContent=c;
@@ -707,15 +802,14 @@ function openNode(id){
 
   document.getElementById("dDetail").textContent = n.detail;
 
-  const linkLabel = "Connected to";
-  document.getElementById("dLinks").previousElementSibling.textContent = n.anchor ? "Concepts in this theme" : linkLabel;
   const links = document.getElementById("dLinks"); links.innerHTML="";
   const conn = edges.filter(e=>e[0]===id||e[1]===id);
   if (!conn.length){ const li=document.createElement("li"); li.textContent="— (no edges)"; links.appendChild(li); }
   conn.forEach(([a,b,type])=>{
     const other = nodeById[a===id?b:a];
     const li=document.createElement("li");
-    const verb = type==="bridge" ? "⇢ bridge" : (a===id ? "→ leads to" : "▲ builds on");
+    if (type==="hinge") li.className="hinge";
+    const verb = type==="hinge" ? "⬥ hinges to" : (type==="bridge" ? "⇢ bridge" : (a===id ? "→ leads to" : "▲ builds on"));
     li.innerHTML = `<b>${verb}:</b> ${other.label}`;
     li.style.cursor="pointer";
     li.addEventListener("click", ()=>openNode(other.id));
