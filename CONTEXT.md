@@ -103,9 +103,12 @@ _Avoid_: combined block, cross-disciplinary block.
 The single guiding question a pilot block organises around. Two drafts under
 working-group consideration: epistemological-capstone ("what does light let us
 know and keep us from knowing", S-leaning) vs stardust/self↔Earth (E-leaning,
-matches school's prior cosmology teaching, closes ethical-judgement gap from
-handoff line 17). Decision deferred to working-group session post-Jun-17.
-_Avoid_: capstone question, central question, theme.
+matches school's prior cosmology teaching). Decision deferred to working-group
+session post-Jun-17. The two are weighed on neutral profiles plus the group's own
+named criterion — *not* on the old "ethical-judgement gap," dissolved as a
+block-level criterion per [ADR-0004](./adr/0004-ethical-judgement-gap-demoted.md).
+_Avoid_: capstone question, central question, theme; framing C2 as "closing a gap"
+C1 leaves open (that verdict is dissolved).
 
 ### Meso-design
 
@@ -118,6 +121,48 @@ coordination protocol. (G) Block-level operationalisations for the selected
 sub-abilities.
 _Avoid_: block plan, block design (use these as informal references; the formal
 artefact set is "the seven").
+
+**Two-altitude design model**:
+Curriculum design runs at two altitudes; competency-reasoning is the *constraint*
+at both, never the generative first move. *Grade level* (4 blocks): the question-arc
+is the generative act, competency *coverage* is the constraint on the union of the
+four blocks. *Block level* (one block): the question is inherited/chosen, the
+competency subset is mostly entailed by it. Choosing block competencies before the
+block question is a category error (whole-grade coverage logic applied as one
+block's opener) — the railroading source fixed in
+[ADR-0003](./adr/0003-session1-deep-question-before-competency-selection.md).
+_Avoid_: "competencies first" stated flatly (true of coverage at grade level,
+false as a per-block opener).
+
+**Competency gap-test (the hinge)**:
+The Session-1 step where each deep-question candidate is tested against the
+framework map — what profile it entails, and what it *omits*. With no grade-arc
+above the pilot it *informs* the fork and records omissions as deferred
+grade-level coverage notes; it does **not** veto a candidate (veto power belongs to
+grade-level coverage, which does not yet exist — [ADR-0004](./adr/0004-ethical-judgement-gap-demoted.md)).
+Block competency selection (A) is still finalised *from* the resolved question (B),
+not chosen ahead of it. The one optional consideration it may raise is the
+*developmental-pitch question* (below).
+_Avoid_: treating A as a free pre-question choice, or as a post-hoc rubber stamp;
+calling the gap-test a veto.
+
+**Developmental-pitch question (non-binding)**:
+The single surviving residue of the dissolved "ethical-judgement gap." Macro line 65
+makes synthetic/ethical the grade-12 judgement mode and analytical/evaluative the
+grade-11 mode; a wholly-epistemological candidate *may* be asked whether it pitches
+richly grade-12 or grade-11. A named, optional question Kru Fang brings from the
+macro-diagnostic — not a pass/fail test, not a coverage veto, softened by
+predominance-not-exclusivity. Lives only in the fork mechanic (appendix step 3);
+candidate descriptions stay neutral. See [ADR-0004](./adr/0004-ethical-judgement-gap-demoted.md).
+_Avoid_: "ethical-judgement gap" as a block-level criterion (dissolved); treating
+the pitch question as disqualifying C1.
+
+**Question-arc (grade level)**:
+The set of four block deep questions across a grade, designed *as a set* to tell one
+coherent developmental story while jointly covering all six competencies. The
+generative object of grade-level design. Not demonstrated by the pilot (one block,
+no arc above it) — named and seeded for future whole-curriculum design.
+_Avoid_: equating one block's deep question with the arc.
 
 **Block-level operationalisation**:
 The operationalisation of a sub-ability *within the pilot block's specific

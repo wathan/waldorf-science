@@ -12,13 +12,26 @@ The plan is for the working group as a whole. The two pilot teachers (Kru Fang i
 
 ---
 
+## Two altitudes — what this pilot can and cannot model
+
+Curriculum design happens at two altitudes, and **competency-reasoning is the constraint at both — never the generative first move.**
+
+- **Grade level (4 blocks).** The design object is a coherent *question-arc*: four driving questions that jointly tell one developmental story across the year. Coherence forces the *questions* to be designed as a set, so questions are the generative act. Competency *coverage* is a constraint on the union of the four — the arc is drafted, the competency map is checked for gaps (four questions that all hit S1/S3 and never touch E2?), the arc is adjusted to fill them. Questions generate; coverage constrains.
+- **Block level (one block).** A single block inherits its question from the arc and exercises a *subset* — full coverage is explicitly not a per-block goal. Competency selection is mostly *entailed* by the question, plus whatever the grade-level coverage gap pushes down into this block.
+
+**Why this kills competency-first ordering.** Choosing a block's competencies (A) *before* its question (B) is a category error: it applies whole-grade *coverage* logic as a single block's opening move. That is exactly what railroads — the block only ever exercises a slice, so a "select all the competencies first" pass against one block is reverse-justified theatre. The honest order makes competency-reasoning the **hinge that tests and can alter the question** (see Session 1), not the opener.
+
+**What the pilot can and cannot demonstrate.** This pilot is the *first* block, with no grade-arc above it yet (the framework was built Jun 17). It can honestly model only the **block-level** method: question generates → competency gap-test bites → subset finalised. The **grade-level** method (question-arc-first, coverage-checked) is the thing this pilot *seeds* for future whole-curriculum design — named here so the working group sees the altitude above, but not demonstrated by one block.
+
+---
+
 ## Background — the two deep-question candidates
 
 Two candidate deep questions are currently in development from prior working sessions. The choice between them is the most consequential single decision in meso-design and lives in Session 1 (see fork-resolution mechanic in §Appendix). The actual question wording is held back until Session 1, but the working group should enter with a clear picture of what each candidate *organises around*:
 
-**Candidate 1 — Epistemological capstone.** Light is the central object. The block leans on S1/S2/S3 (science) competencies; treats optics phenomenologically and cosmology as inference from light. Centre of gravity: what scientific knowledge can and cannot establish, the limits of inference, the epistemic stance of the knower. Dom in an early session proposed Plato's allegory of the cave as the connecting image — light, shadow, and what is and is not directly knowable — which anchors this candidate philosophically. Strength: novel framing, makes epistemic limits visible. Limitation: the ethical-judgement dimension of grade 12 does not arise naturally.
+**Candidate 1 — Epistemological capstone.** Light is the central object. The block leans on S1/S2/S3 (science) competencies; treats optics phenomenologically and cosmology as inference from light. Centre of gravity: what scientific knowledge can and cannot establish, the limits of inference, the epistemic stance of the knower. Dom in an early session proposed Plato's allegory of the cave as the connecting image — light, shadow, and what is and is not directly knowable — which anchors this candidate philosophically. Strength: novel framing, makes epistemic limits visible. Limitation: optics carries the phenomenological weight largely alone; the cosmology half turns inferential.
 
-**Candidate 2 — Stardust / self ↔ Earth.** Cosmology is the central object — the student's relation to the cosmos they are materially part of. Leans on E1/E2/E3 (environmental science) competencies, with S1/S2 also exercised through the material-science work behind "we are made of stardust" (stellar nucleosynthesis, spectroscopy as evidence of cosmic composition). Matches how cosmology was previously taught at the school. Centre of gravity: ecocentric synthesis, responsibility, biographical orientation toward the world. Strength: closes the ethical-judgement gap directly; lower teacher onboarding cost. Limitation: optics becomes instrumental rather than phenomenologically central.
+**Candidate 2 — Stardust / self ↔ Earth.** Cosmology is the central object — the student's relation to the cosmos they are materially part of. Leans on E1/E2/E3 (environmental science) competencies, with S1/S2 also exercised through the material-science work behind "we are made of stardust" (stellar nucleosynthesis, spectroscopy as evidence of cosmic composition). Matches how cosmology was previously taught at the school. Matches how cosmology was previously taught at the school. Centre of gravity: ecocentric synthesis, responsibility, biographical orientation toward the world. Strength: lower teacher onboarding cost. Limitation: optics becomes instrumental rather than phenomenologically central.
 
 These two are not exhaustive — Session 1 may produce a third synthesis — but they are the live drafts the working group enters the meeting with. Question wording, including any hybrid, is fixed only at the moment of decision.
 
@@ -28,7 +41,7 @@ These two are not exhaustive — Session 1 may produce a third synthesis — but
 
 By Jul 29 the working group must have ratified, on the record:
 
-- **(A) Block-level competency selection.** The subset of the framework's six competencies, and which sub-abilities under each, the block will exercise. Defines what the block is *for* in framework terms.
+- **(A) Block-level competency selection.** The subset of the framework's six competencies, and which sub-abilities under each, the block will exercise. Defines what the block is *for* in framework terms. Finalised *from* the deep question (B) — not chosen ahead of it; see Session 1.
 - **(B) Deep question.** Single guiding question. Decides between the two candidate drafts (epistemological-capstone vs stardust / self ↔ Earth) using the fork-resolution mechanic in §Appendix.
 - **(C) Phase structure.** Week-by-week shape, including which teacher is "main" in each phase.
 - **(D) Bridge questions.** Recurring questions the secondary teacher poses in each phase to link to the other discipline.
@@ -46,7 +59,7 @@ Mixed origination; working group ratifies all.
 
 | Output | Originated by | Decided by |
 |---|---|---|
-| (A) Competency selection | Working group (Kru Fang brings shortlist) | Working group |
+| (A) Competency selection | Working group (Kru Fang brings competency map as gap-test scaffold; A is finalised from B) | Working group |
 | (B) Deep question | Working group (Kru Fang brings both drafts side-by-side with criterion analysis) | Working group |
 | (C) Phase structure | Working group (Kru Fang brings draft) | Working group |
 | (D) Bridge questions | Pilot teachers draft (during break) | Working group ratifies |
@@ -62,7 +75,7 @@ Mixed origination; working group ratifies all.
 
 | Session | Date | Decides | Type |
 |---|---|---|---|
-| 1 | Wed Jun 24 | A + B | Standard (Kru Fang input → group decides) |
+| 1 | Wed Jun 24 | B then A | Standard (Kru Fang input → group decides) |
 | 2 | Wed Jul 1 | C + E | Standard |
 | 3 | Wed Jul 8 | Coherence check + author briefings | Non-decision session |
 | — | Jul 15, Jul 22 | *School break — pilot teachers draft D, F; Kru Fang drafts G* | — |
@@ -77,17 +90,19 @@ Mixed origination; working group ratifies all.
 
 ## Per-session protocols
 
-### Session 1 — Jun 24 — A + B
+### Session 1 — Jun 24 — B then A
 
 **Kru Fang brings (input drafts):**
-- Competency shortlist with brief argument per item — which of the framework's six competencies, and which sub-abilities, are candidate for inclusion in the block.
 - The two deep-question drafts side-by-side, each with: macro-curriculum fit, competency-profile, what it does and doesn't close, classroom-feasibility summary.
+- A competency map of the framework's six competencies and their sub-abilities, brought as the *gap-test scaffold* — **not** a pre-selected shortlist to ratify, but the lens each question candidate is tested against.
 
-**Group decides:**
-- A first (which narrows the deep-question viability).
-- B second, using the fork-resolution mechanic in §Appendix.
+**Group decides (the hinge sequence):**
+1. **Surface** the question candidates openly — they pre-exist (see Background). No pretence that competencies are chosen in a vacuum.
+2. **Competency gap-test** each candidate against the map: what profile does it entail, and what does it omit? With no grade-arc above this pilot, an omission is **not** a veto — a block exercises only a subset (see Two altitudes). The gap-test *informs* the fork and records omissions as deferred grade-level coverage notes; it does not disqualify a candidate. It may surface the non-binding developmental-pitch question in §Appendix step 3.
+3. **Decide B** using the fork-resolution mechanic in §Appendix.
+4. **Finalise A** as a consequence of B: the subset the chosen question entails, plus any deliberate framework-driven additions the gap-test surfaced.
 
-**Centre of gravity:** the deep-question fork resolution. The rest is setup.
+**Centre of gravity:** the gap-test → fork resolution. A is finalised *from* B, not chosen ahead of it. The honest move is not "question first then rubber-stamp competencies" — it is making competency-reasoning a genuine check the question is examined against, informing the fork rather than vetoing it.
 
 ### Session 2 — Jul 1 — C + E
 
@@ -133,8 +148,8 @@ One growing document built across the four sessions, structured as below. Kru Fa
 
 ```
 1.  Frame                              (fixed; ported from Jun 17 framework)
-2.  A. Competency selection            (filled at Session 1)
-3.  B. Deep question + rationale       (filled at Session 1)
+2.  B. Deep question + rationale       (decided at Session 1; drives A)
+3.  A. Competency selection            (finalised at Session 1, from B)
 4.  C. Phase structure                 (filled at Session 2)
 5.  E. Capstone artifact               (filled at Session 2)
 6.  Coherence-check notes              (filled at Session 3)
@@ -171,6 +186,7 @@ Because both pilot teachers are in the working group, meso → micro is a *phase
 - **Pilot evaluation criteria.** What "the pilot succeeded" means as observable outcomes. Worth a separate working-group session post-pilot.
 - **Generalisation to other blocks.** This pilot tests cross-system capstone-question integration; not a template for single-system blocks. Generalisation lessons emerge from the pilot itself.
 - **Framework-wide operationalisations** (S2, S3, E1, E2 — deferred from the Jun 17 framework). Block-level G covers only the sub-abilities this block exercises.
+- **Grade-level competency coverage**, including synthetic-ethical judgement (E3.4). Whether the year's four blocks *jointly* exercise every competency is a grade-level arc concern. The earlier "ethical-judgement gap" — which treated this pilot as obligated to close E3.4 — was a standalone-frame artifact (the same vacuum error ADR-0003 overturned), now corrected: this block exercises a subset, and coverage is deferred to future arc design. See ADR-0004.
 
 ---
 
@@ -180,9 +196,11 @@ The deep-question decision is the single most consequential meso decision. To pr
 
 1. **Side-by-side review.** Both deep questions presented on a single page with: macro-curriculum fit, competency-profile, what it does and doesn't close. Group reads silently first.
 2. **Name the criterion explicitly.** Which proof does the pilot most need to deliver: (a) distinctive new pedagogy, (b) full grade-12 fit including ethical-synthetic judgement, (c) continuity-with-improvement on existing strong teaching? The criterion is named *before* the question is chosen — not after.
-3. **Gap test.** Does the candidate question close the ethical-judgement gap flagged in the handoff (synthetic *and ethical* — "what is my responsibility within this whole situation")? If not, can it be augmented without losing focus? If neither, the candidate fails the test.
+3. **Developmental-pitch question (non-binding).** Macro line 65 makes synthetic/ethical judgement the *grade-12* judgement mode and analytical/evaluative the *grade-11* mode. If a candidate's judgement centre sits at the analytical/epistemic mode, the group *may* ask: is this richly grade-12, or grade-11 in pitch? Kru Fang brings this from the macro-diagnostic for the group to weigh — it is **not** a pass/fail test and **not** a coverage veto. Whether synthetic-ethical judgement (E3.4) is exercised *somewhere* is a deferred grade-level concern, not a demand on this one block; and predominance is not exclusivity — a lower judgement mode may legitimately be load-bearing (cf. macro-curriculum lines 269–271). See ADR-0004.
 4. **Cross-system test.** Does the question genuinely cross systems (Optics × Cosmology under one whole), or does one discipline become instrumental to the other? Both candidates pass this test with different profiles; the test discriminates *how* they cross.
 5. **Decision recorded with the criterion that justified it.** The chosen criterion (step 2) and the gap-test outcome (step 3) go into the document, not just the question itself. This protects the decision against later re-litigation by recording *why* it was decided as it was.
+
+**A is finalised from this outcome.** Once B is decided, competency selection (A) is the entailed subset plus any deliberate additions surfaced during the gap-test — recorded alongside B, not as a prior free choice. The gap-test is the hinge: it is where competency-reasoning *informs* the question (surfacing omissions as deferred grade-level coverage notes, and optionally raising the developmental-pitch question). With no grade-arc above this pilot it cannot *veto* a candidate — that power belongs to grade-level coverage, which does not yet exist.
 
 ---
 

@@ -122,6 +122,13 @@ First-mention bilingual `ระดับมาโคร (ภาพรวม)` et
 | Phase structure | โครงสร้างลำดับบทเรียน | โครงสร้างลำดับบทเรียน | revised |
 | Coordination protocol | ระเบียบการประสานงาน | | |
 | Capstone-question integration | การบูรณาการด้วยคำถามปลายทาง | การบูรณาการด้วยคำถามปลายทาง | revised |
+| Two-altitude design model | แบบจำลองการออกแบบสองระดับชั้น | สองระดับชั้น | grade vs block; ADR-0003 |
+| Question-arc (grade level) | ชุดคำถามนำทั้งปี | ชุดคำถามของชั้นปี | four block questions as a set |
+| Competency gap-test (the hinge) | การทดสอบช่องว่างสมรรถนะ | การทดสอบช่องว่าง | tests/can alter the deep question |
+| Hinge | บานพับ | บานพับ | gap-test as pivot, not opener |
+| Coverage (competency) | การครอบคลุมสมรรถนะ | การครอบคลุม | union constraint across 4 blocks |
+| Developmental-pitch question | คำถามเรื่องระดับพัฒนาการ | คำถามเรื่องระดับพัฒนาการ | non-binding; grade-12 vs grade-11 mode; ADR-0004 |
+| Veto (no-veto) | การยับยั้ง | ยับยั้ง | gap-test informs, does not veto |
 
 ## Macro-curriculum dimensions (construct)
 
