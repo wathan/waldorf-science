@@ -138,6 +138,27 @@ block's opener) — the railroading source fixed in
 _Avoid_: "competencies first" stated flatly (true of coverage at grade level,
 false as a per-block opener).
 
+**Competency lean source (content-native vs theme-carried)**:
+A competency is *exercised through* content — it is never "part of" or "absent
+from" a discipline (that phrasing is a category error). A deep-question
+candidate's competency lean has a *source*: **content-native** — the
+discipline's own content exercises it (optics content surfaces the
+S/epistemic competencies because light is itself the object of knowing —
+Optics-map caveat); or **theme-carried** — the question's framing/orientation
+exercises it where the discipline supplies no native content hook (Candidate 2's
+stardust theme reaching E1/E2/E3, since cosmology/optics hold no
+environmental-science content). Neither is a defect: per the two-altitude model
+the question generates and content carries whatever competencies it organises,
+and E3 is dispositional by PISA intent. On the Session-1 review page the
+distinction is recorded only *implicitly* (the "through the material-science"
+qualifier sits on S1/S2, not on the E's) and must stay *symmetric* — stating it
+as a one-sided C2 cost ("E-competencies not part of the discipline") would
+reintroduce the thumb-on-scale [ADR-0004](./adr/0004-ethical-judgement-gap-demoted.md)
+removed, polarity flipped.
+_Avoid_: saying a competency is "part of / not part of" a discipline;
+framing C2's theme-carried E-lean as a block-level cost (mirror of the dissolved
+gap-verdict).
+
 **Competency gap-test (the hinge)**:
 The Session-1 step where each deep-question candidate is tested against the
 framework map — what profile it entails, and what it *omits*. With no grade-arc
