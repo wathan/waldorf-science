@@ -2,7 +2,8 @@
 .DS_Store
 
 # Claude Code local config and scratch
-.claude/
+.claude/*
+!.claude/skills/
 .scratch/
 .agents/
 
