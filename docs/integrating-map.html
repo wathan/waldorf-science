@@ -590,16 +590,104 @@ for (const key in clusters){
   s.textContent = "“" + clusters[key].anchor + "”";
 }
 
+/* =========================================================================
+   ORTHOGONAL EDGE ROUTING
+   Inter-theme edges (bridge, hinge) are drawn as rounded-orthogonal paths that
+   run along the empty gutters between the 4×3 theme grid — never straight
+   across node boxes or theme hulls. Hinges funnel through the central gutter
+   (the synthesis spine). Within-theme dep edges stay straight (trees are tidy).
+   ========================================================================= */
+// column / row extents → clear gutter lanes
+const colXs = [[],[],[],[]], rowYs = [[],[],[]];
+for (const n of nodes){
+  const [cc,rr] = GRID[n.c];
+  colXs[cc].push(n.x - n._w/2, n.x + n._w/2);
+  rowYs[rr].push(n.y - n._h/2, n.y + n._h/2);
+}
+const colL = colXs.map(a=>Math.min(...a)), colR = colXs.map(a=>Math.max(...a));
+const rowT = rowYs.map(a=>Math.min(...a)), rowB = rowYs.map(a=>Math.max(...a));
+const vGut = [ (colR[0]+colL[1])/2, (colR[1]+colL[2])/2, (colR[2]+colL[3])/2 ]; // [0]=opt inner, [1]=central spine, [2]=cos inner
+const vOutL = colL[0]-130, vOutR = colR[3]+130;
+const vLanes = [vOutL, vGut[0], vGut[1], vGut[2], vOutR];
+const hLanes = [ Math.min(...rowT)-120, (rowB[0]+rowT[1])/2, (rowB[1]+rowT[2])/2, Math.max(...rowB)+120 ];
+const themeBox = {};
+for (const key in clusters){
+  const m = nodes.filter(n=>n.c===key);
+  themeBox[key] = {
+    y0: Math.min(...m.map(n=>n.y-n._h/2)) - 28,
+    y1: Math.max(...m.map(n=>n.y+n._h/2)) + 28,
+  };
+}
+// horizontal lane just outside a node's theme, on the side nearer the node
+function exitLane(n){
+  const tb = themeBox[n.c];
+  const below = hLanes.filter(y=>y>tb.y1).sort((a,b)=>a-b)[0];
+  const above = hLanes.filter(y=>y<tb.y0).sort((a,b)=>b-a)[0];
+  if (above==null) return {y:below, side:"bottom"};
+  if (below==null) return {y:above, side:"top"};
+  return (n.y-above) < (below-n.y) ? {y:above, side:"top"} : {y:below, side:"bottom"};
+}
+// vertical gutter the edge travels in
+function gutterX(na, nb, type){
+  if (type==="hinge") return vGut[1];               // central spine
+  const ca = GRID[na.c][0], cb = GRID[nb.c][0];
+  if (ca!==cb) return vGut[Math.min(ca,cb)];        // gutter between the two columns
+  const left = vLanes.filter(x=>x<colL[ca]).sort((a,b)=>b-a)[0];   // same column: bow to nearer side lane
+  const right = vLanes.filter(x=>x>colR[ca]).sort((a,b)=>a-b)[0];
+  if (left==null) return right;
+  if (right==null) return left;
+  return (na.x-left) < (right-na.x) ? left : right;
+}
+function roundedPath(pts, r){
+  const P = pts.filter((p,i)=> i===0 || p[0]!==pts[i-1][0] || p[1]!==pts[i-1][1]);
+  if (P.length<2) return `M ${pts[0][0]} ${pts[0][1]}`;
+  let d = `M ${P[0][0]} ${P[0][1]}`;
+  for (let i=1;i<P.length-1;i++){
+    const pr=P[i-1], cu=P[i], nx=P[i+1];
+    const v1x=cu[0]-pr[0], v1y=cu[1]-pr[1], v2x=nx[0]-cu[0], v2y=nx[1]-cu[1];
+    const l1=Math.hypot(v1x,v1y)||1, l2=Math.hypot(v2x,v2y)||1;
+    const rr=Math.min(r, l1/2, l2/2);
+    d += ` L ${cu[0]-v1x/l1*rr} ${cu[1]-v1y/l1*rr} Q ${cu[0]} ${cu[1]} ${cu[0]+v2x/l2*rr} ${cu[1]+v2y/l2*rr}`;
+  }
+  const last=P[P.length-1];
+  d += ` L ${last[0]} ${last[1]}`;
+  return d;
+}
+// pre-pass: routing primitives + lane offsets so parallel edges fan out
+const inter = [];
+for (const [a,b,type] of edges){
+  if (type==="dep") continue;
+  const na=nodeById[a], nb=nodeById[b];
+  const A=exitLane(na), B=exitLane(nb);
+  inter.push({ a, b, type, gxBase:gutterX(na,nb,type), la:A.y, lb:B.y, sa:A.side, sb:B.side, ox:0, oya:0, oyb:0 });
+}
+const byGut={};
+inter.forEach(e=>{ (byGut[Math.round(e.gxBase)] ||= []).push(e); });
+for (const k in byGut){ const g=byGut[k]; g.forEach((e,i)=>{ e.ox=(i-(g.length-1)/2)*15; }); }
+const byLane={};
+inter.forEach(e=>{ (byLane[Math.round(e.la)] ||= []).push(['a',e]); (byLane[Math.round(e.lb)] ||= []).push(['b',e]); });
+for (const k in byLane){ const g=byLane[k]; g.forEach(([side,e],i)=>{ const o=(i-(g.length-1)/2)*9; if(side==='a') e.oya=o; else e.oyb=o; }); }
+const interByKey = {};
+inter.forEach(e=> interByKey[e.a+'>'+e.b+':'+e.type]=e);
+
 // edges
 const edgeG = document.getElementById("edges");
 const edgeEls = [];
 for (const [a,b,type] of edges){
   const na = nodeById[a], nb = nodeById[b];
-  const p1 = boxEdge(nb, na);
-  const p2 = boxEdge(na, nb);
   const mk = type==="hinge" ? "hinge" : (type==="bridge" ? "bridge" : "prereq");
-  const attrs = { x1:p1.x, y1:p1.y, x2:p2.x, y2:p2.y, class:`edge ${type}`, "marker-end": `url(#arrow-${mk})` };
-  const line = el("line", attrs, edgeG);
+  let d;
+  if (type==="dep"){
+    const p1 = boxEdge(nb, na), p2 = boxEdge(na, nb);
+    d = `M ${p1.x} ${p1.y} L ${p2.x} ${p2.y}`;
+  } else {
+    const e = interByKey[a+'>'+b+':'+type];
+    const gx = e.gxBase+e.ox, la = e.la+e.oya, lb = e.lb+e.oyb;
+    const aEdge = e.sa==="top" ? na.y-na._h/2 : na.y+na._h/2;
+    const bEdge = e.sb==="top" ? nb.y-nb._h/2 : nb.y+nb._h/2;
+    d = roundedPath([[na.x,aEdge],[na.x,la],[gx,la],[gx,lb],[nb.x,lb],[nb.x,bEdge]], 16);
+  }
+  const line = el("path", { d, class:`edge ${type}`, "marker-end": `url(#arrow-${mk})` }, edgeG);
   edgeEls.push({ line, a, b, type });
 }
 
