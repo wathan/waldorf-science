@@ -107,6 +107,10 @@ matches school's prior cosmology teaching). Decision deferred to working-group
 session post-Jun-17. The two are weighed on neutral profiles plus the group's own
 named criterion — *not* on the old "ethical-judgement gap," dissolved as a
 block-level criterion per [ADR-0004](./adr/0004-ethical-judgement-gap-demoted.md).
+Three tiers, do not conflate: *illustrative phrasing* (one provisional sentence
+per candidate, carried in the Session-1 input drafts) ≠ *final wording* (fixed at
+the moment of decision; may be a hybrid) ≠ *student-facing register* (how a
+grade-12 student hears it; deferred until phase structure C and capstone E exist).
 _Avoid_: capstone question, central question, theme; framing C2 as "closing a gap"
 C1 leaves open (that verdict is dissolved).
 

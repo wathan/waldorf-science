@@ -27,13 +27,13 @@ Curriculum design happens at two altitudes, and **competency-reasoning is the co
 
 ## Background — the two deep-question candidates
 
-Two candidate deep questions are currently in development from prior working sessions. The choice between them is the most consequential single decision in meso-design and lives in Session 1 (see fork-resolution mechanic in §Appendix). The actual question wording is held back until Session 1, but the working group should enter with a clear picture of what each candidate *organises around*:
+Two candidate deep questions are currently in development from prior working sessions. The choice between them is the most consequential single decision in meso-design and lives in Session 1 (see fork-resolution mechanic in §Appendix). Each candidate enters with one *illustrative phrasing* — a provisional question sentence, marked not-final — so the fork operates on questions rather than abstract themes; the *final* wording (including any hybrid) is fixed only at the moment of decision in Session 1. Beyond the phrasing, the working group should enter with a clear picture of what each candidate *organises around*:
 
 **Candidate 1 — Epistemological capstone.** Light is the central object. The block leans on S1/S2/S3 (science) competencies; treats optics phenomenologically and cosmology as inference from light. Centre of gravity: what scientific knowledge can and cannot establish, the limits of inference, the epistemic stance of the knower. Dom in an early session proposed Plato's allegory of the cave as the connecting image — light, shadow, and what is and is not directly knowable — which anchors this candidate philosophically. Strength: novel framing, makes epistemic limits visible. Limitation: optics carries the phenomenological weight largely alone; the cosmology half turns inferential.
 
 **Candidate 2 — Stardust / self ↔ Earth.** Cosmology is the central object — the student's relation to the cosmos they are materially part of. Leans on E1/E2/E3 (environmental science) competencies, with S1/S2 also exercised through the material-science work behind "we are made of stardust" (stellar nucleosynthesis, spectroscopy as evidence of cosmic composition). Matches how cosmology was previously taught at the school. Matches how cosmology was previously taught at the school. Centre of gravity: ecocentric synthesis, responsibility, biographical orientation toward the world. Strength: lower teacher onboarding cost. Limitation: optics becomes instrumental rather than phenomenologically central.
 
-These two are not exhaustive — Session 1 may produce a third synthesis — but they are the live drafts the working group enters the meeting with. Question wording, including any hybrid, is fixed only at the moment of decision.
+These two are not exhaustive — Session 1 may produce a third synthesis — but they are the live drafts the working group enters the meeting with. Each enters as an *illustrative phrasing* (provisional, working-group-facing); the *final* wording, including any hybrid, is fixed only at the moment of decision. *Student-facing register* — how a grade-12 student hears the question — is a later concern, dependent on the capstone artifact (E) and phase structure (C), and is not tuned at this stage.
 
 ---
 
@@ -93,7 +93,7 @@ Mixed origination; working group ratifies all.
 ### Session 1 — Jun 24 — B then A
 
 **Kru Fang brings (input drafts):**
-- The two deep-question drafts side-by-side, each with: macro-curriculum fit, competency-profile, what it does and doesn't close, classroom-feasibility summary.
+- The two deep-question drafts side-by-side, each with: one illustrative phrasing (a provisional question sentence, marked not-final), macro-curriculum fit, competency-profile, what it does and doesn't close, classroom-feasibility summary.
 - A competency map of the framework's six competencies and their sub-abilities, brought as the *gap-test scaffold* — **not** a pre-selected shortlist to ratify, but the lens each question candidate is tested against.
 
 **Group decides (the hinge sequence):**
@@ -194,7 +194,7 @@ Because both pilot teachers are in the working group, meso → micro is a *phase
 
 The deep-question decision is the single most consequential meso decision. To prevent it being made by drift or by the most articulate voice in the room, Session 1 follows a structured 5-step mechanic.
 
-1. **Side-by-side review.** Both deep questions presented on a single page with: macro-curriculum fit, competency-profile, what it does and doesn't close. Group reads silently first.
+1. **Side-by-side review.** Both deep questions presented on a single page, each carrying its illustrative phrasing, with: macro-curriculum fit, competency-profile, what it does and doesn't close. Group reads silently first.
 2. **Name the criterion explicitly.** Which proof does the pilot most need to deliver: (a) distinctive new pedagogy, (b) full grade-12 fit including ethical-synthetic judgement, (c) continuity-with-improvement on existing strong teaching? The criterion is named *before* the question is chosen — not after.
 3. **Developmental-pitch question (non-binding).** Macro line 65 makes synthetic/ethical judgement the *grade-12* judgement mode and analytical/evaluative the *grade-11* mode. If a candidate's judgement centre sits at the analytical/epistemic mode, the group *may* ask: is this richly grade-12, or grade-11 in pitch? Kru Fang brings this from the macro-diagnostic for the group to weigh — it is **not** a pass/fail test and **not** a coverage veto. Whether synthetic-ethical judgement (E3.4) is exercised *somewhere* is a deferred grade-level concern, not a demand on this one block; and predominance is not exclusivity — a lower judgement mode may legitimately be load-bearing (cf. macro-curriculum lines 269–271). See ADR-0004.
 4. **Cross-system test.** Does the question genuinely cross systems (Optics × Cosmology under one whole), or does one discipline become instrumental to the other? Both candidates pass this test with different profiles; the test discriminates *how* they cross.
