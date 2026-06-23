@@ -10,11 +10,22 @@ Canonical EN→TH for the bilingual `docs/` deliverables. Companion to `CONTEXT.
 - **Waldorf TH**: anthrothailand.wordpress.com; ปัญโญทัย / Panyotai Waldorf School;
   thecitizen.plus reporting; Inodai Waldorf School (Wikipedia).
 - **Construct (no canonical source)**: marked _construct_ — coined for this project.
+- **Existing project artifacts**: the already-published bilingual deliverables
+  (`framework.html`, `framework-rewrite.html`, `macro-curriculum.html`,
+  `meso-plan.html`) carry vetted Thai for project-specific terms that never made
+  it into this table. They are a lexicon source — mine them before coining a new
+  phrase. E.g. *ecocentric synthesis* → `การสังเคราะห์เชิงนิเวศ`, assembled from
+  the framework E3 worked example's `จริยธรรมเชิงนิเวศ` (ecocentric) + `สังเคราะห์`
+  (synthesis), not invented fresh.
 
 ## Translation policy
 
 - Write Thai from comprehension of the English passage, not by term substitution.
   Glossary is a fallback reference, not a template.
+- **Lexicon source order** for a term not in this glossary: (1) PISA TH for
+  science vocabulary; (2) existing project bilingual artifacts (above) for
+  project-specific terms; (3) Waldorf TH sources for Waldorf vocabulary. Only
+  coin a new Thai phrase when none cover it — then add a row here so it is reused.
 - Headline competencies S1–S3, E1–E3: **PISA TH verbatim** (canonical).
 - Sub-ability prose: prefer PISA TH verb vocabulary where available.
 - Register: mid-formal academic. No informal particles (ก็เลย, น้า, นะ),
@@ -179,8 +190,13 @@ First-mention bilingual `ระดับมาโคร (ภาพรวม)` et
 | English | Thai |
 |---------|------|
 | Knower-stance / knower-responsibility | จุดยืนผู้รู้ / ความรับผิดชอบในฐานะผู้รู้ |
+| Phenomenological / -ally | เชิงปรากฏการณ์ |
+| Biographical (adj) | เชิงชีวประวัติ |
+| Consensus | ฉันทามติ |
+| Expert mediation | การกลั่นกรองของผู้เชี่ยวชาญ |
 | Actor-stance / actor-responsibility | จุดยืนผู้ลงมือ / ความรับผิดชอบในฐานะผู้ลงมือ |
 | Ecocentric ethic | จริยธรรมเชิงนิเวศ |
+| Ecocentric synthesis | การสังเคราะห์เชิงนิเวศ |
 | Ethical judgement | การใช้วิจารณญาณเชิงจริยธรรม |
 | Regeneration | การฟื้นฟูระบบนิเวศ |
 | Socio-ecological | เชิงสังคม-นิเวศ |
