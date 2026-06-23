@@ -93,7 +93,7 @@ Mixed origination; working group ratifies all.
 ### Session 1 — Jun 24 — B then A
 
 **Kru Fang brings (input drafts):**
-- The two deep-question drafts side-by-side, each with: one illustrative phrasing (a provisional question sentence, marked not-final), macro-curriculum fit, competency-profile, what it does and doesn't close, classroom-feasibility summary.
+- The two deep-question drafts [side-by-side](session1-deep-question-review.md), each with: one illustrative phrasing (a provisional question sentence, marked not-final), macro-curriculum fit, competency-profile, what it does and doesn't close, classroom-feasibility summary.
 - A competency map of the framework's six competencies and their sub-abilities, brought as the *gap-test scaffold* — **not** a pre-selected shortlist to ratify, but the lens each question candidate is tested against.
 
 **Group decides (the hinge sequence):**
@@ -194,7 +194,7 @@ Because both pilot teachers are in the working group, meso → micro is a *phase
 
 The deep-question decision is the single most consequential meso decision. To prevent it being made by drift or by the most articulate voice in the room, Session 1 follows a structured 5-step mechanic.
 
-1. **Side-by-side review.** Both deep questions presented on a single page, each carrying its illustrative phrasing, with: macro-curriculum fit, competency-profile, what it does and doesn't close. Group reads silently first.
+1. **[Side-by-side review](session1-deep-question-review.md).** Both deep questions presented on a single page, each carrying its illustrative phrasing, with: macro-curriculum fit, competency-profile, what it does and doesn't close. Group reads silently first.
 2. **Name the criterion explicitly.** Which proof does the pilot most need to deliver: (a) distinctive new pedagogy, (b) full grade-12 fit including ethical-synthetic judgement, (c) continuity-with-improvement on existing strong teaching? The criterion is named *before* the question is chosen — not after.
 3. **Developmental-pitch question (non-binding).** Macro line 65 makes synthetic/ethical judgement the *grade-12* judgement mode and analytical/evaluative the *grade-11* mode. If a candidate's judgement centre sits at the analytical/epistemic mode, the group *may* ask: is this richly grade-12, or grade-11 in pitch? Kru Fang brings this from the macro-diagnostic for the group to weigh — it is **not** a pass/fail test and **not** a coverage veto. Whether synthetic-ethical judgement (E3.4) is exercised *somewhere* is a deferred grade-level concern, not a demand on this one block; and predominance is not exclusivity — a lower judgement mode may legitimately be load-bearing (cf. macro-curriculum lines 269–271). See ADR-0004.
 4. **Cross-system test.** Does the question genuinely cross systems (Optics × Cosmology under one whole), or does one discipline become instrumental to the other? Both candidates pass this test with different profiles; the test discriminates *how* they cross.

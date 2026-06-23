@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session 1 — Deep-Question Side-by-Side Review</title>
+<style>
+  :root {
+    --ink: #100f0f;
+    --ink-soft: #6f6e69;
+    --ink-faint: #b7b5ac;
+    --rule: #dad8ce;
+    --rule-soft: #f2f0e5;
+    --paper: #fffcf0;
+    --panel: #f2f0e5;
+    --highlight: #e6e4d9;
+    --accent: #af3029;
+    --link: #205ea6;
+    --link-hover: #100f0f;
+    --c1: #6b1f1f;
+    --c1-bg: #f3e0e0;
+    --c2: #3d6a3d;
+    --c2-bg: #e2eede;
+  }
+
+  * { box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 3.5rem 5rem;
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(44, 93, 138, 0.45);
+  }
+  a:hover { color: var(--link-hover); border-bottom-color: var(--link-hover); border-bottom-style: solid; }
+
+  [lang="th"] { color: var(--ink-soft); }
+
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .masthead .eyebrow {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-size: 1.85rem;
+    line-height: 1.25;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .masthead .meta {
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+  .masthead .accompanying {
+    margin-top: 0.75rem;
+    font-style: normal;
+    font-size: 0.85rem;
+  }
+
+  h2 {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    margin: 3rem 0 0.75rem;
+    font-weight: 600;
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+  }
+  p { margin: 0.6rem 0; }
+  strong { color: var(--ink); }
+
+  /* status note */
+  .statusnote {
+    background: var(--panel);
+    border-radius: 4px;
+    padding: 1.1rem 1.4rem;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.93rem;
+  }
+  .statusnote > p:first-child { margin-top: 0; }
+  ol.guards { margin: 0.6rem 0 0; padding-left: 1.3rem; }
+  ol.guards li { margin: 0.55rem 0; }
+
+  /* how-to callout */
+  .callout {
+    background: var(--highlight);
+    border-left: 3px solid var(--accent);
+    padding: 0.9rem 1.2rem;
+    margin: 1.25rem 0 2rem;
+    border-radius: 0 3px 3px 0;
+    font-size: 0.93rem;
+  }
+  .callout p { margin: 0.3rem 0; }
+
+  /* comparison matrix */
+  .matrix-wrap { margin: 1.25rem 0; }
+  table.matrix {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: #fff;
+    border: 1px solid var(--rule);
+    font-size: 0.9rem;
+  }
+  table.matrix col.lab { width: 16%; }
+  table.matrix col.c { width: 42%; }
+  table.matrix thead th {
+    text-align: left;
+    padding: 0.85rem 0.95rem;
+    vertical-align: bottom;
+    border-bottom: 2px solid var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", "Palatino", Georgia, serif;
+    font-size: 1.02rem;
+    font-weight: 600;
+  }
+  table.matrix thead th.lab { background: var(--panel); border-bottom-color: var(--ink); }
+  table.matrix thead th.h1 { background: var(--c1-bg); color: var(--c1); border-bottom-color: var(--c1); }
+  table.matrix thead th.h2 { background: var(--c2-bg); color: var(--c2); border-bottom-color: var(--c2); }
+  table.matrix thead th .sub { display:block; font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color: var(--ink-faint); margin-bottom:0.2rem; font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif; }
+  table.matrix th.rowlabel {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.8rem 0.95rem;
+    background: var(--panel);
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  table.matrix th.rowlabel .note { display:block; text-transform:none; letter-spacing:0; font-weight:400; color: var(--ink-faint); font-style:italic; margin-top:0.2rem; }
+  table.matrix td {
+    padding: 0.8rem 0.95rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  table.matrix td.c1 { background: rgba(243,224,224,0.28); }
+  table.matrix td.c2 { background: rgba(226,238,222,0.28); }
+  table.matrix tbody tr:last-child th, table.matrix tbody tr:last-child td { border-bottom: none; }
+  table.matrix .phrase { font-size: 1.0rem; font-style: italic; color: var(--ink); }
+  table.matrix [lang="th"] { font-size: 0.92em; }
+  .cand-label { display: none; }
+
+  .feasibility-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0.8rem 0 0;
+    line-height: 1.5;
+  }
+
+  .footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    text-align: center;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.05em;
+  }
+  .footer a { color: var(--link); border-bottom: none; }
+
+  /* mobile: stack the matrix into per-field blocks */
+  @media (max-width: 760px) {
+    .page { padding: 2.5rem 1.25rem 3.5rem; }
+    table.matrix, table.matrix tbody, table.matrix tr, table.matrix th, table.matrix td { display: block; width: 100%; }
+    table.matrix thead { display: none; }
+    table.matrix col { width: auto; }
+    table.matrix tr { border-bottom: 2px solid var(--ink); padding: 0.4rem 0; }
+    table.matrix tbody tr:last-child { border-bottom: none; }
+    table.matrix th.rowlabel { background: var(--panel); border-right: none; border-bottom: 1px solid var(--rule); }
+    table.matrix td { border-bottom: 1px dashed var(--rule); }
+    .cand-label {
+      display: block;
+      font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    td.c1 .cand-label { color: var(--c1); }
+    td.c2 .cand-label { color: var(--c2); }
+  }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 1.2cm 1.4cm; max-width: none; }
+    table.matrix tr { break-inside: avoid; }
+    .statusnote, .callout { break-inside: avoid; background: white; border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <div class="eyebrow">Working Group Input Paper · Session 1 · <span lang="th">เอกสารตั้งต้นคณะทำงาน · เซสชัน 1</span></div>
+    <h1>Session 1 — Deep-Question Side-by-Side Review</h1>
+    <p class="meta">Wed Jun 24 2026 · Read both columns silently first, then run the fork-resolution mechanic.
+    <br><span lang="th">พุธ 24 มิ.ย. 2569 · ให้แต่ละคนอ่านเงียบ ๆ ทั้งสองคอลัมน์ก่อน จึงค่อยเข้าสู่กลไกตัดสินเลือกคำถาม</span></p>
+    <p class="meta accompanying">
+      Accompanying reading · <span lang="th">เอกสารอ่านประกอบ:</span>
+      <a href="meso-plan.html">Meso-Design Plan</a> ·
+      <a href="framework.html">Grade 12 Science Competency Framework</a> ·
+      <a href="macro-curriculum.html">Macro-curriculum</a>
+    </p>
+  </header>
+
+  <!-- Status -->
+  <section id="status">
+    <h2>Status of this page — read before the table · <span lang="th">สถานะของหน้านี้ — อ่านก่อนดูตาราง</span></h2>
+    <div class="statusnote">
+      <p>This is an <strong>input working paper, not a ratified document</strong>. Five things it is <em>not</em>:
+      <br><span lang="th">หน้านี้เป็นเอกสารตั้งต้นไว้ใช้ทำงาน <strong>ยังไม่ผ่านการรับรอง</strong> มีห้าอย่างที่หน้านี้ไม่ได้เป็น:</span></p>
+      <ol class="guards">
+        <li><strong>The phrasings are illustrative, not final.</strong> Each candidate carries one provisional question sentence so the fork operates on questions rather than abstract themes. The <em>final</em> wording — including any hybrid — is fixed only at the moment of decision in Session 1.
+        <br><span lang="th"><strong>ถ้อยคำที่เห็นเป็นแค่ตัวอย่าง ยังไม่ใช่ฉบับสรุป</strong> ที่ให้ประโยคคำถามตัวอย่างกำกับแต่ละทางเลือกไว้ ก็เพื่อให้คณะทำงานถกกันบนคำถามจริง ไม่ใช่ธีมลอย ๆ ส่วนถ้อยคำที่จะใช้จริง — รวมถึงแบบที่ผสมสองทางเลือกเข้าด้วยกัน — จะตกลงกันก็ต่อเมื่อถึงจุดตัดสินใจในเซสชัน 1 เท่านั้น</span></li>
+        <li><strong>These two are not exhaustive.</strong> Session 1 may synthesise a <strong>third</strong> question. The table is the two live drafts the group enters with, not a closed ballot.
+        <br><span lang="th"><strong>สองทางเลือกนี้ไม่ใช่ทั้งหมดที่เป็นไปได้</strong> ในเซสชัน 1 อาจเกิดคำถาม <strong>ข้อที่สาม</strong> จากการสังเคราะห์ขึ้นใหม่ก็ได้ ตารางนี้เป็นเพียงร่างสองข้อที่ยังมีชีวิตอยู่ซึ่งคณะทำงานถือเข้าห้องประชุม ไม่ใช่บัตรลงคะแนนที่ปิดตัวเลือกตายตัว</span></li>
+        <li><strong>Student-facing register is deferred.</strong> These sentences are working-group-facing. How a Grade-12 student <em>hears</em> the question depends on the capstone artifact (E) and phase structure (C), and is not tuned here.
+        <br><span lang="th"><strong>ภาษาสำหรับนักเรียนยังไม่ทำในตอนนี้</strong> ประโยคพวกนี้เขียนให้คณะทำงานอ่าน ส่วนนักเรียน ม.6 จะ<em>ได้ยิน</em>คำถามออกมาแบบไหนนั้น ขึ้นอยู่กับชิ้นงานปลายทาง (E) และโครงสร้างลำดับบทเรียน (C) จึงยังไม่ปรับถ้อยคำส่วนนั้นที่นี่</span></li>
+        <li><strong>The competency-profiles are entailed, not selection A.</strong> They show what each question would <em>likely</em> exercise, as the lens for the gap-test. <strong>A (block-level competency selection)</strong> is finalised <em>from</em> <strong>B (the deep question)</strong> <em>after</em> the fork — not read off this page.
+        <br><span lang="th"><strong>โปรไฟล์สมรรถนะที่แสดงไว้เป็นสิ่งที่ตามมาจากคำถาม ไม่ใช่ตัว A ที่เลือกแล้ว</strong> มันบอกคร่าว ๆ ว่าคำถามแต่ละข้อ<em>น่าจะ</em>ฝึกสมรรถนะใด เพื่อใช้เป็นแว่นส่องในการทดสอบช่องว่าง ส่วน <strong>A (การเลือกสมรรถนะระดับบล็อก)</strong> จะสรุป<em>จาก</em> <strong>B (คำถามหลัก)</strong> <em>หลัง</em>ตัดสินเลือกเสร็จแล้ว ไม่ใช่อ่านเอาจากหน้านี้</span></li>
+        <li><strong>No verdict is printed.</strong> Every row is descriptive and symmetric. Which trade-offs count as strengths or costs depends on the criterion the group names <em>after</em> this silent read (mechanic step 2). The page deliberately does not pre-answer that.
+        <br><span lang="th"><strong>หน้านี้ไม่ตัดสินแพ้ชนะ</strong> ทุกแถวเขียนแบบบรรยายและให้น้ำหนักสองทางเลือกเท่ากัน ข้อแลกเปลี่ยนข้อไหนจะนับเป็นจุดแข็งหรือต้นทุน ขึ้นอยู่กับเกณฑ์ที่คณะทำงานจะตั้ง<em>หลัง</em>อ่านเงียบ ๆ จบ (ขั้นที่ 2 ของกลไก) หน้านี้จึงจงใจไม่ตอบแทนล่วงหน้า</span></li>
+      </ol>
+    </div>
+
+    <div class="callout">
+      <p><strong>How to use this page.</strong> Per the fork-resolution mechanic (Meso-Design Plan §Appendix, step 1): <strong>read both columns silently first.</strong> Then proceed to step 2 (name the criterion), step 3 (developmental-pitch question, non-binding), step 4 (cross-system test), step 5 (record decision with its criterion). This page supplies step 1 only; steps 2–5 happen live and are not on the page.</p>
+      <p><span lang="th"><strong>วิธีใช้หน้านี้</strong> ตามกลไกตัดสินเลือกคำถาม (แผนออกแบบระดับกลาง §ภาคผนวก ขั้นที่ 1): <strong>ให้อ่านทั้งสองคอลัมน์เงียบ ๆ ก่อนเป็นอันดับแรก</strong> จากนั้นค่อยไปขั้นที่ 2 (ตั้งชื่อเกณฑ์), ขั้นที่ 3 (คำถามเรื่องระดับพัฒนาการ ซึ่งไม่ผูกมัด), ขั้นที่ 4 (ทดสอบว่าคำถามข้ามระบบจริงหรือไม่) และขั้นที่ 5 (บันทึกผลตัดสินพร้อมเกณฑ์ที่ใช้) หน้านี้ทำหน้าที่แค่ขั้นที่ 1 เท่านั้น ส่วนขั้นที่ 2–5 เกิดขึ้นสด ๆ ในที่ประชุม ไม่ได้อยู่บนหน้านี้</span></p>
+    </div>
+  </section>
+
+  <!-- Matrix -->
+  <section id="sidebyside">
+    <h2>Side-by-side · <span lang="th">เปรียบเทียบเคียงข้าง</span></h2>
+    <div class="matrix-wrap">
+    <table class="matrix">
+      <colgroup><col class="lab"><col class="c"><col class="c"></colgroup>
+      <thead>
+        <tr>
+          <th class="lab"></th>
+          <th class="h1"><span class="sub">Candidate 1 · <span lang="th">ทางเลือก 1</span></span>Epistemological capstone<br><span lang="th" style="font-size:0.82rem;font-weight:400;">ปลายทางเชิงญาณวิทยา</span></th>
+          <th class="h2"><span class="sub">Candidate 2 · <span lang="th">ทางเลือก 2</span></span>Stardust / self ↔ Earth<br><span lang="th" style="font-size:0.82rem;font-weight:400;">ธุลีดาว / ตน ↔ โลก</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="rowlabel">Illustrative phrasing<span class="note">provisional — not final</span><span class="note" lang="th">ถ้อยคำตัวอย่าง (ชั่วคราว)</span></th>
+          <td class="c1"><span class="cand-label">Candidate 1 — Epistemological capstone</span><span class="phrase">"How do we know what's out there — what can light tell us, and where does seeing end and inferring begin?"</span><br><span lang="th">"เรารู้ได้อย่างไรว่ามีอะไรอยู่ข้างนอกนั้น — แสงบอกอะไรเราได้บ้าง และเส้นแบ่งระหว่างการมองเห็นกับการอนุมานอยู่ตรงไหน?"</span></td>
+          <td class="c2"><span class="cand-label">Candidate 2 — Stardust / self ↔ Earth</span><span class="phrase">"We are made of stardust — what does it mean to belong to a cosmos we are materially part of?"</span><br><span lang="th">"เราล้วนสร้างขึ้นจากธุลีดาว — การเป็นส่วนหนึ่งของจักรวาลที่เราเป็นเนื้อเดียวกันโดยสสารนั้นมีความหมายว่าอย่างไร?"</span></td>
+        </tr>
+        <tr>
+          <th class="rowlabel">Central object<span class="note" lang="th">วัตถุศึกษาหลัก</span></th>
+          <td class="c1"><span class="cand-label">Candidate 1</span>Light. Optics treated phenomenologically; cosmology as inference from light.<br><span lang="th">แสง โดยศึกษาทัศนศาสตร์เชิงปรากฏการณ์ ส่วนจักรวาลวิทยาเข้าถึงด้วยการอนุมานจากแสง</span></td>
+          <td class="c2"><span class="cand-label">Candidate 2</span>Cosmos. The student's material relation to the cosmos they are part of.<br><span lang="th">จักรวาล โดยเน้นที่ความสัมพันธ์เชิงสสารระหว่างตัวนักเรียนกับจักรวาลที่เขาเป็นส่วนหนึ่งอยู่</span></td>
+        </tr>
+        <tr>
+          <th class="rowlabel">Centre of gravity<span class="note" lang="th">จุดศูนย์ถ่วง</span></th>
+          <td class="c1"><span class="cand-label">Candidate 1</span>What scientific knowledge can and cannot establish — the limits of inference, the epistemic stance of the knower. Connecting image: Plato's allegory of the cave (light, shadow, what is and is not directly knowable).<br><span lang="th">ขีดที่ความรู้ทางวิทยาศาสตร์ยืนยันได้และยืนยันไม่ได้ — ขอบเขตของการอนุมาน และจุดยืนเชิงญาณวิทยาของผู้รู้ ใช้ภาพอุปมาถ้ำของเพลโตเป็นตัวเชื่อม (แสง เงา และสิ่งที่รู้ได้กับรู้ไม่ได้โดยตรง)</span></td>
+          <td class="c2"><span class="cand-label">Candidate 2</span>Ecocentric synthesis, responsibility, biographical orientation toward the world; material grounding of cosmic belonging (we are made of stellar matter).<br><span lang="th">การสังเคราะห์เชิงนิเวศ ความรับผิดชอบ และการวางทิศทางเชิงชีวประวัติของตนต่อโลก พร้อมรากฐานเชิงสสารของการเป็นส่วนหนึ่งของจักรวาล (เราล้วนประกอบขึ้นจากสสารของดวงดาว)</span></td>
+        </tr>
+        <tr>
+          <th class="rowlabel">Macro-curriculum fit<span class="note" lang="th">ความสอดคล้องกับหลักสูตรระดับภาพรวม</span></th>
+          <td class="c1"><span class="cand-label">Candidate 1</span>Judgement gr.12 (limits of this model) and the knower-stance application of Future-thinking gr.12. The judgement centre sits at the analytical / epistemic mode — which the macro-curriculum's <a href="macro-curriculum.html#row-judgement">Judgement row</a> assigns to grade 11 (synthetic/ethical being the grade-12 mode) — so the non-binding developmental-pitch question (step 3) may be raised here. Predominance is not exclusivity: a <a href="macro-curriculum.html#note-soft-boundary">lower judgement mode may legitimately be load-bearing</a>.<br><span lang="th">ตรงกับการใช้วิจารณญาณระดับ ม.6 (เห็นขอบเขตของแบบจำลอง) และการคิดถึงอนาคต ม.6 ในแง่จุดยืนผู้รู้ จุดศูนย์ถ่วงของการใช้วิจารณญาณอยู่ที่โหมดเชิงวิเคราะห์/เชิงญาณวิทยา — ซึ่ง<a href="macro-curriculum.html#row-judgement">แถวการใช้วิจารณญาณ</a>ของหลักสูตรระดับภาพรวมจัดให้เป็นโหมดของชั้น ม.5 (ส่วนโหมดสังเคราะห์/จริยธรรมเป็นของ ม.6) จึงอาจมีการยกคำถามเรื่องระดับพัฒนาการ (ขั้นที่ 3 ไม่ผูกมัด) ขึ้นมาตรงนี้ได้ ทั้งนี้การเป็นแกนหลักไม่ได้แปลว่าผูกขาด โหมดการใช้วิจารณญาณที่อยู่ระดับต่ำกว่าก็<a href="macro-curriculum.html#note-soft-boundary">เป็นแกนรับน้ำหนักได้อย่างชอบธรรม</a></span></td>
+          <td class="c2"><span class="cand-label">Candidate 2</span>Future-thinking gr.12 (responsibility toward the world) and synthetic judgement. The judgement centre sits at the synthetic mode the macro-curriculum's <a href="macro-curriculum.html#row-judgement">Judgement row</a> assigns to grade 12. Matches how cosmology was previously taught at the school.<br><span lang="th">ตรงกับการคิดถึงอนาคต ม.6 (ความรับผิดชอบต่อโลก) และการใช้วิจารณญาณเชิงสังเคราะห์ จุดศูนย์ถ่วงของการใช้วิจารณญาณอยู่ที่โหมดสังเคราะห์ ซึ่ง<a href="macro-curriculum.html#row-judgement">แถวการใช้วิจารณญาณ</a>ของหลักสูตรระดับภาพรวมจัดให้เป็นของชั้น ม.6 และยังตรงกับวิธีที่โรงเรียนเคยสอนจักรวาลวิทยามาก่อนด้วย</span></td>
+        </tr>
+        <tr>
+          <th class="rowlabel">Competency-profile<span class="note">entailed — illustrative, not selection A</span><span class="note" lang="th">โปรไฟล์สมรรถนะ (ตามมาโดยปริยาย มิใช่การเลือก A)</span></th>
+          <td class="c1"><span class="cand-label">Candidate 1</span>Leans <strong>S1</strong> (explain phenomena, epistemic-emphasis sub-abilities), <strong>S2</strong> (interpret data / model-limits), <strong>S3</strong> (argument that acknowledges the expert mediation and consensus it depends on — the S3 deepen).<br><span lang="th">เอนไปทาง <strong>S1</strong> (อธิบายปรากฏการณ์ทางวิทยาศาสตร์ เน้นความสามารถย่อยด้านญาณวิทยา), <strong>S2</strong> (ตีความข้อมูลและขอบเขตของแบบจำลอง) และ <strong>S3</strong> (สร้างข้อโต้แย้งที่ระบุชัดว่าพึ่งการกลั่นกรองของผู้เชี่ยวชาญในแง่ใด และฉันทามติที่ใช้มาจากแหล่งใด — ตรงกับการทำให้ S3 ลึกขึ้น)</span></td>
+          <td class="c2"><span class="cand-label">Candidate 2</span>Leans <strong>E1</strong> (human–Earth impact), <strong>E2</strong> (regenerate / sustain), <strong>E3</strong> (respect + hope, socio-ecological), plus <strong>S1 / S2</strong> through the stardust material-science (stellar nucleosynthesis, spectroscopy as evidence of cosmic composition).<br><span lang="th">เอนไปทาง <strong>E1</strong> (ผลกระทบของมนุษย์ต่อระบบโลก), <strong>E2</strong> (ฟื้นฟูและดำรงรักษาสิ่งแวดล้อม), <strong>E3</strong> (เคารพมุมมองที่หลากหลายและมีความมุ่งหวัง เชิงสังคม-นิเวศ) และดึง <strong>S1 / S2</strong> เข้ามาผ่านวิทยาศาสตร์เชิงสสารของเรื่องธุลีดาว (การสังเคราะห์นิวเคลียสในดาวฤกษ์ และสเปกโทรสโกปีในฐานะหลักฐานบอกองค์ประกอบของจักรวาล)</span></td>
+        </tr>
+        <tr>
+          <th class="rowlabel">What it closes<span class="note" lang="th">สิ่งที่ปิดได้</span></th>
+          <td class="c1"><span class="cand-label">Candidate 1</span>Makes the epistemic limits of scientific inference visible; novel framing; keeps optics phenomenologically central.<br><span lang="th">ทำให้เห็นขีดจำกัดเชิงญาณวิทยาของการอนุมานทางวิทยาศาสตร์อย่างชัดเจน เป็นการตั้งกรอบแบบใหม่ และยังคงให้ทัศนศาสตร์เป็นแกนกลางในเชิงปรากฏการณ์</span></td>
+          <td class="c2"><span class="cand-label">Candidate 2</span>Engages the environmental strand (E1/E2/E3) directly; ecocentric synthesis and biographical orientation; material-science grounding of "we are made of stardust."<br><span lang="th">เข้าสายสิ่งแวดล้อม (E1/E2/E3) ได้โดยตรง ทั้งการสังเคราะห์เชิงนิเวศและการวางทิศทางเชิงชีวประวัติของตน พร้อมรากฐานทางวิทยาศาสตร์เชิงสสารของแนวคิด "เราล้วนสร้างขึ้นจากธุลีดาว"</span></td>
+        </tr>
+        <tr>
+          <th class="rowlabel">What it leaves open<span class="note" lang="th">สิ่งที่ยังเปิดค้าง</span></th>
+          <td class="c1"><span class="cand-label">Candidate 1</span>The environmental strand (E1/E2/E3) is largely untouched — recorded as a deferred grade-level coverage note, not a veto. The cosmology half turns inferential rather than phenomenological.<br><span lang="th">สายสิ่งแวดล้อม (E1/E2/E3) แทบไม่ได้แตะ — บันทึกไว้เป็นข้อการครอบคลุมระดับชั้นปีที่ยกยอดไปก่อน ไม่ใช่การยับยั้งทางเลือกนี้ และทำให้ฝั่งจักรวาลวิทยากลายเป็นการอนุมาน แทนที่จะเป็นเชิงปรากฏการณ์</span></td>
+          <td class="c2"><span class="cand-label">Candidate 2</span>The epistemic-limit / inference sub-abilities are largely untouched — recorded as a deferred grade-level coverage note, not a veto. Optics becomes instrumental rather than phenomenologically central.<br><span lang="th">ความสามารถย่อยด้านขอบเขตญาณวิทยาและการอนุมานแทบไม่ได้แตะ — บันทึกไว้เป็นข้อการครอบคลุมระดับชั้นปีที่ยกยอดไปก่อน ไม่ใช่การยับยั้ง และทำให้ทัศนศาสตร์กลายเป็นเครื่องมือ แทนที่จะเป็นแกนกลางในเชิงปรากฏการณ์</span></td>
+        </tr>
+        <tr>
+          <th class="rowlabel">Classroom-feasibility<span class="note" lang="th">ความเป็นไปได้ในห้องเรียน</span></th>
+          <td class="c1"><span class="cand-label">Candidate 1</span>Teacher onboarding: <strong>higher</strong> — a new epistemic framing to build. Optics carries the phenomenological weight; cosmology is taught as inference-from-light.<br><span lang="th">ภาระเตรียมตัวของครู: <strong>สูงกว่า</strong> — ต้องสร้างกรอบเชิงญาณวิทยาขึ้นใหม่ ทัศนศาสตร์เป็นตัวรับน้ำหนักด้านปรากฏการณ์ ส่วนจักรวาลวิทยาสอนในแบบที่อนุมานจากแสง</span></td>
+          <td class="c2"><span class="cand-label">Candidate 2</span>Teacher onboarding: <strong>lower</strong> — matches prior teaching of cosmology at the school. Optics is taught instrumentally, in service of the cosmological question.<br><span lang="th">ภาระเตรียมตัวของครู: <strong>ต่ำกว่า</strong> — เข้ากับวิธีที่โรงเรียนเคยสอนจักรวาลวิทยาอยู่แล้ว ทัศนศาสตร์สอนในฐานะเครื่องมือเพื่อรับใช้คำถามทางจักรวาลวิทยา</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p class="feasibility-note">"Higher / lower onboarding" is stated as fact, not merit. Whether low onboarding is a virtue or a cost depends on the criterion named in step 2 — e.g. it is a cost under criterion (a) distinctive-new-pedagogy and a virtue under criterion (c) continuity-with-improvement.
+    <br><span lang="th">คำว่า "ภาระเตรียมตัวสูง/ต่ำ" บอกไว้เป็นข้อเท็จจริง ไม่ได้ตัดสินว่าดีหรือไม่ดี การที่ภาระต่ำจะเป็นข้อดีหรือข้อเสีย ขึ้นอยู่กับเกณฑ์ที่ตั้งในขั้นที่ 2 — เช่น เป็นข้อเสียถ้าใช้เกณฑ์ (ก) สร้างวิธีสอนใหม่ที่โดดเด่น แต่เป็นข้อดีถ้าใช้เกณฑ์ (ค) สอนต่อยอดของเดิมให้ดีขึ้น</span></p>
+  </section>
+
+  <div class="footer">
+    <a href="meso-plan.html">← Meso-Design Plan</a> · Session 1 input paper · <span lang="th">เอกสารตั้งต้นเซสชัน 1</span>
+  </div>
+
+</main>
+</body>
+</html>
