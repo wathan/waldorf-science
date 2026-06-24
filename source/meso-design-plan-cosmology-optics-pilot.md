@@ -43,13 +43,13 @@ These two are not exhaustive — Session 1 may produce a third synthesis — but
 
 By Jul 29 the working group must have ratified, on the record:
 
-- **(A) Block-level competency selection.** The subset of the framework's six competencies, and which sub-abilities under each, the block will exercise. Defines what the block is *for* in framework terms. Finalised *from* the deep question (B) — not chosen ahead of it; see Session 1.
+- **(A) Block-level competency selection.** The subset of the framework's six competencies, and the centre of gravity within each, the block will exercise. Defines what the block is *for* in framework terms. Finalised *from* the deep question (B) — not chosen ahead of it; see Session 1. **Decided Session 1 (Jun 24): S1, S2, S3** (science strand; E1/E2/E3 deferred grade-level coverage), entailed from Candidate 1. *Which sub-abilities under each* is **deferred to micro** — fixed by pilot teachers against phase structure (C) and capstone artifact (E); see [decision record](../docs/record_06-24.md).
 - **(B) Deep question.** Single guiding question. **Decided Session 1 (Jun 24): Candidate 1 — Epistemological capstone**, resolved via the fork-resolution mechanic in §Appendix. Governing criterion (a) distinctive new pedagogy — uniquely poses the epistemic question; the E-strand (E1/E2/E3) omission is recorded as a deferred grade-level coverage note, not a veto. Step-6 record: [Session 1 decision record](../docs/record_06-24.md).
 - **(C) Phase structure.** Week-by-week shape, including which teacher is "main" in each phase.
 - **(D) Bridge questions.** Recurring questions the secondary teacher poses in each phase to link to the other discipline.
 - **(E) Capstone artifact.** What students produce by block's end, in enough detail that pilot teachers can design the specific deliverable during micro.
 - **(F) Teacher coordination protocol.** Who-leads-when, secondary teacher's role per phase, how the two teachers sync, joint vs individual responsibility for student work.
-- **(G) Block-level operationalisations.** For the sub-abilities selected in A, what authentic in-classroom evidence demonstrates them — given this block's specific phase structure and capstone artifact.
+- **(G) Block-level operationalisations.** For each sub-ability under the selected competencies (S1/S2/S3), **general examples** of what authentic in-classroom evidence demonstrates it. Stays at meso as a generic reference library — *not* tied to this pilot's specific deliverable. Pilot-specific operationalisation (which sub-abilities, bound to phase structure C and capstone artifact E) is the micro decision that draws on these examples; see Session 1 sub-ability deferral.
 
 A single block exercises a *subset* of the framework. Full coverage of all six PISA competencies is not required and not the goal.
 

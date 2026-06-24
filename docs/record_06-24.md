@@ -13,9 +13,20 @@ Illustrative phrasing (provisional, not final): *"How do we know what's out ther
 - **Criterion handling (step 1):** the group took a **holistic view rather than a lexicographic ranking** of the three criteria. Recorded as a deviation from the prescribed mechanic (no revealed/aggregated rank); the criteria informed the decision as a whole rather than ordered tie-breakers.
 - **Developmental-pitch question (step 4, non-binding):** judged **richly grade-12, not grade-11 in pitch**. The grade-12 synthetic mode — synthesis of *self ↔ world* — is reached **through** the epistemic question (perception and knowledge), not in spite of its analytical centre. The knower-stance framing carries the synthetic judgement, so the analytical/epistemic centre is not a downgrade.
 
-### Next — A (block-level competency selection)
+## A (Block-level competency selection) — finalised from B
 
-Entailed from B: leans **S1** (explain phenomena, epistemic-emphasis), **S2** (interpret data / model-limits), **S3** (argument acknowledging expert mediation — the S3 deepen), plus any deliberate additions surfaced in the gap-test. Finalise A *from* this outcome, recorded alongside B.
+**Selected: S1, S2, S3** (science strand). E1/E2/E3 not selected — deferred grade-level coverage (per B gap-test).
+
+Entailed centre of gravity from the epistemological-capstone question (*what can light tell us, where does seeing end and inferring begin*):
+- **S1** — epistemic emphasis: what scientific explanation can and cannot establish; holding multiple models of light in relation; model-limits.
+- **S2** — interpret data critically: what a single study / dataset can and cannot establish.
+- **S3** — the **S3 deepen**: argument that acknowledges the expert mediation and consensus it depends on (cosmology-as-inference), held in the competent-outsider stance.
+
+**Sub-ability selection is deferred to micro-level.** A fixes the competency subset and its epistemic centre of gravity at meso; *which* sub-abilities under each S-competency the block exercises is a micro decision, made by the pilot teachers against the phase structure (C) and capstone artifact (E). Recorded as a deliberate meso→micro deferral, not an omission.
+
+Output **(G) stays at meso** as a generic reference library: general examples of authentic evidence for *each* sub-ability under S1/S2/S3, not tied to this pilot's deliverable. Micro draws the pilot-specific operationalisations (for the sub-abilities it selects) from G.
+
+**Next outputs (C–G):** phase structure, bridge questions, capstone artifact, coordination protocol, operationalisations — by Jul 29.
 
 ---
 
