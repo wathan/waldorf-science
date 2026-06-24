@@ -171,13 +171,28 @@ not chosen ahead of it. The one optional consideration it may raise is the
 _Avoid_: treating A as a free pre-question choice, or as a post-hoc rubber stamp;
 calling the gap-test a veto.
 
+**Fork criterion ranking (rank-before-read)**:
+The Session-1 act that decides the fork. The three admissible criteria — (a) distinctive
+new pedagogy, (b) full grade-12 fit incl. ethical-synthetic judgement, (c)
+continuity-with-improvement — are a fixed, pre-published menu, each answering *"what does
+this pilot owe the macro-curriculum?"* with zero candidate detail. The group **ranks all
+three silently and records the ranking before the scoring layer of the side-by-side
+page is opened** (mechanic step 1), then reads only to *score* candidates against the
+locked ranking; ties fall lexicographically to the next-ranked criterion. This guards
+against a *motivated criterion* — one reverse-engineered after reading the candidates to
+justify a favourite. Not blindness (the group knows the theme↔criterion correspondence)
+but friction: silent ranking, recorded pre-commitment, lexicographic application, audited
+at step 6. See [ADR-0005](./adr/0005-fork-criterion-ranked-before-read.md).
+_Avoid_: "name the criterion after the silent read" (the superseded ordering); single-pick
+criterion; open-consensus ranking.
+
 **Developmental-pitch question (non-binding)**:
 The single surviving residue of the dissolved "ethical-judgement gap." Macro line 65
 makes synthetic/ethical the grade-12 judgement mode and analytical/evaluative the
 grade-11 mode; a wholly-epistemological candidate *may* be asked whether it pitches
 richly grade-12 or grade-11. A named, optional question Kru Fang brings from the
 macro-diagnostic — not a pass/fail test, not a coverage veto, softened by
-predominance-not-exclusivity. Lives only in the fork mechanic (appendix step 3);
+predominance-not-exclusivity. Lives only in the fork mechanic (appendix step 4);
 candidate descriptions stay neutral. See [ADR-0004](./adr/0004-ethical-judgement-gap-demoted.md).
 _Avoid_: "ethical-judgement gap" as a block-level criterion (dissolved); treating
 the pitch question as disqualifying C1.

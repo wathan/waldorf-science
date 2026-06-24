@@ -140,6 +140,10 @@ First-mention bilingual `ระดับมาโคร (ภาพรวม)` et
 | Coverage (competency) | การครอบคลุมสมรรถนะ | การครอบคลุม | union constraint across 4 blocks |
 | Developmental-pitch question | คำถามเรื่องระดับพัฒนาการ | คำถามเรื่องระดับพัฒนาการ | non-binding; grade-12 vs grade-11 mode; ADR-0004 |
 | Veto (no-veto) | การยับยั้ง | ยับยั้ง | gap-test informs, does not veto |
+| Fork criterion ranking (rank-before-read) | การจัดอันดับเกณฑ์ก่อนอ่าน | การจัดอันดับเกณฑ์ | criterion ranked before the candidates' page is read; ADR-0005 |
+| Motivated criterion | เกณฑ์ที่ย้อนสร้างเพื่อรองรับตัวเลือก | เกณฑ์ที่ย้อนสร้าง | reverse-engineered to justify a pre-formed favourite |
+| Scoring layer | ชั้นการให้คะแนน | ชั้นการให้คะแนน | the side-by-side analysis; sealed until ranking recorded |
+| Lexicographic tie-break | การตัดสินตามลำดับอันดับเกณฑ์ | ตามลำดับอันดับ | tie on top criterion falls to next-ranked |
 
 ## Macro-curriculum dimensions (construct)
 
