@@ -18,9 +18,9 @@ Main-lesson scheduling rules out co-taught blocks. The block runs as **synchroni
 
 ---
 
-## Phase structure — ≈6-week block
+## Phase structure — 6-week block
 
-*Week spans are provisional; exact block length and main-lesson calendar are a micro/scheduling input. Pilot begins Aug 17.*
+*Block length confirmed: **6 weeks**. Week-to-phase spans below remain provisional pending the main-lesson calendar (a micro/scheduling input). Pilot begins Aug 17.*
 
 | Phase | Weeks | Main | Secondary | Move in the deep question |
 |---|---|---|---|---|
@@ -46,6 +46,6 @@ Carried from the handoff draft, fits Candidate 1 directly: **students sort the b
 
 ## Open items for Session 2
 
-- **Exact block length / calendar** — confirm week count and main-lesson schedule; phase spans above assume ≈6 weeks.
+- **Main-lesson calendar** — block length confirmed at 6 weeks; still confirm the main-lesson schedule that fixes exact phase-to-week spans.
 - **Phase-2 co-lead logistics** — the pivot is the one phase with no single main; confirm how the two teachers split or alternate it (feeds F, coordination protocol).
 - **Coherence check (Session 3)** — does this phase arc actually exercise S1/S2/S3, and does the capstone evidence what B asked? Applied to the A/B/C/E set as a whole.
