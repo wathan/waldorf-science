@@ -129,7 +129,15 @@ First-mention bilingual `ระดับมาโคร (ภาพรวม)` et
 | Pilot block | บล็อกนำร่อง | | |
 | Deep question | คำถามหลัก | | |
 | Bridge questions | คำถามเชื่อมโยง | | |
-| Capstone artifact | ชิ้นงานปลายทาง | ชิ้นงานปลายทาง | revised |
+| Capstone artifact | ชิ้นงานปลายทาง | ชิ้นงานปลายทาง | revised; superseded as output E by task-shape criteria (ADR-0006), but term still used for the micro-built task itself |
+| Capstone task-shape criteria (output E) | เกณฑ์รูปแบบงานปลายทาง | เกณฑ์รูปแบบงานปลายทาง | _construct_; E redefined — criteria not a task; task built at micro; ADR-0006 |
+| Task-shape criteria | เกณฑ์รูปแบบของงาน | เกณฑ์รูปแบบงาน | _construct_ |
+| Task-design fit (pilot learning target) | ความเหมาะสมของงานต่อผู้เรียน | ความเหมาะสมของงาน | _construct_; whether the task meets these students — a pilot learning target, not decided at meso |
+| Hard constraint (Tier-1) | ข้อกำหนดเด็ดขาด | ข้อกำหนดเด็ดขาด | _construct_; ratified at meso |
+| Open question (Tier-2) | ประเด็นเปิด | ประเด็นเปิด | _construct_; the pilot answers |
+| C→E seam | รอยต่อ C→E | รอยต่อ C→E | _construct_; graded phenomena must be ones the phase arc builds; Session-3 owns it |
+| Prompt-only brainstorm | การระดมสมองแบบเปิด | การระดมสมองแบบเปิด | _construct_; no starting draft; guards against the articulate voice (ADR-0005) |
+| Boundary-drawing move | การลากเส้นแบ่ง | การลากเส้นแบ่ง | _construct_; synthetic (grade-12), vs bin-application (grade-11) |
 | Phase structure | โครงสร้างลำดับบทเรียน | โครงสร้างลำดับบทเรียน | revised |
 | Coordination protocol | ระเบียบการประสานงาน | | |
 | Capstone-question integration | การบูรณาการด้วยคำถามปลายทาง | การบูรณาการด้วยคำถามปลายทาง | revised |
