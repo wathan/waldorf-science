@@ -35,7 +35,7 @@ Two candidate deep questions were developed from prior working sessions. The cho
 
 **Candidate 2 — Stardust / self ↔ Earth.** Cosmology is the central object — the student's relation to the cosmos they are materially part of. Leans on E1/E2/E3 (environmental science) competencies, with S1/S2 also exercised through the material-science work behind "we are made of stardust" (stellar nucleosynthesis, spectroscopy as evidence of cosmic composition). Matches how cosmology was previously taught at the school. Centre of gravity: ecocentric synthesis, responsibility, biographical orientation toward the world. Strength: lower teacher onboarding cost. Limitation: optics becomes instrumental rather than phenomenologically central.
 
-These two are not exhaustive — Session 1 may produce a third synthesis — but they are the live drafts the working group enters the meeting with. Each enters as an *illustrative phrasing* (provisional, working-group-facing); the *final* wording, including any hybrid, is fixed only at the moment of decision. *Student-facing register* — how a grade-12 student hears the question — is a later concern, dependent on the capstone artifact (E) and phase structure (C), and is not tuned at this stage.
+These two are not exhaustive — Session 1 may produce a third synthesis — but they are the live drafts the working group enters the meeting with. Each enters as an *illustrative phrasing* (provisional, working-group-facing); the *final* wording, including any hybrid, is fixed only at the moment of decision. *Student-facing register* — how a grade-12 student hears the question — is a later concern, dependent on phase structure (C) and the block's capstone task, and is not tuned at this stage (it is a Tier-2 open question of the E task-shape criteria, answered at micro/pilot).
 
 ---
 
@@ -43,13 +43,13 @@ These two are not exhaustive — Session 1 may produce a third synthesis — but
 
 By Jul 29 the working group must have ratified, on the record:
 
-- **(A) Block-level competency selection.** The subset of the framework's six competencies, and the centre of gravity within each, the block will exercise. Defines what the block is *for* in framework terms. Finalised *from* the deep question (B) — not chosen ahead of it; see Session 1. **Decided Session 1 (Jun 24): S1, S2, S3** (science strand; E1/E2/E3 deferred grade-level coverage), entailed from Candidate 1. *Which sub-abilities under each* is **deferred to micro** — fixed by pilot teachers against phase structure (C) and capstone artifact (E); see [decision record](../docs/record_06-24.md).
+- **(A) Block-level competency selection.** The subset of the framework's six competencies, and the centre of gravity within each, the block will exercise. Defines what the block is *for* in framework terms. Finalised *from* the deep question (B) — not chosen ahead of it; see Session 1. **Decided Session 1 (Jun 24): S1, S2, S3** (science strand; E1/E2/E3 deferred grade-level coverage), entailed from Candidate 1. *Which sub-abilities under each* is **deferred to micro** — fixed by pilot teachers against phase structure (C) and the capstone task-shape criteria (E); see [decision record](../docs/record_06-24.md).
 - **(B) Deep question.** Single guiding question. **Decided Session 1 (Jun 24): Candidate 1 — Epistemological capstone**, resolved via the fork-resolution mechanic in §Appendix. Governing criterion (a) distinctive new pedagogy — uniquely poses the epistemic question; the E-strand (E1/E2/E3) omission is recorded as a deferred grade-level coverage note, not a veto. Step-6 record: [Session 1 decision record](../docs/record_06-24.md).
 - **(C) Phase structure.** Week-by-week shape, including which teacher is "main" in each phase.
 - **(D) Bridge questions.** Recurring questions the secondary teacher poses in each phase to link to the other discipline.
-- **(E) Capstone artifact.** What students produce by block's end, in enough detail that pilot teachers can design the specific deliverable during micro.
+- **(E) Capstone task-shape criteria** *(redefined — was "capstone artifact")*. **Not** a specific task: what a grade-12 capstone task *for this block* must and must not be. The task-build moves to micro (a bet the pilot teachers place, the pilot tests), guarded by these criteria. **Tier-1** (hard, ratified at meso): forces a *synthetic boundary-drawing* move not bin-application; class-biography safety (de-personalised); C→E coherence (graded phenomena are ones the earlier phases built) — verified at the Session-3 coherence check. **Tier-2** (open, the pilot answers): format, pitch, student-facing register, straddler count, contest mechanics — *task-design fit is an explicit pilot learning target*. Block-specific; C and E decouple at decision. See [ADR-0006](../adr/0006-capstone-e-is-task-shape-criteria-task-build-to-micro.md).
 - **(F) Teacher coordination protocol.** Who-leads-when, secondary teacher's role per phase, how the two teachers sync, joint vs individual responsibility for student work.
-- **(G) Block-level operationalisations.** For each sub-ability under the selected competencies (S1/S2/S3), **general examples** of what authentic in-classroom evidence demonstrates it. Stays at meso as a generic reference library — *not* tied to this pilot's specific deliverable. Pilot-specific operationalisation (which sub-abilities, bound to phase structure C and capstone artifact E) is the micro decision that draws on these examples; see Session 1 sub-ability deferral.
+- **(G) Block-level operationalisations.** For each sub-ability under the selected competencies (S1/S2/S3), **general examples** of what authentic in-classroom evidence demonstrates it. Stays at meso as a generic reference library — *not* tied to this pilot's specific deliverable. Pilot-specific operationalisation (which sub-abilities, bound to phase structure C and the capstone task-shape criteria E) is the micro decision that draws on these examples; see Session 1 sub-ability deferral.
 
 A single block exercises a *subset* of the framework. Full coverage of all six PISA competencies is not required and not the goal.
 
@@ -65,7 +65,7 @@ Mixed origination; working group ratifies all.
 | (B) Deep question | Working group (Kru Fang brings both drafts side-by-side with criterion analysis) | Working group |
 | (C) Phase structure | Working group (Kru Fang brings draft) | Working group |
 | (D) Bridge questions | Pilot teachers draft (during break) | Working group ratifies |
-| (E) Capstone artifact | Working group (Kru Fang brings draft) | Working group |
+| (E) Capstone task-shape criteria | Working group (**prompt-only brainstorm**; Kru Fang brings a blank two-tier scaffold, not a criteria draft) | Working group |
 | (F) Coordination protocol | Pilot teachers draft (during break) | Working group ratifies |
 | (G) Block-level operationalisations | Kru Fang drafts using framework method; co-teacher reviews for classroom-evidence feasibility | Working group ratifies |
 
@@ -78,7 +78,7 @@ Mixed origination; working group ratifies all.
 | Session | Date | Decides | Type |
 |---|---|---|---|
 | 1 | Wed Jun 24 | B then A | Standard (Kru Fang input → group decides) |
-| 2 | Wed Jul 1 | C + E | Standard |
+| 2 | Wed Jul 1 | C + E-criteria (task→micro) | Standard (prompt-only brainstorm for E) |
 | 3 | Wed Jul 8 | Coherence check + author briefings | Non-decision session |
 | — | Jul 15, Jul 22 | *School break — pilot teachers draft D, F; Kru Fang drafts G* | — |
 | 4 | Wed Jul 29 | Ratify D + F + G | Objections-only ratify |
@@ -106,19 +106,21 @@ Mixed origination; working group ratifies all.
 
 **Centre of gravity:** the gap-test → fork resolution. A is finalised *from* B, not chosen ahead of it. The honest move is not "question first then rubber-stamp competencies" — it is making competency-reasoning a genuine check the question is examined against, informing the fork rather than vetoing it.
 
-### Session 2 — Jul 1 — C + E
+### Session 2 — Jul 1 — C + E-criteria (task → micro)
 
 **Kru Fang brings:**
 - Draft phase structure (current handoff draft modified for Session 1's deep-question outcome).
-- Draft capstone artifact, framed against the selected competencies (A) and the chosen deep question (B).
+- A **blank two-tier scaffold** for E — *not* a pre-filled criteria list. Tier-1 safety (de-personalised) and C→E coherence are stated as the *frame* the brainstorm works within; the rest is generated live.
 
-**Group decides C and E together** because the capstone occupies the final phase — phase structure isn't fully decided without committing to the artifact, and the artifact's shape depends on what prior phases have prepared.
+**C and E decouple** (revised from "decide C+E together" — see [ADR-0006](../adr/0006-capstone-e-is-task-shape-criteria-task-build-to-micro.md)):
+- **Decide C.** The phase arc needs only that *a* capstone occupies Phase 4, not the specific task. Ratify on "Phase 4 = capstone-shaped, task deferred to micro."
+- **Ratify E as task-shape criteria** via **prompt-only brainstorm** — the group generates what a grade-12 capstone task for this block should/shouldn't be (Tier-1 hard constraints + Tier-2 open questions). Prompt-only keeps architect-Kru-Fang's voice off the criteria (cf. [ADR-0005](../adr/0005-fork-criterion-ranked-before-read.md)); safety and coherence are givens, not brainstorm fodder. The **specific task is built at micro**, guarded by the criteria — task-design fit is a pilot learning target.
 
 ### Session 3 — Jul 8 — Coherence + Briefings
 
 **No new draft. Not a decision session.** Two parts:
 
-1. **Coherence check.** Apply the [macro-curriculum diagnostic](waldorf-upper-school-macro-curriculum.html#note-meso-diagnostic) to the A/B/C/E set as a whole. Look for incoherences (does the phase structure actually exercise the selected competencies? does the capstone evidence what the deep question asked?). Decide any patches.
+1. **Coherence check.** Apply the [macro-curriculum diagnostic](waldorf-upper-school-macro-curriculum.html#note-meso-diagnostic) to the A/B/C/E set as a whole. Look for incoherences (does the phase structure actually exercise the selected competencies? do the capstone task-shape criteria evidence what the deep question asked?). **Owns the C→E seam** — verifies Tier-1 (c): that the graded phenomena the criteria call for are ones the phase structure actually builds. Decide any patches.
 2. **Author briefings.** Pilot teachers receive D and F drafting briefs (criteria, examples, deadline Jul 29). Kru Fang receives G drafting brief.
 
 ### Session 4 — Jul 29 — Ratify D + F + G
@@ -135,7 +137,7 @@ Mixed origination; working group ratifies all.
 
 ### The school break (Jul 15 – 22) is substantive working time
 
-By end of Session 3 the pilot teachers know the block's deep question, phase structure, and capstone artifact. They draft D and F during the break with concrete ground under them. Kru Fang drafts G in parallel.
+By end of Session 3 the pilot teachers know the block's deep question, phase structure, and capstone task-shape criteria (the specific task they build at micro). They draft D and F during the break with concrete ground under them. Kru Fang drafts G in parallel.
 
 **Pilot teachers (jointly) draft:**
 - (D) Bridge questions per phase, drawing on their cross-disciplinary working knowledge.
@@ -153,7 +155,7 @@ One growing document built across the four sessions, structured as below. Kru Fa
 2.  B. Deep question + rationale       (decided at Session 1; drives A)
 3.  A. Competency selection            (finalised at Session 1, from B)
 4.  C. Phase structure                 (filled at Session 2)
-5.  E. Capstone artifact               (filled at Session 2)
+5.  E. Capstone task-shape criteria    (filled at Session 2; task built at micro)
 6.  Coherence-check notes              (filled at Session 3)
 7.  D. Bridge questions                (Session 3 brief → Session 4 ratified)
 8.  F. Coordination protocol           (Session 3 brief → Session 4 ratified)
@@ -185,7 +187,7 @@ Because both pilot teachers are in the working group, meso → micro is a *phase
 ## What this plan defers
 
 - **Micro-curriculum (lesson-by-lesson) design.** Pilot teachers' job during Jul 30 – Aug 16.
-- **Pilot evaluation criteria.** What "the pilot succeeded" means as observable outcomes. Worth a separate working-group session post-pilot.
+- **Pilot evaluation criteria.** What "the pilot succeeded" means as observable outcomes. Worth a separate working-group session post-pilot. **Named target: task-design fit** — whether the micro-built capstone task actually meets these students (format, pitch, student-facing register). This is Tier-2 of the E task-shape criteria, deliberately left for the pilot to answer (see [ADR-0006](../adr/0006-capstone-e-is-task-shape-criteria-task-build-to-micro.md)).
 - **Generalisation to other blocks.** This pilot tests cross-system capstone-question integration; not a template for single-system blocks. Generalisation lessons emerge from the pilot itself.
 - **Framework-wide operationalisations** (S2, S3, E1, E2 — deferred from the Jun 17 framework). Block-level G covers only the sub-abilities this block exercises.
 - **Grade-level competency coverage**, including synthetic-ethical judgement (E3.4). Whether the year's four blocks *jointly* exercise every competency is a grade-level arc concern. The earlier "ethical-judgement gap" — which treated this pilot as obligated to close E3.4 — was a standalone-frame artifact (the same vacuum error ADR-0003 overturned), now corrected: this block exercises a subset, and coverage is deferred to future arc design. See ADR-0004.

@@ -120,11 +120,41 @@ C1 leaves open (that verdict is dissolved).
 The artefacts meso-design must produce before pilot teachers can begin
 micro-design. (A) Block-level competency selection — subset of framework
 exercised by the block. (B) Deep question. (C) Phase structure. (D) Bridge
-questions for the secondary teacher. (E) Capstone artifact. (F) Teacher
+questions for the secondary teacher. (E) **Capstone task-shape criteria**
+(redefined — see below; formerly "capstone artifact"). (F) Teacher
 coordination protocol. (G) Block-level operationalisations for the selected
 sub-abilities.
 _Avoid_: block plan, block design (use these as informal references; the formal
-artefact set is "the seven").
+artefact set is "the seven"); calling (E) "the capstone artifact" or "the task"
+(meso ratifies criteria, not a task — see below).
+
+**Capstone task-shape criteria (output E, block-specific)**:
+What a grade-12 capstone task *for this block* must and must not be — **not** a
+specific task. The **task-build moves to micro**, a bet the pilot teachers place
+and the pilot tests, guarded by these criteria. Two tiers, do not conflate:
+**Tier-1** (hard constraints, ratified at meso) — the task forces a *synthetic
+boundary-drawing* move not bin-application (grade-12 pitch); class-biography
+safety (de-personalised, no live personal defense); C→E coherence (graded
+phenomena are ones the earlier phases actually built) — *stated* at meso,
+*verified* at the Session-3 coherence check, which **owns the C→E seam**.
+**Tier-2** (open, the pilot answers) — task format, difficulty pitch,
+student-facing register, straddler count, contest mechanics. Block-specific,
+not grade-12-general: a genuinely general heuristic may be *lifted up* to
+framework level later, but is not originated there (grade-level work as a block
+move is the ADR-0003 category error). C and E **decouple at decision** — C
+decided without the specific task. See
+[ADR-0006](./adr/0006-capstone-e-is-task-shape-criteria-task-build-to-micro.md).
+_Avoid_: "capstone artifact" as a decided task; grade-12-general criteria as
+output E; bundling C+E at the decision.
+
+**Task-design fit (pilot learning target)**:
+Whether a micro-built capstone task actually *meets these students* — the right
+format, pitch, and student-facing register. Deliberately **not** fixed at meso
+(that is Tier-2 of the task-shape criteria): a thing the pilot is designed to
+teach, not knowable in advance. An explicit pilot-evaluation target, distinct
+from the ratified Tier-1 constraints. See
+[ADR-0006](./adr/0006-capstone-e-is-task-shape-criteria-task-build-to-micro.md).
+_Avoid_: treating task-student fit as a meso decision or a Tier-1 constraint.
 
 **Two-altitude design model**:
 Curriculum design runs at two altitudes; competency-reasoning is the *constraint*
